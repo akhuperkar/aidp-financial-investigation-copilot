@@ -1,7 +1,7 @@
 {
   "scope": "offline artifact structure, links, public hygiene and metric contracts; no hosted execution",
   "status": "PASS",
-  "files_checked": 174,
+  "files_checked": 181,
   "code_cells_compiled": 71,
   "checks": [
     {
@@ -775,6 +775,31 @@
       "detail": ""
     },
     {
+      "check": "Packaged file hash: article/assets/december-reference-table.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: article/assets/december-reference-table.svg",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: article/assets/medallion-responsibilities-table.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: article/assets/medallion-responsibilities-table.svg",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: article/build_medium_exports.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
       "check": "Packaged file hash: article/build_preview.py",
       "passed": true,
       "detail": ""
@@ -786,6 +811,11 @@
     },
     {
       "check": "Packaged file hash: article/medium-publishing.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: article/medium-ready.md",
       "passed": true,
       "detail": ""
     },
@@ -1211,6 +1241,11 @@
     },
     {
       "check": "Packaged file hash: video/assemble.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/caption-calibration.md",
       "passed": true,
       "detail": ""
     },

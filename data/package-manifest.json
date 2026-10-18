@@ -9,8 +9,8 @@
     },
     {
       "path": ".github/workflows/checks.yml",
-      "bytes": 636,
-      "sha256": "6b42f605005ab8b4922f92ed5021387c641426ebeabe485a3f3993ff35b8430c"
+      "bytes": 655,
+      "sha256": "8f0f33cec4314bc9a337793a96dc118a58853b95c22099ba87a6f9cc22d5558c"
     },
     {
       "path": ".gitignore",
@@ -34,8 +34,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 8749,
-      "sha256": "a54cd7ef5ffd599036db7039d3d5583204957c02a038eba1c229f180dde11f90"
+      "bytes": 8797,
+      "sha256": "31282040741c84ae66db92dcf9a24a3cc9014ef9133b01a6751e310894cd9747"
     },
     {
       "path": "agent_card/README.txt",
@@ -233,6 +233,31 @@
       "sha256": "4917a4aa8deae96de25784e8520a927283725c6a760ff3cacd23ac7f67bdfc45"
     },
     {
+      "path": "article/assets/december-reference-table.png",
+      "bytes": 138433,
+      "sha256": "906b096ab987dbfd2fcb1a040d8fd6103ac94c39052c9ea0149eac4dfc1b50d4"
+    },
+    {
+      "path": "article/assets/december-reference-table.svg",
+      "bytes": 4440,
+      "sha256": "90be59f247fa8c1cd1dd7d329ba6d17a17eae0d2639931b790f51022aa72d520"
+    },
+    {
+      "path": "article/assets/medallion-responsibilities-table.png",
+      "bytes": 133920,
+      "sha256": "1c0b0537cda02ba0ccc8465fc1e8dcd4f131cd9357dca0ef871e51784df0d640"
+    },
+    {
+      "path": "article/assets/medallion-responsibilities-table.svg",
+      "bytes": 3559,
+      "sha256": "d5792894379ade6eacafaf6503ba7cc513052b7cdb7e2a170949005572b24bda"
+    },
+    {
+      "path": "article/build_medium_exports.py",
+      "bytes": 4801,
+      "sha256": "688449330b53a57f1e8b0ba128e83f19340a355b8333c5bfce36e3cfc163f4ae"
+    },
+    {
       "path": "article/build_preview.py",
       "bytes": 5974,
       "sha256": "d2860d205f84f20c9f35224a6930cccff552256dac3e14ad61e65d77825f7ab2"
@@ -244,8 +269,13 @@
     },
     {
       "path": "article/medium-publishing.md",
-      "bytes": 4605,
-      "sha256": "1d70fc8721b52da13caa35ec0e0a059efeaadc6aa839721150f1b90bffb034fa"
+      "bytes": 6615,
+      "sha256": "69c11e4661dabc27f5577641ba9c5822f436c20f614bb605c78391cdfda84e7b"
+    },
+    {
+      "path": "article/medium-ready.md",
+      "bytes": 13613,
+      "sha256": "2e160c831f3335e0b851803cf711ac278f036a2326adabd29de072d221321b23"
     },
     {
       "path": "article/preview.html",
@@ -664,13 +694,18 @@
     },
     {
       "path": "video/README.md",
-      "bytes": 3571,
-      "sha256": "5c4739febb60d6f2061e95d8fb74eba9920dc66a99c3d2467085e3f3b0e3d9d1"
+      "bytes": 3704,
+      "sha256": "39e84fb3c2038c6d5849a77e8ff22763364782feb7c8ee15ecbe7dbcc7d4a8cc"
     },
     {
       "path": "video/assemble.py",
-      "bytes": 12796,
-      "sha256": "ac3b01139209a609fc68e5a5f3b39aee06e3ccf4ce616a2dd138dd550685e42f"
+      "bytes": 14242,
+      "sha256": "a20ddb3ff708aa02756ace9317bb67444f07339fae4c3204fbee0b71cd1837f7"
+    },
+    {
+      "path": "video/caption-calibration.md",
+      "bytes": 2154,
+      "sha256": "a54e3f4c3f09e633133ff97240749ebcd45ebace5e191a08db2c5db28134d1d0"
     },
     {
       "path": "video/cards/00-cover.png",
@@ -834,8 +869,8 @@
     },
     {
       "path": "video/recording-guide.md",
-      "bytes": 19441,
-      "sha256": "74a1af40c568982e5584ac872de797b68697ab44d77e79de4e121fb055b4863f"
+      "bytes": 19962,
+      "sha256": "3f3df352f80565436bf2628973f6ea7679e6cc1faa525c68de1d47ffd8b2e0ef"
     },
     {
       "path": "video/storyboard.csv",

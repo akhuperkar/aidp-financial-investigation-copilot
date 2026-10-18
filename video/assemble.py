@@ -95,6 +95,28 @@ def check_captions(path, total, errors):
         errors.append(f'captions: {exc}')
 
 
+def prepare_ass(captions, work):
+    """Keep the delivery SRT, but pin the render script to output pixels."""
+    target = work / 'captions.ass'
+    subprocess.run(
+        ['ffmpeg', '-hide_banner', '-loglevel', 'error', '-nostdin', '-n',
+         '-i', str(captions), str(target)], check=True,
+    )
+    script = target.read_text(encoding='utf-8-sig')
+    # SRT conversion commonly chooses a small default PlayRes. A force_style
+    # Fontsize of 34 would then scale up at 1080p. Explicit ASS coordinates
+    # make Fontsize, margins and outline widths map to the 1920x1080 output.
+    for key, value in (('PlayResX', '1920'), ('PlayResY', '1080'), ('WrapStyle', '2')):
+        if re.search(rf'(?m)^{key}:', script):
+            script = re.sub(rf'(?m)^{key}:.*$', f'{key}: {value}', script)
+        else:
+            script = script.replace('[Script Info]', f'[Script Info]\n{key}: {value}', 1)
+    if '[Script Info]' not in script:
+        raise ValueError('converted caption script has no ASS Script Info header')
+    target.write_text(script, encoding='utf-8')
+    return target
+
+
 def collect(manifest):
     errors = []
     clips = manifest.get('clips')
@@ -155,6 +177,10 @@ def collect(manifest):
         errors.append('final: existing master or sidecar will not be overwritten; preserve it before a new render')
     if not shutil.which('ffmpeg') or not shutil.which('ffprobe'):
         errors.append('tools: existing ffmpeg and ffprobe are required; nothing will be installed')
+    elif not re.search(r'(?m)^\s*\S+\s+subtitles\s', subprocess.run(
+            ['ffmpeg', '-hide_banner', '-filters'], capture_output=True,
+            text=True, check=False).stdout):
+        errors.append('tools: this ffmpeg lacks the libass subtitles filter; select a build with libass before rendering')
     if errors:
         return errors, None
     try:
@@ -189,6 +215,7 @@ def render(data):
     with tempfile.TemporaryDirectory(prefix='.assembly-', dir=work_parent) as temp:
         work = Path(temp)
         shutil.copyfile(captions, work / 'captions.srt')
+        prepare_ass(work / 'captions.srt', work)
         args = ['ffmpeg', '-hide_banner', '-nostdin', '-n']
         for _, path, first, last in clips:
             args += ['-ss', f'{first:.6f}', '-t', f'{last-first:.6f}', '-i', str(path)]
@@ -207,7 +234,7 @@ def render(data):
             'OutlineColour=&H80000000,BackColour=&H80000000,BorderStyle=3,'
             'Outline=10,Shadow=0,Alignment=2,MarginV=38,MarginL=120,MarginR=120'
         )
-        graph.append(f"[cut]subtitles=filename=captions.srt:force_style='{style}'[out]")
+        graph.append(f"[cut]subtitles=filename=captions.ass:force_style='{style}'[out]")
         candidate = work / 'master.mp4'
         args += [
             '-filter_complex', ';'.join(graph), '-map', '[out]', '-map', f'{len(clips)}:a:0',

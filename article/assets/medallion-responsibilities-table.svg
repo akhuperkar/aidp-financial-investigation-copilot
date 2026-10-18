@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="385" viewBox="0 0 1600 385" role="img" aria-labelledby="title description">
+<title id="title">Data layer responsibilities</title>
+<desc id="description">Layer | Responsibility in this demonstration | Downstream value; Bronze | Retain generated transaction records | A reference for the transformation path; Silver | Check required fields and derive time features | Consistent inputs for subsequent processing; Gold | Produce account-month analytics and transaction-level ML features | Reusable analytical and modelling inputs</desc>
+<rect width="1600" height="385" fill="#FFFFFF"/>
+<rect x="24" y="24" width="1552" height="5" fill="#C74634"/>
+<rect x="24" y="29" width="1552" height="78" fill="#312D2A"/>
+<text x="46" y="74.5" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="start">
+<tspan x="46" dy="0">Layer</tspan>
+</text>
+<text x="234" y="74.5" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="start">
+<tspan x="234" dy="0">Responsibility in this demonstration</tspan>
+</text>
+<text x="958" y="74.5" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="start">
+<tspan x="958" dy="0">Downstream value</tspan>
+</text>
+<rect x="24" y="107" width="1552" height="78" fill="#FFFFFF"/>
+<text x="46" y="152.5" fill="#312D2A" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" text-anchor="start">
+<tspan x="46" dy="0">Bronze</tspan>
+</text>
+<text x="234" y="152.5" fill="#312D2A" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" text-anchor="start">
+<tspan x="234" dy="0">Retain generated transaction records</tspan>
+</text>
+<text x="958" y="152.5" fill="#312D2A" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" text-anchor="start">
+<tspan x="958" dy="0">A reference for the transformation path</tspan>
+</text>
+<path d="M 24 185 H 1576" stroke="#DEDbd8"/>
+<rect x="24" y="185" width="1552" height="78" fill="#F8F9FA"/>
+<text x="46" y="230.5" fill="#312D2A" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" text-anchor="start">
+<tspan x="46" dy="0">Silver</tspan>
+</text>
+<text x="234" y="230.5" fill="#312D2A" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" text-anchor="start">
+<tspan x="234" dy="0">Check required fields and derive time features</tspan>
+</text>
+<text x="958" y="230.5" fill="#312D2A" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" text-anchor="start">
+<tspan x="958" dy="0">Consistent inputs for subsequent processing</tspan>
+</text>
+<path d="M 24 263 H 1576" stroke="#DEDbd8"/>
+<rect x="24" y="263" width="1552" height="98" fill="#FFFFFF"/>
+<text x="46" y="318.5" fill="#312D2A" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" text-anchor="start">
+<tspan x="46" dy="0">Gold</tspan>
+</text>
+<text x="234" y="303.0" fill="#312D2A" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" text-anchor="start">
+<tspan x="234" dy="0">Produce account-month analytics and transaction-level ML</tspan>
+<tspan x="234" dy="31">features</tspan>
+</text>
+<text x="958" y="318.5" fill="#312D2A" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" text-anchor="start">
+<tspan x="958" dy="0">Reusable analytical and modelling inputs</tspan>
+</text>
+<path d="M 24 361 H 1576" stroke="#DEDbd8"/>
+</svg>

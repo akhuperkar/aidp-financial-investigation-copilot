@@ -118,7 +118,7 @@ Prefer 48 kHz, 24-bit WAV for the voice master. Edit breaths and clipping gently
 
 Create an English UTF-8 SRT from the final voice, then correct it manually against the final edit. Preserve account leading zeros, ₹/INR, dates, two-decimal amounts, “strictly greater than,” and the P1 AND/OR logic. Do not place raw tokens or private identifiers into captions.
 
-For a 1920×1080 final, reserve a lower band of at least 140 pixels before adding captions. Keep actual application imagery above it rather than placing text over the last row, chat input or notebook controls. Target a 32–36 pixel visible caption font, at most two lines, approximately 42–55 characters per line, white text on a translucent charcoal box. Use a sans-serif font, a stable lower-center position, and readable in/out timing; keep box width inside 90% of the frame. The assembly helper uses a 160-pixel band and 34-pixel captions. Inspect the actual rendered font and two-line cues for overflow. Adapt the design after seeing footage if any meaningful control is covered.
+For a 1920×1080 final, reserve a lower band of at least 140 pixels before adding captions. Keep actual application imagery above it rather than placing text over the last row, chat input or notebook controls. Target a 32–36 pixel visible caption font, at most two lines, approximately 42–55 characters per line, white text on a translucent charcoal box. Use a sans-serif font, a stable lower-center position, and readable in/out timing; keep box width inside 90% of the frame. The assembly helper uses a 160-pixel band and a nominal 34-pixel ASS font. It converts a temporary copy of the SRT to ASS, sets `PlayResX=1920`, `PlayResY=1080` and `WrapStyle=2`, and retains the original SRT for delivery. This avoids scaling a 34-unit caption from FFmpeg's smaller default script resolution. Inspect the actual rendered font and two-line cues for overflow. Adapt the design after seeing footage if any meaningful control is covered.
 
 Keep the dataset/INR note visible in context and methodology, and screening-versus-confirmed-fraud language near conclusions. Captions must faithfully represent the spoken voice; do not insert a caveat solely as tiny text while the voice makes an unsupported claim.
 
@@ -133,7 +133,7 @@ python3 video/assemble.py --manifest video/source/input-manifest.json --check
 python3 video/assemble.py --manifest video/source/input-manifest.json --render
 ```
 
-Run these from the public repository root. FFmpeg and ffprobe must already be installed; the helper installs nothing. The example manifest deliberately fails because every missing media path is `null`.
+Run these from the public repository root. FFmpeg and ffprobe must already be installed, and FFmpeg must expose the libass `subtitles` filter; the helper installs nothing. The current local FFmpeg build lacks that filter, so preflight blocks rendering until a suitable existing build is selected. See `caption-calibration.md` for the measured script-resolution test and the pixel-render limit. The example manifest deliberately fails because every missing media path is `null`.
 
 Deliver H.264 high-quality MP4, 1920×1080, 30 fps, yuv420p, AAC 48 kHz, `faststart`; keep a separate lossless voice master and corrected SRT. The helper uses CRF 16, `slow`, AAC 256 kbit/s. A separate later 4K export is optional only if source resolution supports it. Verify no blurred digits, clipped audio, wrong aspect ratio, caption/control overlap, or unlabelled wait cuts. Watch the entire encoded MP4 with sound.
 

@@ -16,7 +16,7 @@ This project follows a financial investigation at the fictional Meridian Demo Ba
 | Resource | Purpose |
 |---|---|
 | [Step-by-step user guide](docs/user-guide.md) | Set up data, publication, dashboards, agents and local client |
-| [Technical article](article/medium-article.md) · [HTML preview](article/preview.html) | Architecture and business context, ready for Medium review |
+| [Technical article](article/medium-article.md) · [HTML preview](article/preview.html) · [Medium-ready copy](article/medium-ready.md) | Architecture and business context, ready for Medium review |
 | [Interactive presentation](slides/index.html) | Slide cards, keyboard navigation and presenter notes |
 | [PowerPoint](slides/aidp-financial-investigation-copilot.pptx) | Editable Redwood presentation |
 | [Recording package](video/README.md) | Chapter plan, narration, covers and YouTube metadata |

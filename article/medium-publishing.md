@@ -11,7 +11,8 @@
 - **Author:** Abhijit Khuperkar
 - **Draft date:** 18 October 2026
 - **Suggested tags:** AI; Data Engineering; Oracle Cloud; Financial Services; Generative AI
-- **Article:** [medium-article.md](medium-article.md)
+- **Canonical article:** [medium-article.md](medium-article.md)
+- **Medium-ready copy with absolute public links:** [medium-ready.md](medium-ready.md)
 - **Local preview:** [preview.html](preview.html)
 - **Source register:** [research-sources.md](../docs/research-sources.md)
 - **Structured references:** [references.json](references.json)
@@ -31,11 +32,26 @@ The article uses four figures. Preserve the dataset note before the first numeri
 
 **Suggested cover:** architecture diagram, with the title kept as publication text rather than baked into the diagram. Review the final crop before saving.
 
+## Medium formatting and optional table images
+
+Medium controls story typography, spacing and formatting through its own editor. The local HTML preview is a review aid. Follow Medium's official [Using the story editor](https://help.medium.com/hc/en-us/articles/215194537-Using-the-story-editor) guide when applying headings, links, images and other formatting. Check the result in Medium; automatic HTML table import is not assumed.
+
+Use [medium-ready.md](medium-ready.md) for the public-link version. Its repository links use absolute GitHub paths, and its four figure URLs use `raw.githubusercontent.com`. It preserves the canonical prose, native Markdown tables and `{{YOUTUBE_DEMO_URL}}` placeholder. The canonical article and offline preview retain relative local assets.
+
+If pasting either table does not preserve its layout, upload the matching PNG below in its place. These are optional exports of the exact article cells. Retain a link to the [canonical article's accessible Markdown tables](https://github.com/akhuperkar/aidp-financial-investigation-copilot/blob/main/article/medium-article.md) near an image replacement. SVGs remain editable source assets.
+
+| Article table | PNG upload | SVG source | Suggested alt text |
+|---|---|---|---|
+| December reference measures | [PNG](assets/december-reference-table.png) | [SVG](assets/december-reference-table.svg) | December 2024 reference measures for Meridian Demo Bank; full values are available in the linked Markdown table. |
+| Medallion responsibilities | [PNG](assets/medallion-responsibilities-table.png) | [SVG](assets/medallion-responsibilities-table.svg) | Bronze, Silver and Gold responsibilities in the demonstration; full text is available in the linked Markdown table. |
+
+Regenerate the public-link copy and SVGs with `python3 article/build_medium_exports.py` from the repository root after any canonical article change. Re-export PNGs from those SVGs if the tables change.
+
 ## Placeholder and publication checks
 
 - [ ] Review the article, final screenshots and diagram labels together. Check that OAC's December figures match the reference table.
 - [ ] Verify that screenshots contain no endpoints, credentials, session identifiers, personal browser details or unrelated content.
-- [ ] Confirm the public companion repository is reachable; replace the article's relative `../README.md` link with its verified public URL.
+- [ ] Confirm all public links in the Medium-ready copy remain reachable after the final repository sync.
 - [ ] Record and review the walkthrough. Replace `{{YOUTUBE_DEMO_URL}}` with the actual public or unlisted video URL only after it exists and plays correctly. If publication proceeds without a video, remove the pending-video sentence explicitly; do not substitute an invented URL.
 - [ ] Run the [hosted acceptance checks](../docs/hosted-acceptance.md) before representing a new hybrid answer as reconciled. If acceptance is still pending, retain the article's current evidence wording.
 - [ ] Transfer headings, both tables, four images, captions and source links into Medium. Check column alignment and threshold symbols after paste.

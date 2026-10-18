@@ -21,8 +21,8 @@
     "Changed-data AILH replacement remains unvalidated."
   ],
   "browser_preview": {
-    "slide_cards": "Present mode, next navigation and visible diagram image load verified in Chrome",
-    "article": "Headings, tables and figure references verified in Chrome"
+    "slide_cards": "Presentation mode, next-button and ArrowRight navigation, and visible image load verified in Chrome",
+    "article": "Headings, tables and all four images verified in Chrome"
   },
   "powerpoint": {
     "status": "PASS",
@@ -40,5 +40,15 @@
     "status": "PASS",
     "notebook_code_cells_compiled": 71,
     "details": "structure-checks.json"
+  },
+  "remote_ci": {
+    "status": "NOT_STARTED",
+    "note": "The initial GitHub job executed no steps; owner action is required in GitHub. Local verification is reported separately."
+  },
+  "video_render": {
+    "status": "PENDING_INPUTS_AND_RENDERER",
+    "source_recordings": "not supplied",
+    "ass_coordinate_fixture": "1920x1080 header verified",
+    "pixel_caption_calibration": "not completed; installed FFmpeg lacks subtitles/libass filter"
   }
 }

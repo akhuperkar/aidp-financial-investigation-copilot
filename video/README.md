@@ -12,6 +12,7 @@
 | [input-manifest.example.json](input-manifest.example.json) | Honest missing-input manifest; unknown source paths remain `null` |
 | [cards/](cards/) | Editable 1920×1080 cover/context/close and ten chapter dividers, plus a 1280×720 thumbnail SVG |
 | [assemble.py](assemble.py) | Optional local FFmpeg helper for genuine, reviewed chapter cuts; strict preflight, no placeholder output |
+| [caption-calibration.md](caption-calibration.md) | Measured ASS coordinate fix and the current local libass rendering dependency |
 | [final/README.md](final/README.md) | Required final master path and remote LFS delivery check |
 
 The narrative follows the analyst's decision: a review queue, the supporting account evidence, and the applicable policy. It distinguishes the verified Gold/Oracle Analytics publication from the dedicated agent snapshot. The separate ML training example does not score the agent queue or establish production fraud performance. Flags and P1 priority remain screening measures. No external actions or implemented approval workflow are demonstrated.
