@@ -1,0 +1,11 @@
+Synthetic analyst investigation playbook
+SYNTHETIC DEMO ONLY — Meridian Demo Bank is fictional. Not a legal or regulatory policy.
+
+[FS-OPS-001 v1.0 §1] Effective from 2024-01-01; applies to synthetic 2024 transaction-review periods.
+For a selected month obtain the portfolio snapshot, rank flagged accounts, then retrieve the selected account's complete account-month aggregates and capped transaction-evidence rows. Preserve selected period, account identifier, source table names, snapshot ID and rule version. Do not blend latest-month totals with historical evidence. Missing months or accounts must be reported, not substituted silently.
+
+[FS-OPS-001 v1.0 §2] Effective from 2024-01-01; applies to synthetic 2024 transaction-review periods.
+Review source risk scores, transaction types, absolute and signed amounts, location labels and repeated-record multiplicity. Check whether evidence supports the fictional P1/P2 rule. The source lacks counterparties, recipient account IDs, verified KYC, customer explanations, sanctions results, device identity and adjudicated fraud. These absent facts are verification needs, not inferred findings. Do not assert money laundering, account takeover, a fraud ring or a customer's intent.
+
+[FS-OPS-001 v1.0 §3] Effective from 2024-01-01; applies to synthetic 2024 transaction-review periods.
+Prepare an analyst draft with SQL evidence, documentary citations, hypotheses labeled as hypotheses, gaps and proposed review steps. A named authorized analyst in the bank's real process must validate and approve any downstream action. This demo neither records such approval nor connects to case management. End every packet with Human review required; no external action executed.

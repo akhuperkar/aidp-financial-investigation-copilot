@@ -1,0 +1,1 @@
+Retrieve synthetic Meridian Demo Bank triage, investigation, data-definition and governance passages. Preserve complete rule conditions, amounts, score qualifiers, AND/OR logic and document ID/version/section. Return source excerpts and citations; mark missing clauses. Not customer transaction quantities, legal guidance or action authorization.

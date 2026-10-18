@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "status": "awaiting_recordings",
+  "created": "2026-10-18",
+  "paths_relative_to": "video/",
+  "draft_runtime_seconds": 839,
+  "final_video_path": "final/aidp-financial-investigation-copilot.mp4",
+  "brand_wordmark_path": "../media/brand/oracle-wordmark.png",
+  "voice": {
+    "path": null,
+    "status": "not_recorded",
+    "language": "en",
+    "style": "clear adult female English; moderate pace; target 145wpm",
+    "reviewed": false
+  },
+  "captions": {
+    "path": null,
+    "status": "not_timed",
+    "language": "en",
+    "reviewed": false,
+    "max_lines": 2,
+    "placement": "reserved_bottom_band_translucent_background"
+  },
+  "clips": [
+    {
+      "chapter_id": "00-cover",
+      "path": null,
+      "source_path": null,
+      "take": null,
+      "in_seconds": null,
+      "out_seconds": null,
+      "target_seconds": 18,
+      "status": "source_pending",
+      "reviewed_for_publication": false
+    },
+    {
+      "chapter_id": "01-context",
+      "path": null,
+      "source_path": null,
+      "take": null,
+      "in_seconds": null,
+      "out_seconds": null,
+      "target_seconds": 67,
+      "status": "source_pending",
+      "reviewed_for_publication": false
+    },
+    {
+      "chapter_id": "02-bronze",
+      "path": null,
+      "source_path": null,
+      "take": null,
+      "in_seconds": null,
+      "out_seconds": null,
+      "target_seconds": 49,
+      "status": "source_pending",
+      "reviewed_for_publication": false
+    },
+    {
+      "chapter_id": "03-silver",
+      "path": null,
+      "source_path": null,
+      "take": null,
+      "in_seconds": null,
+      "out_seconds": null,
+      "target_seconds": 50,
+      "status": "source_pending",
+      "reviewed_for_publication": false
+    },
+    {
+      "chapter_id": "04-gold",
+      "path": null,
+      "source_path": null,
+      "take": null,
+      "in_seconds": null,
+      "out_seconds": null,
+      "target_seconds": 55,
+      "status": "source_pending",
+      "reviewed_for_publication": false
+    },
+    {
+      "chapter_id": "05-ml",
+      "path": null,
+      "source_path": null,
+      "take": null,
+      "in_seconds": null,
+      "out_seconds": null,
+      "target_seconds": 65,
+      "status": "source_pending",
+      "reviewed_for_publication": false
+    },
+    {
+      "chapter_id": "06-ailh",
+      "path": null,
+      "source_path": null,
+      "take": null,
+      "in_seconds": null,
+      "out_seconds": null,
+      "target_seconds": 67,
+      "status": "source_pending",
+      "reviewed_for_publication": false
+    },
+    {
+      "chapter_id": "07-notebook-oac",
+      "path": null,
+      "source_path": null,
+      "take": null,
+      "in_seconds": null,
+      "out_seconds": null,
+      "target_seconds": 90,
+      "status": "source_pending",
+      "reviewed_for_publication": false
+    },
+    {
+      "chapter_id": "08-agent-builder",
+      "path": null,
+      "source_path": null,
+      "take": null,
+      "in_seconds": null,
+      "out_seconds": null,
+      "target_seconds": 91,
+      "status": "source_pending",
+      "reviewed_for_publication": false
+    },
+    {
+      "chapter_id": "09-testing-deployment",
+      "path": null,
+      "source_path": null,
+      "take": null,
+      "in_seconds": null,
+      "out_seconds": null,
+      "target_seconds": 74,
+      "status": "source_pending",
+      "reviewed_for_publication": false
+    },
+    {
+      "chapter_id": "10-agent-hub",
+      "path": null,
+      "source_path": null,
+      "take": null,
+      "in_seconds": null,
+      "out_seconds": null,
+      "target_seconds": 69,
+      "status": "source_pending",
+      "reviewed_for_publication": false
+    },
+    {
+      "chapter_id": "11-streamlit",
+      "path": null,
+      "source_path": null,
+      "take": null,
+      "in_seconds": null,
+      "out_seconds": null,
+      "target_seconds": 101,
+      "status": "source_pending",
+      "reviewed_for_publication": false
+    },
+    {
+      "chapter_id": "12-close",
+      "path": null,
+      "source_path": null,
+      "take": null,
+      "in_seconds": null,
+      "out_seconds": null,
+      "target_seconds": 43,
+      "status": "source_pending",
+      "reviewed_for_publication": false
+    }
+  ],
+  "acceptance": {
+    "record_path": null,
+    "tested_deployment_private_reference": null,
+    "tested_at_utc": null,
+    "period": null,
+    "account": null,
+    "snapshot": null,
+    "sql_results_path": null,
+    "retrieved_policy_path": null,
+    "context_continuity_passed": null,
+    "content_reconciliation_passed": null,
+    "reviewer": null,
+    "cut_mode": "pending_decision",
+    "limitation_visible_and_spoken": false
+  },
+  "export_review": {
+    "captions_clear_of_controls": null,
+    "no_sensitive_values_visible": null,
+    "audio_checked": null,
+    "final_chapter_markers_verified": null,
+    "complete_video_watched": null,
+    "owner_approved": null
+  },
+  "delivery": {
+    "local_master_verified": false,
+    "remote_lfs_object_verified": false,
+    "youtube_video_id": null,
+    "youtube_url": null,
+    "medium_url": null
+  },
+  "missing_inputs": [
+    "chapter recordings in the prescribed sequence",
+    "female English final voice track after script review",
+    "frame-accurate corrected SRT",
+    "fresh hosted acceptance evidence or explicit limitation-led final cut",
+    "final owner review and final chapter timings"
+  ],
+  "supporting_assets": {
+    "brand_wordmark_status": "provided_local_asset_verified",
+    "diagrams_status": "integration_pending",
+    "screenshots_status": "integration_pending"
+  }
+}

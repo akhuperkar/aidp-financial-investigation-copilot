@@ -1,0 +1,44 @@
+{
+  "prepared_on": "2026-10-18",
+  "offline_tests": {
+    "client": {
+      "status": "PASS",
+      "tests": 43,
+      "python": "3.13.7",
+      "services": "mocked plus loopback HTTPS fixture"
+    },
+    "ailh_contracts": {
+      "status": "PASS",
+      "tests": 19,
+      "spark_required": false
+    }
+  },
+  "fresh_venv_install": "NOT_RUN; existing local venv used without modification",
+  "local_spark_rerun": "NOT_RUN in publication pass; only source-preservation and offline contracts rerun",
+  "hosted_acceptance": "NOT_RUN in publication pass; see docs/hosted-acceptance.md",
+  "historical_gaps": [
+    "AIDP hybrid response completed transport but failed evidence reconciliation.",
+    "Changed-data AILH replacement remains unvalidated."
+  ],
+  "browser_preview": {
+    "slide_cards": "Present mode, next navigation and visible diagram image load verified in Chrome",
+    "article": "Headings, tables and figure references verified in Chrome"
+  },
+  "powerpoint": {
+    "status": "PASS",
+    "slides": 10,
+    "package_integrity": "PASS",
+    "layout": "PASS",
+    "native_editable_diagram_slides": [
+      3,
+      7
+    ],
+    "native_table_slide": 5,
+    "native_powerpoint_execution": "NOT_RUN"
+  },
+  "structure": {
+    "status": "PASS",
+    "notebook_code_cells_compiled": 71,
+    "details": "structure-checks.json"
+  }
+}

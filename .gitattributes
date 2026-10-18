@@ -1,0 +1,7 @@
+* text=auto
+*.ipynb text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.svg text eol=lf
+video/final/*.mp4 filter=lfs diff=lfs merge=lfs -text
+video/final/*.mov filter=lfs diff=lfs merge=lfs -text

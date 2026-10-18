@@ -1,0 +1,66 @@
+[
+  {
+    "document_id": "FS-NOTICE-001",
+    "filename": "00_synthetic_demo_notice.txt",
+    "version": "1.0",
+    "effective_from": "2024-01-01",
+    "sha256": "8cf04c94032c443fe0dc95fd1669186c851d8e2b1fda2c78218d173af3c93384",
+    "bytes": 1104
+  },
+  {
+    "document_id": "FS-POL-001",
+    "filename": "01_synthetic_transaction_triage_policy.txt",
+    "version": "1.0",
+    "effective_from": "2024-01-01",
+    "sha256": "dcbc2c041c8e5468347f7525f138b1ea841fee12962ece3a8cfb704e773ad473",
+    "bytes": 1981
+  },
+  {
+    "document_id": "FS-OPS-001",
+    "filename": "02_analyst_investigation_playbook.txt",
+    "version": "1.0",
+    "effective_from": "2024-01-01",
+    "sha256": "b89e1f5df893822dee872953cf8711d0c3ee7dabdaf791ef1134b95856449264",
+    "bytes": 1724
+  },
+  {
+    "document_id": "FS-DATA-001",
+    "filename": "03_medallion_data_dictionary.txt",
+    "version": "1.0",
+    "effective_from": "2024-01-01",
+    "sha256": "e7bdfb173b05508fbd7fde5e303d47ccd2cc9fb9d0a3e3e4063a3c1fed50bdc3",
+    "bytes": 1964
+  },
+  {
+    "document_id": "FS-GOV-001",
+    "filename": "04_model_and_synthetic_risk_limitations.txt",
+    "version": "1.0",
+    "effective_from": "2024-01-01",
+    "sha256": "0d821781a8cb13e77e6ea840dcf511845b90481b49b5c7524d24c3894e282c51",
+    "bytes": 1327
+  },
+  {
+    "document_id": "FS-EVID-001",
+    "filename": "05_evidence_and_citation_standard.txt",
+    "version": "1.0",
+    "effective_from": "2024-01-01",
+    "sha256": "d73e452bf9e16824a681465a5cc89a13caf028c56b098c43dde4705f4e93fd79",
+    "bytes": 1690
+  },
+  {
+    "document_id": "FS-PRIV-001",
+    "filename": "06_human_review_and_data_handling.txt",
+    "version": "1.0",
+    "effective_from": "2024-01-01",
+    "sha256": "c696754580405d0e5a84cb8abf329c77081ceeafbf7825a4338ab9e0e7eab6ea",
+    "bytes": 1112
+  },
+  {
+    "document_id": "FS-BRIEF-001",
+    "filename": "07_investigation_brief_template.txt",
+    "version": "1.0",
+    "effective_from": "2024-01-01",
+    "sha256": "59d628f0c94c16eded2ce4806a69089f04b71fd2ddb4be17b12675584d15a6d7",
+    "bytes": 1145
+  }
+]

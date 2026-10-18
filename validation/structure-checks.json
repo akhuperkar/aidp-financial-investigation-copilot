@@ -1,0 +1,1399 @@
+{
+  "scope": "offline artifact structure, links, public hygiene and metric contracts; no hosted execution",
+  "status": "PASS",
+  "files_checked": 174,
+  "code_cells_compiled": 71,
+  "checks": [
+    {
+      "check": "Four runnable notebooks",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_executive_analytics_dashboards_aidp.ipynb:cell3:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_executive_analytics_dashboards_aidp.ipynb:cell4:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_executive_analytics_dashboards_aidp.ipynb:cell6:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_executive_analytics_dashboards_aidp.ipynb:cell8:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_executive_analytics_dashboards_aidp.ipynb:cell10:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_executive_analytics_dashboards_aidp.ipynb:cell11:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_executive_analytics_dashboards_aidp.ipynb:cell13:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_executive_analytics_dashboards_aidp.ipynb:cell15:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_executive_analytics_dashboards_aidp.ipynb:cell16:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_executive_analytics_dashboards_aidp.ipynb:cell18:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_executive_analytics_dashboards_aidp.ipynb:cell20:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo.ipynb:cell3:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo.ipynb:cell5:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo.ipynb:cell6:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo.ipynb:cell7:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo.ipynb:cell9:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo.ipynb:cell10:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo.ipynb:cell11:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo.ipynb:cell12:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo.ipynb:cell14:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo.ipynb:cell15:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo.ipynb:cell16:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo.ipynb:cell17:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo.ipynb:cell18:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo.ipynb:cell19:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo.ipynb:cell21:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo.ipynb:cell22:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo.ipynb:cell23:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo.ipynb:cell24:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo.ipynb:cell26:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo.ipynb:cell27:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo.ipynb:cell28:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo_ailh.ipynb:cell3:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo_ailh.ipynb:cell5:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo_ailh.ipynb:cell6:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo_ailh.ipynb:cell7:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo_ailh.ipynb:cell9:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo_ailh.ipynb:cell10:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo_ailh.ipynb:cell11:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo_ailh.ipynb:cell12:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo_ailh.ipynb:cell14:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo_ailh.ipynb:cell15:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo_ailh.ipynb:cell16:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo_ailh.ipynb:cell17:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo_ailh.ipynb:cell18:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo_ailh.ipynb:cell19:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo_ailh.ipynb:cell21:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo_ailh.ipynb:cell22:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo_ailh.ipynb:cell23:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo_ailh.ipynb:cell24:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo_ailh.ipynb:cell26:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo_ailh.ipynb:cell27:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo_ailh.ipynb:cell28:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo_ailh.ipynb:cell31:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo_ailh.ipynb:cell33:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo_ailh.ipynb:cell35:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo_ailh.ipynb:cell37:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo_ailh.ipynb:cell39:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_medallion_architecture_demo_ailh.ipynb:cell40:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_multi_agent_demo_setup_aidp.ipynb:cell3:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_multi_agent_demo_setup_aidp.ipynb:cell4:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_multi_agent_demo_setup_aidp.ipynb:cell6:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_multi_agent_demo_setup_aidp.ipynb:cell8:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_multi_agent_demo_setup_aidp.ipynb:cell10:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_multi_agent_demo_setup_aidp.ipynb:cell11:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_multi_agent_demo_setup_aidp.ipynb:cell12:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_multi_agent_demo_setup_aidp.ipynb:cell13:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_multi_agent_demo_setup_aidp.ipynb:cell14:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_multi_agent_demo_setup_aidp.ipynb:cell16:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_multi_agent_demo_setup_aidp.ipynb:cell18:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "financial_services_multi_agent_demo_setup_aidp.ipynb:cell20:outputs cleared",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Original 29 cells preserved in AILH notebook",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Eight RAG source documents",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "RAG hash: 00_synthetic_demo_notice.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "RAG length: 00_synthetic_demo_notice.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "RAG hash: 01_synthetic_transaction_triage_policy.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "RAG length: 01_synthetic_transaction_triage_policy.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "RAG hash: 02_analyst_investigation_playbook.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "RAG length: 02_analyst_investigation_playbook.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "RAG hash: 03_medallion_data_dictionary.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "RAG length: 03_medallion_data_dictionary.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "RAG hash: 04_model_and_synthetic_risk_limitations.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "RAG length: 04_model_and_synthetic_risk_limitations.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "RAG hash: 05_evidence_and_citation_standard.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "RAG length: 05_evidence_and_citation_standard.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "RAG hash: 06_human_review_and_data_handling.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "RAG length: 06_human_review_and_data_handling.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "RAG hash: 07_investigation_brief_template.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "RAG length: 07_investigation_brief_template.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Seven parameterized SQL tools",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "SQL file matches registry: get_reporting_context",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "SQL file matches registry: get_portfolio_snapshot",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "SQL file matches registry: get_portfolio_trend",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "SQL file matches registry: get_exposure_mix",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "SQL file matches registry: get_priority_accounts",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "SQL file matches registry: get_account_snapshot",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "SQL file matches registry: get_account_transaction_evidence",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Reference flag-rate arithmetic",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Reference concentration arithmetic",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Reference gross/net bounds",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PowerPoint present",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "PowerPoint has 10 slides",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No template confidentiality residue",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Native table on slide 5",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Editable diagram on slide 3",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Editable diagram on slide 7",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Video delivery state",
+      "passed": true,
+      "detail": "Pending recording is valid; a supplied master must have a real MP4 header. Use ffprobe for final media acceptance."
+    },
+    {
+      "check": "Packaged file hash: .gitattributes",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: .github/workflows/checks.yml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: .gitignore",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: CITATION.cff",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: LICENSE",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: NOTICE",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: README.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: agent_card/README.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: agent_card/agent-card.draft.reference.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: agent_card/agent-card.editable-metadata.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: agent_card/agent-card.form-fields.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: agents/node-configurations.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: agents/prompts/FS_INVESTIGATION_SUPERVISOR.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: agents/prompts/GUARDRAILS_CONFIGURATION.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: agents/prompts/INVESTIGATION_BRIEF_AGENT.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: agents/prompts/INVESTIGATION_SQL_AGENT.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: agents/prompts/POLICY_RAG_AGENT.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: agents/prompts/PORTFOLIO_SQL_AGENT.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: agents/prompts/RAG_PREAMBLE_OVERRIDE.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: agents/prompts/RAG_TOOL_DESCRIPTION.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: agents/prompts/compose_investigation_brief.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: agents/prompts/sample_prompts.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: apps/copilot/.streamlit/config.toml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: apps/copilot/.streamlit/secrets.toml.example",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: apps/copilot/README.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: apps/copilot/aidp_client.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: apps/copilot/aidp_ui.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: apps/copilot/app.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: apps/copilot/assets/oracle-symbol.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: apps/copilot/assets/oracle-wordmark.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: apps/copilot/branding.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: apps/copilot/history_store.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: apps/copilot/paf_client.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: apps/copilot/requirements-aidp.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: apps/copilot/requirements.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: apps/copilot/response_ui.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: apps/copilot/response_view.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: apps/copilot/tests/test_aidp_app.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: apps/copilot/tests/test_aidp_client.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: apps/copilot/tests/test_app.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: apps/copilot/tests/test_branding.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: apps/copilot/tests/test_client.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: apps/copilot/tests/test_history.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: apps/copilot/tests/test_https.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: apps/copilot/tests/test_local.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: apps/copilot/tests/test_presentation.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: article/build_preview.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: article/medium-article.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: article/medium-publishing.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: article/preview.html",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: article/references.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: config/acceptance_cases.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: config/rag_documents.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: config/rag_manifest.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: config/sql_tools.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: config/tenant_acceptance_log.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: data/reference-snapshot.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: data/source-provenance.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: docs/architecture.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: docs/hosted-acceptance.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: docs/metrics-and-methodology.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: docs/oac-workbook.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: docs/publication-checklist.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: docs/research-sources.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: docs/troubleshooting.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: docs/user-guide.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: media/brand/oracle-symbol.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: media/brand/oracle-wordmark.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: media/diagrams/agent-flow.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: media/diagrams/agent-flow.svg",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: media/diagrams/architecture.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: media/diagrams/architecture.svg",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: media/diagrams/medallion.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: media/diagrams/medallion.svg",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: media/screenshots/activity-risk-trends.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: media/screenshots/executive-brief.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: media/screenshots/executive-snapshot.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: media/screenshots/investigation-queue.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: media/screenshots/monthly-changes.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: media/screenshots/provenance.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: media/screenshots/risk-exposure.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: notebooks/financial_services_executive_analytics_dashboards_aidp.ipynb",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: notebooks/financial_services_medallion_architecture_demo.ipynb",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: notebooks/financial_services_medallion_architecture_demo_ailh.ipynb",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: notebooks/financial_services_multi_agent_demo_setup_aidp.ipynb",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: rag_corpus/00_synthetic_demo_notice.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: rag_corpus/01_synthetic_transaction_triage_policy.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: rag_corpus/02_analyst_investigation_playbook.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: rag_corpus/03_medallion_data_dictionary.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: rag_corpus/04_model_and_synthetic_risk_limitations.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: rag_corpus/05_evidence_and_citation_standard.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: rag_corpus/06_human_review_and_data_handling.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: rag_corpus/07_investigation_brief_template.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: reference/README.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: reference/financial_services_medallion_architecture_demo.ipynb",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: requirements/app.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: requirements/oci.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: requirements/validation.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: scripts/build_fs_ailh_notebook.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: scripts/build_package.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: scripts/check_publication.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: scripts/dashboard_cells.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: scripts/finance_core.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: scripts/setup_cells.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: scripts/validate_notebooks.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: slides/README.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: slides/aidp-financial-investigation-copilot.pptx",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: slides/build_html.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: slides/deck-content.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: slides/index.html",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: slides/previews/slide-01.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: slides/previews/slide-02.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: slides/previews/slide-03.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: slides/previews/slide-04.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: slides/previews/slide-05.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: slides/previews/slide-06.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: slides/previews/slide-07.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: slides/previews/slide-08.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: slides/previews/slide-09.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: slides/previews/slide-10.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: sql/get_account_snapshot.sql",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: sql/get_account_transaction_evidence.sql",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: sql/get_exposure_mix.sql",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: sql/get_portfolio_snapshot.sql",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: sql/get_portfolio_trend.sql",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: sql/get_priority_accounts.sql",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: sql/get_reporting_context.sql",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: sql/oac/account_month_risk.sql",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: sql/oac/monthly_risk_review.sql",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: validation/analytical_checks.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: validation/local_spark_fixture.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: validation/test_fs_ailh_notebook.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/README.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/assemble.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/cards/00-cover.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/cards/00-cover.svg",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/cards/01-context.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/cards/01-context.svg",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/cards/02-bronze.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/cards/02-bronze.svg",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/cards/03-silver.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/cards/03-silver.svg",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/cards/04-gold.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/cards/04-gold.svg",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/cards/05-ml.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/cards/05-ml.svg",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/cards/06-ailh.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/cards/06-ailh.svg",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/cards/07-notebook-oac.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/cards/07-notebook-oac.svg",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/cards/08-agent-builder.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/cards/08-agent-builder.svg",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/cards/09-testing-deployment.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/cards/09-testing-deployment.svg",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/cards/10-agent-hub.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/cards/10-agent-hub.svg",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/cards/11-streamlit.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/cards/11-streamlit.svg",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/cards/12-close.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/cards/12-close.svg",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/cards/README.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/cards/thumbnail.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/cards/thumbnail.svg",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/final/README.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/input-manifest.example.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/narration.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/recording-guide.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/storyboard.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/youtube-metadata.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/youtube-metadata.md",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "errors": []
+}

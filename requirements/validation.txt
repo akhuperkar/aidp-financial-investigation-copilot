@@ -1,0 +1,7 @@
+# Optional fixture runner. AIDP provides its own Spark runtime.
+pyspark==3.5.3
+nbformat>=5.10,<6
+nbclient>=0.10,<1
+nbconvert>=7.16,<8
+ipykernel>=6.29,<8
+matplotlib>=3.9,<4

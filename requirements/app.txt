@@ -1,0 +1,5 @@
+# Tested client runtime; Python 3.11 recommended.
+streamlit==1.64.0
+pandas==3.0.6
+altair==6.3.0
+requests==2.34.2

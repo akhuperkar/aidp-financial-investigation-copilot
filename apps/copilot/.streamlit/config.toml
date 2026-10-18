@@ -1,0 +1,56 @@
+# Redwood-inspired native Streamlit themes. Select Light/Dark in the top-right menu.
+# Palette: Oracle Redwood neutral ramp and supplied Oracle Red (#C74634).
+[theme]
+base = "light"
+font = "sans-serif"
+baseFontSize = 16
+baseFontWeight = 400
+showSidebarBorder = true
+
+[theme.light]
+primaryColor = "#C74634"
+backgroundColor = "#FBF9F8"
+secondaryBackgroundColor = "#F1EFED"
+textColor = "#312D2A"
+borderColor = "#D4CFCA"
+linkColor = "#9E3026"
+codeBackgroundColor = "#F1EFED"
+codeTextColor = "#365C49"
+baseRadius = "0.35rem"
+buttonRadius = "0.35rem"
+headingFontSizes = ["2.25rem", "1.65rem", "1.2rem", "1.05rem", "1rem", "1rem"]
+headingFontWeights = [600, 600, 600, 600, 600, 600]
+showWidgetBorder = true
+dataframeBorderColor = "#D4CFCA"
+dataframeHeaderBackgroundColor = "#E4E1DD"
+chartCategoricalColors = ["#537984", "#8B6B42", "#577346", "#9D5542", "#7D6590", "#427B74"]
+
+[theme.light.sidebar]
+backgroundColor = "#F5F4F2"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#312D2A"
+borderColor = "#D4CFCA"
+
+[theme.dark]
+primaryColor = "#C74634"
+backgroundColor = "#161513"
+secondaryBackgroundColor = "#312D2A"
+textColor = "#F5F4F2"
+borderColor = "#514C47"
+linkColor = "#F4ADA0"
+codeBackgroundColor = "#201E1C"
+codeTextColor = "#B9D0AF"
+baseRadius = "0.35rem"
+buttonRadius = "0.35rem"
+headingFontSizes = ["2.25rem", "1.65rem", "1.2rem", "1.05rem", "1rem", "1rem"]
+headingFontWeights = [600, 600, 600, 600, 600, 600]
+showWidgetBorder = true
+dataframeBorderColor = "#514C47"
+dataframeHeaderBackgroundColor = "#312D2A"
+chartCategoricalColors = ["#9EBFC8", "#D6B98C", "#B9D0AF", "#EAA28D", "#BCA9D0", "#93C7BC"]
+
+[theme.dark.sidebar]
+backgroundColor = "#201E1C"
+secondaryBackgroundColor = "#312D2A"
+textColor = "#F5F4F2"
+borderColor = "#514C47"

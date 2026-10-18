@@ -1,0 +1,293 @@
+{
+  "schema_version": "1.0",
+  "prepared_date": "2026-10-18",
+  "article": "medium-article.md",
+  "purpose": "Trace article claims to primary publications or scoped project evidence.",
+  "sources": [
+    {
+      "id": "GARTNER-2025-63",
+      "kind": "primary_research",
+      "title": "Lack of AI-Ready Data Puts AI Projects at Risk",
+      "publisher": "Gartner",
+      "url": "https://www.gartner.com/en/newsroom/press-releases/2025-02-26-lack-of-ai-ready-data-puts-ai-projects-at-risk",
+      "publication_date": "2025-02-26",
+      "accessed_date": "2026-10-18",
+      "population": {
+        "sample_size": 1203,
+        "respondent_group": "data-management leaders",
+        "field_period": "July 2024"
+      },
+      "claim": "63% lacked suitable AI data-management practices or were unsure they had them.",
+      "source_support": {
+        "location": "Overview, first paragraph",
+        "type": "directly_reported_survey_finding"
+      },
+      "verification": "verified_primary_page",
+      "qualifications": [
+        "Combined lack-or-uncertainty measure; not project failure."
+      ],
+      "direct_quotation_used": false
+    },
+    {
+      "id": "MCKINSEY-2025-21",
+      "kind": "primary_research",
+      "title": "The state of AI: How organizations are rewiring to capture value",
+      "publisher": "McKinsey & Company",
+      "url": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-how-organizations-are-rewiring-to-capture-value",
+      "publication_date": "2025-03-12",
+      "accessed_date": "2026-10-18",
+      "population": {
+        "full_survey_sample_size": 1491,
+        "countries": 101,
+        "field_period_start": "2024-07-16",
+        "field_period_end": "2024-07-31",
+        "claim_population": "respondents reporting organizational gen-AI use",
+        "claim_subgroup_sample_size": null
+      },
+      "claim": "21% reported fundamental redesign of at least some workflows.",
+      "source_support": {
+        "location": "How companies are organizing their gen AI deployment; About the research",
+        "type": "directly_reported_survey_finding"
+      },
+      "verification": "verified_primary_page",
+      "qualifications": [
+        "Subgroup size not separately given; no workflow-disconnection or causation inference."
+      ],
+      "direct_quotation_used": false
+    },
+    {
+      "id": "ORACLE-AIDP-OVERVIEW",
+      "kind": "official_product_documentation",
+      "title": "Overview of Oracle AI Data Platform",
+      "publisher": "Oracle",
+      "url": "https://docs.oracle.com/en/cloud/paas/ai-data-platform/aidug/overview-oracle-ai-data-platform.html",
+      "publication_date": null,
+      "accessed_date": "2026-10-18",
+      "population": null,
+      "claim": "Documents medallion architecture, Spark notebooks and machine-learning workloads.",
+      "source_support": {
+        "location": "Common Use Cases for Oracle AI Data Platform",
+        "type": "documented_capability"
+      },
+      "verification": "verified_primary_page",
+      "qualifications": [
+        "Platform context does not establish project execution."
+      ],
+      "direct_quotation_used": false
+    },
+    {
+      "id": "ORACLE-AGENT-TOOLS",
+      "kind": "official_product_documentation",
+      "title": "About Agent Tools",
+      "publisher": "Oracle",
+      "url": "https://docs.oracle.com/en/cloud/paas/ai-data-platform/aidug/agent-flow-tools.html",
+      "publication_date": null,
+      "accessed_date": "2026-10-18",
+      "population": null,
+      "claim": "SQL queries are predefined and parameterized; RAG retrieves knowledge-base content.",
+      "source_support": {
+        "location": "Detailed SQL Tool and RAG sections",
+        "type": "documented_capability"
+      },
+      "verification": "verified_primary_page",
+      "qualifications": [
+        "Overview and detailed dialect guidance conflict; check tenant controls."
+      ],
+      "direct_quotation_used": false
+    },
+    {
+      "id": "ORACLE-EXTERNAL-CATALOGS",
+      "kind": "official_product_documentation",
+      "title": "External Catalogs",
+      "publisher": "Oracle",
+      "url": "https://docs.oracle.com/en/cloud/paas/ai-data-platform/aidug/external-catalogs.html",
+      "publication_date": null,
+      "accessed_date": "2026-10-18",
+      "population": null,
+      "claim": "External-source metadata is synchronized for discovery and remote querying.",
+      "source_support": {
+        "location": "Introduction; Refresh External Data Catalogs",
+        "type": "documented_capability"
+      },
+      "verification": "verified_primary_page",
+      "qualifications": [
+        "Distinct from native-table copying and row reconciliation."
+      ],
+      "direct_quotation_used": false
+    },
+    {
+      "id": "ORACLE-AGENTS-LANDING",
+      "kind": "official_navigation_reference",
+      "title": "AI Agents",
+      "publisher": "Oracle",
+      "url": "https://docs.oracle.com/en/cloud/paas/ai-data-platform/aidug/ai-agent-flows.html",
+      "publication_date": null,
+      "accessed_date": "2026-10-18",
+      "population": null,
+      "claim": null,
+      "source_support": {
+        "location": "Landing page",
+        "type": "navigation_only"
+      },
+      "verification": "opened_landing_page",
+      "qualifications": [
+        "No substantive article claim relies on landing-page content."
+      ],
+      "direct_quotation_used": false
+    }
+  ],
+  "project_evidence": [
+    {
+      "id": "PROJECT-OAC-REFERENCE",
+      "kind": "historical_project_validation",
+      "url": null,
+      "publication_date": null,
+      "verified_date": "2026-10-17",
+      "population": "2024 demonstration transactions and account-month analytics",
+      "claim": "OAC December measures and account queue use the verified reference, source Delta v4.",
+      "source_support": {
+        "paths": [
+          "../data/reference-snapshot.json",
+          "../docs/metrics-and-methodology.md"
+        ],
+        "provenance": "Publication shared brief and project validation records; no hosted rerun by article authoring task."
+      },
+      "scope": {
+        "source_transaction_rows": 149658,
+        "account_month_rows": 52735,
+        "accounts": 5000,
+        "start_period": "2024-01",
+        "end_period": "2024-12"
+      },
+      "december": {
+        "transactions": 12699,
+        "active_accounts": 4436,
+        "gross_inr": "31642312.97",
+        "net_inr": "20071594.45",
+        "rule_flags": 4934,
+        "flag_rate_percent": "38.853453027797464",
+        "flagged_gross_inr": "12547752.55",
+        "p1_accounts": 528,
+        "top_ten_flagged_gross_inr": "236847.35",
+        "top_ten_share_percent": "1.887567905536996",
+        "leading_account": "ACC00004535",
+        "leading_account_flagged_gross_inr": "28008.03"
+      },
+      "qualifications": [
+        "Older deployed-agent/Streamlit snapshot differs; no blending."
+      ]
+    },
+    {
+      "id": "PROJECT-SQL-RAG",
+      "kind": "inspected_project_sources",
+      "url": null,
+      "publication_date": null,
+      "accessed_date": "2026-10-18",
+      "population": null,
+      "claim": "Seven predefined SQL tools query dedicated Spark snapshots; eight fictional-policy documents supply retrieval context.",
+      "source_support": {
+        "paths": [
+          "../sql/",
+          "../rag_corpus/",
+          "../docs/architecture.md"
+        ]
+      },
+      "qualifications": [
+        "No implemented external-action tool or approval workflow."
+      ]
+    },
+    {
+      "id": "PROJECT-ML",
+      "kind": "inspected_project_notebook",
+      "url": null,
+      "publication_date": null,
+      "accessed_date": "2026-10-18",
+      "population": "synthetic transaction features and rule-derived labels",
+      "claim": "A separate random forest exercise does not score the deployed agent queue.",
+      "source_support": {
+        "paths": [
+          "../notebooks/financial_services_medallion_architecture_demo.ipynb",
+          "../docs/metrics-and-methodology.md"
+        ]
+      },
+      "qualifications": [
+        "Random scores define is_fraud labels.",
+        "No persisted model predictions or calibrated probabilities are exposed to the agent.",
+        "No validated production fraud-detection result."
+      ]
+    },
+    {
+      "id": "PROJECT-AILH",
+      "kind": "historical_project_validation",
+      "url": null,
+      "publication_date": null,
+      "accessed_date": "2026-10-18",
+      "population": "two native Gold target tables",
+      "claim": "Initial publication passed full-row comparison.",
+      "source_support": {
+        "paths": [
+          "../notebooks/financial_services_medallion_architecture_demo_ailh.ipynb",
+          "../docs/troubleshooting.md"
+        ]
+      },
+      "qualifications": [
+        "Changed-data replacement unvalidated after DATA_ACCESS_LAYER_0068.",
+        "Optional native DDL not executed.",
+        "Sources remained unclustered; native Oracle tables do not implement Delta liquid clustering."
+      ]
+    },
+    {
+      "id": "PROJECT-HOSTED-ACCEPTANCE",
+      "kind": "historical_test_and_user_report",
+      "url": null,
+      "publication_date": null,
+      "accessed_date": "2026-10-18",
+      "population": "Agent Hub and Streamlit checks",
+      "claim": "Transport and SQL response evidence is separate from reconciled hybrid-answer acceptance.",
+      "source_support": {
+        "paths": [
+          "../docs/hosted-acceptance.md",
+          "../docs/troubleshooting.md"
+        ]
+      },
+      "qualifications": [
+        "Seven Agent Hub prompt successes are user-reported; exported trace has root only.",
+        "Historical Streamlit hybrid follow-up failed content reconciliation.",
+        "No current hosted retest performed during publication authoring."
+      ]
+    }
+  ],
+  "selected_style_references": [
+    {
+      "url": "https://medium.com/@abhijit.khuperkar/can-we-use-these-agents-in-our-own-app-a-practical-agent-factory-walkthrough-5740cd14b286",
+      "role": "user_selected_style_reference",
+      "access_status": "not_retrieved_in_authoring_run",
+      "content_used": false
+    },
+    {
+      "url": "https://medium.com/@abhijit.khuperkar/from-pii-discovery-to-governed-action-with-oracle-select-ai-agent-31d1c2da8c42",
+      "role": "user_selected_style_reference",
+      "access_status": "not_retrieved_in_authoring_run",
+      "content_used": false
+    },
+    {
+      "url": "https://github.com/akhuperkar/pii-governance-agent/tree/main/article",
+      "role": "user_selected_alternative_original_prose",
+      "access_status": "not_retrieved_in_authoring_run",
+      "content_used": false
+    }
+  ],
+  "excluded_claims": [
+    "Unverified 83% statistic",
+    "88% AI adoption misrepresented as workflow disconnection",
+    "Measured fraud losses or savings",
+    "Validated production detection",
+    "Universal AILH consumption by current agent tools"
+  ],
+  "pending_publication": {
+    "youtube_demo_url": "{{YOUTUBE_DEMO_URL}}",
+    "medium_published": false,
+    "recorded_video_available": false
+  },
+  "interpretation": "The article links evidence to a design rationale. Research findings are dated context, not measured outcomes of this demonstration."
+}

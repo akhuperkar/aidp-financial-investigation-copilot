@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you reuse this work, please cite the repository and author."
+title: "Financial Investigation Copilot with Oracle AI Data Platform"
+type: software
+authors:
+  - family-names: Khuperkar
+    given-names: Abhijit
+version: 1.0.0
+date-released: 2026-10-18
+license: MIT
+repository-code: "https://github.com/akhuperkar/aidp-financial-investigation-copilot"
+url: "https://github.com/akhuperkar/aidp-financial-investigation-copilot"
+abstract: "Reproducible medallion engineering, Lakehouse publication, analytics and evidence-based investigation agents using Oracle AI Data Platform."

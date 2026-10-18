@@ -1,0 +1,8 @@
+Synthetic scoring and model-governance limitations
+SYNTHETIC DEMO ONLY — Meridian Demo Bank is fictional. Not a legal or regulatory policy.
+
+[FS-GOV-001 v1.0 §1] Effective from 2024-01-01; applies to synthetic 2024 transaction-review periods.
+The source assigns risk_score randomly from 0 to 100 and derives is_fraud directly from that score. It does not generate adjudicated fraud events, verified loss or real behavioral labels. Do not present screening rates, source labels or a model's agreement with those labels as real fraud-detection effectiveness. AUC/accuracy from the source training cell is a toy evaluation and is not consumed by this dashboard or these agents.
+
+[FS-GOV-001 v1.0 §2] Effective from 2024-01-01; applies to synthetic 2024 transaction-review periods.
+The Random Forest excludes risk_score from its feature vector, while the target derives from independently random risk_score; do not promise useful learnable fraud signal. No persisted predictions/probabilities table is supplied. The P1/P2 rules are deterministic triage, not ML inference. Production modeling would need representative consented data, independent outcomes, time-aware validation, leakage checks, calibrated operating thresholds, drift monitoring and accountable review; these are future validation tasks, not demo capabilities.

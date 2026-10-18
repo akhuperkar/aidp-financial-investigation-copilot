@@ -1,0 +1,168 @@
+{
+  "mode": "structured",
+  "theme_mode": "light",
+  "domain_hint": "oci",
+  "audience": "general",
+  "speaker_notes_mode": "on",
+  "deck": {
+    "title": "From data foundation to financial investigation",
+    "objective": "An evidence-based analyst workflow with Oracle AI Data Platform, Autonomous AI Lakehouse and Oracle Analytics Cloud."
+  },
+  "content": {
+    "sections": [
+      {
+        "heading": "From data foundation\nto financial investigation",
+        "purpose": "title_slide",
+        "subtitle": "Oracle AI Data Platform • Meridian Demo Bank",
+        "notes": "Abhijit Khuperkar | 18 October 2026. Mixed business and technical audience. Follow one monthly investigation from portfolio context to account evidence and policy. Demonstration dataset; amounts shown in INR, a display assumption without FX conversion. No confirmed-fraud, calibrated-probability or realized-loss claim."
+      },
+      {
+        "heading": "AI outcomes depend on data and workflow design",
+        "purpose": "body_two_column",
+        "subtitle": "Two independent research findings; different survey populations",
+        "columns": {
+          "left": [
+            "63%",
+            "Lacked or were unsure of suitable data-management practices for AI.",
+            "Gartner • July 2024 survey, n=1,203"
+          ],
+          "right": [
+            "21%",
+            "Reported fundamental redesign of at least some workflows.",
+            "McKinsey • respondents using generative AI"
+          ]
+        },
+        "notes": "Gartner, 26 Feb 2025: https://www.gartner.com/en/newsroom/press-releases/2025-02-26-lack-of-ai-ready-data-puts-ai-projects-at-risk . McKinsey, 12 Mar 2025: https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-how-organizations-are-rewiring-to-capture-value . These findings motivate explicit data contracts and workflow design; neither establishes causation or a measured benefit from this project. Do not invert adoption statistics into disconnected-workflow claims."
+      },
+      {
+        "heading": "Make the serving paths explicit",
+        "purpose": "body_single_column",
+        "subtitle": "Gold data supports analytics and a separate agent snapshot path",
+        "bullets": [],
+        "visual": "architecture",
+        "notes": "See docs/architecture.md and media/diagrams/architecture.svg. Actual implementation: Spark Delta finance Bronze/Silver/Gold; optional publication to native Oracle AILH tables consumed by OAC. Seven current agent SQL tools query finance.agent_demo_fs materialized Spark snapshots. Eight fictional policy documents feed RAG. Separate ML model predictions are not the agent queue input. Oracle SQL tool source options: https://docs.oracle.com/en/cloud/paas/ai-data-platform/aidug/agent-flow-tools.html ."
+      },
+      {
+        "heading": "Curate data at the grain each decision needs",
+        "purpose": "body_three_column",
+        "subtitle": "Spark and Delta medallion processing",
+        "columns": {
+          "col1": [
+            "BRONZE",
+            "Raw transaction records",
+            "Account, time, type, amount",
+            "Reference for transformation"
+          ],
+          "col2": [
+            "SILVER",
+            "Required-field checks",
+            "Time-derived features",
+            "Consistent processing inputs"
+          ],
+          "col3": [
+            "GOLD",
+            "Account-month analytics",
+            "Transaction-level features",
+            "Reusable analytical products"
+          ]
+        },
+        "notes": "Four public notebooks preserve the supplied code and markdown, with saved outputs cleared for publication. The separate random forest pipeline demonstrates fitting and evaluation with rule-derived labels: is_fraud = risk_score > 60, where score is randomly generated. Features exclude risk_score. No validated fraud-detection effectiveness follows; representative outcomes and independent model validation are required for a production claim. Source generator is unseeded, so rerun totals differ. Oracle overview: https://docs.oracle.com/en/cloud/paas/ai-data-platform/aidug/overview-oracle-ai-data-platform.html ."
+      },
+      {
+        "heading": "Publish Gold with a verification contract",
+        "purpose": "table_matrix",
+        "subtitle": "Autonomous AI Lakehouse is the analytical serving layer",
+        "table": {
+          "columns": [
+            "Decision",
+            "Implementation",
+            "Proof"
+          ],
+          "rows": [
+            [
+              "Connection",
+              "Existing external catalog",
+              "Configurable catalog + schema"
+            ],
+            [
+              "Types",
+              "Decimal + native JSON",
+              "Schema and exact-amount checks"
+            ],
+            [
+              "Publication",
+              "Two native Oracle tables",
+              "Counts + full-row multiset"
+            ],
+            [
+              "Layout",
+              "Preserve Delta; native indexes",
+              "No Delta clustering in Oracle"
+            ]
+          ],
+          "max_rows_per_slide": 5
+        },
+        "notes": "Initial publication was verified after a wallet change, with schema, count, decimal, JSON and full-row duplicate-aware comparison. Changed-data replacement remains unvalidated after DATA_ACCESS_LAYER_0068. DDL includes CREATE TABLE IF NOT EXISTS; optional index DDL is supplied, not automatically executed by the catalog writer. Source tables remained unclustered when the runtime rejected retrofit ALTER clustering. See notebook appendix and docs/troubleshooting.md. External catalogs: https://docs.oracle.com/en/cloud/paas/ai-data-platform/aidug/external-catalogs.html ."
+      },
+      {
+        "heading": "Start with a portfolio view; drill into evidence",
+        "purpose": "body_single_column",
+        "subtitle": "December 2024 • OAC reference verified 17 October 2026",
+        "bullets": [],
+        "visual": "dashboard",
+        "notes": "Reference data/reference-snapshot.json: 12,699 transactions, 4,436 active accounts; INR31,642,312.97 gross, INR20,071,594.45 net; 4,934 score>60 flags,38.853453027797464% count flag rate; INR12,547,752.55 flagged gross. Six AutoFit canvases: executive snapshot, executive brief, activity/risk trends, investigation queue, exposure breakdown, monthly changes. Whole-portfolio monthly comparisons are independent of account filters. Demonstration dataset; amounts shown in INR. Screening exposure is not confirmed fraud or loss. The screenshot is cropped, never reconstructed."
+      },
+      {
+        "heading": "Combine structured evidence with cited policy",
+        "purpose": "body_single_column",
+        "subtitle": "Supervisor + four specialist executors • seven SQL tools + RAG + Prompt",
+        "bullets": [],
+        "visual": "agent-flow",
+        "notes": "Current node configurations and prompts are in agents/. Supervisor xai.grok-4.7; reference executor choices/settings are explicitly recorded there and may vary by tenant. Current Prompt tool argument: evidence_packet, String; it supersedes the earlier setup-notebook evidence_json template. Resolve the reporting period once, preserve snapshot/account scope, retrieve actual bounded evidence rows and applicable FS-POL-001 policy text. A risk_score is not a probability. No external-action tools or implemented approval gate. Guardrail and human-review language do not establish a technical authorization control."
+      },
+      {
+        "heading": "Deploy once; keep client transports separate",
+        "purpose": "body_two_column",
+        "subtitle": "Agent card → deployment → AI Registry → Agent Hub or local application",
+        "columns": {
+          "left": [
+            "AIDP AGENT HUB",
+            "Discover the registered agent",
+            "Test scope and cited answers",
+            "Use deployed runtime permissions"
+          ],
+          "right": [
+            "STREAMLIT COPILOT",
+            "AIDP A2A + OCI or OAuth",
+            "Independent PAF adapter",
+            "Customer branding + title override"
+          ]
+        },
+        "notes": "The author reports successful Agent Hub use and seven prompts. Exported trace covers root only. Historical Streamlit checks verified a signed card, minimal invocation and a SQL response. One hybrid follow-up completed transport but failed evidence reconciliation; fresh hosted acceptance is required. Do not show that prior answer as validated. No populated credentials, real endpoints or session histories are included. Run app from apps/copilot to load theme and secrets. Existing working PAF project is untouched."
+      },
+      {
+        "heading": "Build the evidence before claiming the outcome",
+        "purpose": "timeline_slide",
+        "subtitle": "A reproducible path for a focused customer validation",
+        "bullets": [
+          "Curate\nCheck grain and definitions",
+          "Publish\nReconcile Gold rows",
+          "Visualize\nVerify filters and measures",
+          "Investigate\nCompare cited evidence",
+          "Accept\nMeasure analyst rework"
+        ],
+        "notes": "Repository: https://github.com/akhuperkar/aidp-financial-investigation-copilot . User guide covers notebooks, OAC, Agent Builder, deployment and the client. Local mocked tests are distinct from hosted acceptance; the tenant CSV remains NOT_RUN until populated. Next: reconcile a fresh hybrid answer; validate changed-data publication; record the chapter sequence and add the final MP4 via Git LFS. Suggested value measurement: time to assemble a review packet and verification rework. These have not been measured by this project. Video and Medium URLs remain pending publication."
+      },
+      {
+        "heading": "",
+        "purpose": "closing_slide",
+        "notes": ""
+      }
+    ]
+  },
+  "source_links": [
+    "https://www.gartner.com/en/newsroom/press-releases/2025-02-26-lack-of-ai-ready-data-puts-ai-projects-at-risk",
+    "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-how-organizations-are-rewiring-to-capture-value",
+    "https://docs.oracle.com/en/cloud/paas/ai-data-platform/aidug/agent-flow-tools.html"
+  ]
+}

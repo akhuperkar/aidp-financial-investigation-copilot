@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
+<title id="title">Notebook and Oracle Analytics</title><desc id="desc">Establish the portfolio view, then choose a queue. Editable chapter artwork; no application UI is represented.</desc>
+<rect width="1920" height="1080" fill="#F5F1E9"/>
+<path d="M0 0H34V1080H0Z" fill="#C74634"/>
+<path d="M140 790H1780" stroke="#D8CFC3" stroke-width="2"/>
+<text x="140" y="210" font-family="Arial, Helvetica, sans-serif" font-size="28" letter-spacing="4" fill="#625C55">CHAPTER 06</text>
+<text x="140" y="410" font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="700" fill="#312D2A">Notebook and Oracle Analytics</text>
+<text x="144" y="505" font-family="Arial, Helvetica, sans-serif" font-size="35" fill="#625C55">Establish the portfolio view, then choose a queue</text>
+<rect x="144" y="571" width="110" height="7" fill="#C74634"/>
+<text x="144" y="866" font-family="Arial, Helvetica, sans-serif" font-size="27" fill="#625C55">Oracle AI Data Platform · Financial Investigation Copilot</text>
+<text x="144" y="930" font-family="Arial, Helvetica, sans-serif" font-size="23" fill="#625C55">Demonstration dataset; amounts shown in INR</text>
+<image href="../../media/brand/oracle-wordmark.png" xlink:href="../../media/brand/oracle-wordmark.png" x="1500" y="863" width="280" height="60" preserveAspectRatio="xMidYMid meet"/>
+</svg>

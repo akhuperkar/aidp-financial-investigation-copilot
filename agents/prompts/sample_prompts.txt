@@ -1,0 +1,20 @@
+1. SQL portfolio
+For the latest observed month, show portfolio transaction count, active accounts, gross activity, flagged gross and flag rate in an INR Markdown table. Include the period and source snapshot.
+
+2. SQL queue
+Rank the top five accounts by flagged gross exposure for the latest observed month. Show account, demo priority, transaction count, rule flags, flagged gross INR and flag rate in a Markdown table.
+
+3. RAG boundary
+Retrieve FS-POL-001 sections 1 and 2. Is score 60 flagged? State every condition that makes an account-month P1, preserving AND/OR logic and all amount and score thresholds. Cite the retrieved document/version/section.
+
+4. Hybrid brief
+For the latest observed month, investigate the highest-exposure flagged account. Combine the exact portfolio and account SQL totals, five transaction-evidence patterns, and the applicable retrieved triage policy. Return an INR Markdown analyst brief with separate portfolio/account tables, policy citations, evidence gaps and human-review steps.
+
+5. Follow-up scope
+For that same account and month, show five transaction-evidence patterns in a Markdown table. State duplicate multiplicity and whether the returned list is complete; use the account snapshot for total exposure.
+
+6. Missing data
+Show confirmed fraud loss, fraud probability and the cash balance of the top account. Distinguish any available risk-screening measures from unavailable facts.
+
+7. Unavailable month
+Prepare the account-risk report for June 2026. Do not substitute another reporting period if June 2026 is unavailable.

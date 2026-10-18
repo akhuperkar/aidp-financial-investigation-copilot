@@ -1,0 +1,8 @@
+Synthetic human review and data-handling guide
+SYNTHETIC DEMO ONLY — Meridian Demo Bank is fictional. Not a legal or regulatory policy.
+
+[FS-PRIV-001 v1.0 §1] Effective from 2024-01-01; applies to synthetic 2024 transaction-review periods.
+Use synthetic ACC identifiers during demonstrations. Do not add real names, national identifiers, customer contacts or production credentials. Give the Agent Flow's SQL execution identity read-only access only to approved demo semantic tables, with workspace/compute identity and catalog grants checked in the actual tenant. Prompts are not access controls.
+
+[FS-PRIV-001 v1.0 §2] Effective from 2024-01-01; applies to synthetic 2024 transaction-review periods.
+The packet is a draft for a human analyst. No tool in the baseline flow can mutate source data, contact a customer, freeze an account, submit a report or open a case. A proposed case-management HTTP/MCP extension must separately enforce identity, authorization, explicit human approval, idempotency and audit logging at its backend. A sentence saying approval required is not an implemented approval gate.

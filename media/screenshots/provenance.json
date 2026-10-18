@@ -1,0 +1,76 @@
+[
+  {
+    "file": "media/screenshots/executive-snapshot.png",
+    "source_capture": "executive-snapshot-full-width.png",
+    "operation": "pixel crop only",
+    "crop_box": [
+      0,
+      366,
+      3024,
+      1710
+    ],
+    "removed": "Browser navigation, tenant address, account menu and editing panels where present."
+  },
+  {
+    "file": "media/screenshots/activity-risk-trends.png",
+    "source_capture": "activity-and-risk-trends-full-width.png",
+    "operation": "pixel crop only",
+    "crop_box": [
+      0,
+      366,
+      3024,
+      1710
+    ],
+    "removed": "Browser navigation, tenant address, account menu and editing panels where present."
+  },
+  {
+    "file": "media/screenshots/monthly-changes.png",
+    "source_capture": "monthly-changes-full-width.png",
+    "operation": "pixel crop only",
+    "crop_box": [
+      0,
+      366,
+      3024,
+      1710
+    ],
+    "removed": "Browser navigation, tenant address, account menu and editing panels where present."
+  },
+  {
+    "file": "media/screenshots/investigation-queue.png",
+    "source_capture": "investigation_queue.png",
+    "operation": "pixel crop only",
+    "crop_box": [
+      0,
+      40,
+      1512,
+      710
+    ],
+    "removed": "Browser navigation, tenant address, account menu and editing panels where present.",
+    "note": "Verified numerical reference before the later header styling pass; fully loaded capture."
+  },
+  {
+    "file": "media/screenshots/risk-exposure.png",
+    "source_capture": "risk_breakdowns.png",
+    "operation": "pixel crop only",
+    "crop_box": [
+      0,
+      40,
+      1512,
+      710
+    ],
+    "removed": "Browser navigation, tenant address, account menu and editing panels where present.",
+    "note": "Verified numerical reference before the later header styling pass; fully loaded capture."
+  },
+  {
+    "file": "media/screenshots/executive-brief.png",
+    "source_capture": "executive-brief.png",
+    "operation": "pixel crop only",
+    "crop_box": [
+      886,
+      366,
+      3024,
+      1710
+    ],
+    "removed": "Browser navigation, tenant address, account menu and editing panels where present."
+  }
+]

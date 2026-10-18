@@ -1,0 +1,11 @@
+Synthetic transaction-risk triage policy
+SYNTHETIC DEMO ONLY — Meridian Demo Bank is fictional. Not a legal or regulatory policy.
+
+[FS-POL-001 v1.0 §1] Effective from 2024-01-01; applies to synthetic 2024 transaction-review periods.
+Rule version FS-TRIAGE-1.0. A rule-flagged transaction has risk_score strictly greater than 60 (61 through 100 for the source's integer scores). A score of 60 is not flagged. This is a synthetic screening rule and is neither a calibrated probability nor a confirmed fraud finding. High-value flagged activity requires a flagged transaction with absolute amount at least INR 5,000. Signed amount must never cancel exposure.
+
+[FS-POL-001 v1.0 §2] Effective from 2024-01-01; applies to synthetic 2024 transaction-review periods.
+P1 review priority is assigned to an account-month when either: its total flagged gross exposure is at least INR 10,000; or it contains at least one transaction with score at least 85 and absolute amount at least INR 5,000. P2 is any other account-month with at least one rule-flagged transaction. P3 has no rule-flagged transactions. Threshold comparisons are inclusive for INR 5,000, INR 10,000 and score 85, and exclusive for score 60. These fictional thresholds demonstrate consistent rules; they are not statutory reporting thresholds, real risk appetite or production settings.
+
+[FS-POL-001 v1.0 §3] Effective from 2024-01-01; applies to synthetic 2024 transaction-review periods.
+The displayed queue ranks accounts by flagged gross exposure descending, then flagged transaction count descending, then account ID ascending. Priority P1/P2 is shown separately; exposure rank is not a predictive rank. Ask an analyst to review the highest-exposure account and validate its underlying records. This demonstration defines no binding response SLA and grants no permission to restrict funds. A disagreement between SQL rule fields and retrieved policy requires a policy/version exception, not an invented resolution.

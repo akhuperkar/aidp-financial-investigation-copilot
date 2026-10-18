@@ -1,0 +1,364 @@
+{
+  "prepared_on": "2026-10-18",
+  "copied_sources": [
+    {
+      "source": "notebooks/financial_services_executive_analytics_dashboards_aidp.ipynb",
+      "public_path": "notebooks/financial_services_executive_analytics_dashboards_aidp.ipynb",
+      "source_sha256": "e325f73b8f8cff5cf653601990f6961265fa566649f406c31b4f06b5f8e0d236"
+    },
+    {
+      "source": "notebooks/financial_services_medallion_architecture_demo.ipynb",
+      "public_path": "notebooks/financial_services_medallion_architecture_demo.ipynb",
+      "source_sha256": "5bd3e21e0d22d9e20e093567093e71d4732d236e55fc66fbdae6a7996a442ac0"
+    },
+    {
+      "source": "notebooks/financial_services_medallion_architecture_demo_ailh.ipynb",
+      "public_path": "notebooks/financial_services_medallion_architecture_demo_ailh.ipynb",
+      "source_sha256": "1b9ccefc06dce9f0b450b64947f2e954f9c85ee566d5caaed488ad6e3e7ffd10"
+    },
+    {
+      "source": "notebooks/financial_services_multi_agent_demo_setup_aidp.ipynb",
+      "public_path": "notebooks/financial_services_multi_agent_demo_setup_aidp.ipynb",
+      "source_sha256": "5294d9a8462d7a039bec5f6b82c52031274f2cd7e4f0f3184766fb8bfe188a3f"
+    },
+    {
+      "source": "sql/get_account_snapshot.sql",
+      "public_path": "sql/get_account_snapshot.sql",
+      "source_sha256": "4ceddf75e9b8c76c4d2eae498f40d77c986f1dc05b4a4f61879a75c4a3bda2fc"
+    },
+    {
+      "source": "sql/get_account_transaction_evidence.sql",
+      "public_path": "sql/get_account_transaction_evidence.sql",
+      "source_sha256": "c07b231bbc8ef6f702e6c132176351bf12f1ecf630badfa240ad04bba8c195f3"
+    },
+    {
+      "source": "sql/get_exposure_mix.sql",
+      "public_path": "sql/get_exposure_mix.sql",
+      "source_sha256": "464f89354270c196d8007719c4870ec4d229c3f34052810f8e4681574b24abb6"
+    },
+    {
+      "source": "sql/get_portfolio_snapshot.sql",
+      "public_path": "sql/get_portfolio_snapshot.sql",
+      "source_sha256": "ad1891e50cb43ea9fa29c8f384dba377b2503f87722f932cdac30ae0d86e44d2"
+    },
+    {
+      "source": "sql/get_portfolio_trend.sql",
+      "public_path": "sql/get_portfolio_trend.sql",
+      "source_sha256": "c774bb00178663506e095604d07e223c23cda79a493537947284317ba83972bf"
+    },
+    {
+      "source": "sql/get_priority_accounts.sql",
+      "public_path": "sql/get_priority_accounts.sql",
+      "source_sha256": "e72ae5ab161d70eb932978c4b6cd25604ff07261197047a29cf758aa78cf5a53"
+    },
+    {
+      "source": "sql/get_reporting_context.sql",
+      "public_path": "sql/get_reporting_context.sql",
+      "source_sha256": "8517e4f4ef8d1e44db7804e0a3d99f5cf866e8179b95e037640b2c06b170c309"
+    },
+    {
+      "source": "rag_corpus/00_synthetic_demo_notice.txt",
+      "public_path": "rag_corpus/00_synthetic_demo_notice.txt",
+      "source_sha256": "8cf04c94032c443fe0dc95fd1669186c851d8e2b1fda2c78218d173af3c93384"
+    },
+    {
+      "source": "rag_corpus/01_synthetic_transaction_triage_policy.txt",
+      "public_path": "rag_corpus/01_synthetic_transaction_triage_policy.txt",
+      "source_sha256": "dcbc2c041c8e5468347f7525f138b1ea841fee12962ece3a8cfb704e773ad473"
+    },
+    {
+      "source": "rag_corpus/02_analyst_investigation_playbook.txt",
+      "public_path": "rag_corpus/02_analyst_investigation_playbook.txt",
+      "source_sha256": "b89e1f5df893822dee872953cf8711d0c3ee7dabdaf791ef1134b95856449264"
+    },
+    {
+      "source": "rag_corpus/03_medallion_data_dictionary.txt",
+      "public_path": "rag_corpus/03_medallion_data_dictionary.txt",
+      "source_sha256": "e7bdfb173b05508fbd7fde5e303d47ccd2cc9fb9d0a3e3e4063a3c1fed50bdc3"
+    },
+    {
+      "source": "rag_corpus/04_model_and_synthetic_risk_limitations.txt",
+      "public_path": "rag_corpus/04_model_and_synthetic_risk_limitations.txt",
+      "source_sha256": "0d821781a8cb13e77e6ea840dcf511845b90481b49b5c7524d24c3894e282c51"
+    },
+    {
+      "source": "rag_corpus/05_evidence_and_citation_standard.txt",
+      "public_path": "rag_corpus/05_evidence_and_citation_standard.txt",
+      "source_sha256": "d73e452bf9e16824a681465a5cc89a13caf028c56b098c43dde4705f4e93fd79"
+    },
+    {
+      "source": "rag_corpus/06_human_review_and_data_handling.txt",
+      "public_path": "rag_corpus/06_human_review_and_data_handling.txt",
+      "source_sha256": "c696754580405d0e5a84cb8abf329c77081ceeafbf7825a4338ab9e0e7eab6ea"
+    },
+    {
+      "source": "rag_corpus/07_investigation_brief_template.txt",
+      "public_path": "rag_corpus/07_investigation_brief_template.txt",
+      "source_sha256": "59d628f0c94c16eded2ce4806a69089f04b71fd2ddb4be17b12675584d15a6d7"
+    },
+    {
+      "source": "config/sql_tools.json",
+      "public_path": "config/sql_tools.json",
+      "source_sha256": "f969c62b35987d7ea72627d572aa81d4f9e30c7aee025dd808ea20bba56cf532"
+    },
+    {
+      "source": "config/rag_documents.json",
+      "public_path": "config/rag_documents.json",
+      "source_sha256": "acd48b6c257a9ce73d06a31277cf9861985435cd55285d4c6165db581bab4045"
+    },
+    {
+      "source": "config/rag_manifest.json",
+      "public_path": "config/rag_manifest.json",
+      "source_sha256": "ac7c73f8422fc8916c50ea73b573f447c3e1691ef40d2843ebf9e2209863a25d"
+    },
+    {
+      "source": "config/acceptance_cases.json",
+      "public_path": "config/acceptance_cases.json",
+      "source_sha256": "134db1752ceae55cd10d9a56022a6acccb17f1811f1d99456d0142c61b8c2c6c"
+    },
+    {
+      "source": "config/tenant_acceptance_log.csv",
+      "public_path": "config/tenant_acceptance_log.csv",
+      "source_sha256": "737a82efe9c6887a5ec7032eecd1ce4c2ca54e34b1f695590a4f5947a84e692b"
+    },
+    {
+      "source": "scripts/finance_core.py",
+      "public_path": "scripts/finance_core.py",
+      "source_sha256": "61a428bd431137277f7784b87234203e8755c4f34b02168be0ec60f3f9453729"
+    },
+    {
+      "source": "scripts/dashboard_cells.py",
+      "public_path": "scripts/dashboard_cells.py",
+      "source_sha256": "df1e563db8a524301aff8aff80f644a6148f9f8d7447709a7988322160eaf3d7"
+    },
+    {
+      "source": "scripts/setup_cells.py",
+      "public_path": "scripts/setup_cells.py",
+      "source_sha256": "c46403a1124d02246bbf264aec7b4e3c4f48f7da9f00dd3da5afdfffe1246ef4"
+    },
+    {
+      "source": "scripts/build_package.py",
+      "public_path": "scripts/build_package.py",
+      "source_sha256": "591888b580a3e401f7cea0964520c73a747ca9fd4528172736c171de21328b49"
+    },
+    {
+      "source": "scripts/build_fs_ailh_notebook.py",
+      "public_path": "scripts/build_fs_ailh_notebook.py",
+      "source_sha256": "d88911b89db5ca34c0de60a280761cab7c2ea459801440b35220fb15e1ada9b9"
+    },
+    {
+      "source": "scripts/validate_notebooks.py",
+      "public_path": "scripts/validate_notebooks.py",
+      "source_sha256": "cad454d327082727251e70e6d7b16f444bf108a751a146eedff378287345c0a8"
+    },
+    {
+      "source": "validation/test_fs_ailh_notebook.py",
+      "public_path": "validation/test_fs_ailh_notebook.py",
+      "source_sha256": "1e26f90f6f6883897f1327d8763667dbc4646d26a2f2a89de6d49a19a50bf103"
+    },
+    {
+      "source": "validation/local_spark_fixture.py",
+      "public_path": "validation/local_spark_fixture.py",
+      "source_sha256": "3013a8fa2bbd73e29c45f23a591d86cf924e8bfedbf55214ab1c17ef457aee49"
+    },
+    {
+      "source": "validation/analytical_checks.py",
+      "public_path": "validation/analytical_checks.py",
+      "source_sha256": "edd54a09c88909b2b0b87ac862e6c0c44d0579b3c323e8dc121e23a1870d339e"
+    },
+    {
+      "source": "agent_card/agent-card.editable-metadata.json",
+      "public_path": "agent_card/agent-card.editable-metadata.json",
+      "source_sha256": "9afbfcb99c3ba15c7bd68cbb92db8e4e7f7a59805bb60897b6a916efbcbbd0d9"
+    },
+    {
+      "source": "agent_card/agent-card.form-fields.txt",
+      "public_path": "agent_card/agent-card.form-fields.txt",
+      "source_sha256": "5a4aac309b0708eac9bbbeb2f4ded55002c64e589b5f7bb4b35682845b57ba11"
+    },
+    {
+      "source": "agent_card/agent-card.draft.reference.json",
+      "public_path": "agent_card/agent-card.draft.reference.json",
+      "source_sha256": "042501c655bcbb29f2283ba6bafea31e40235aba7896612c1d83d4b981d9b709"
+    },
+    {
+      "source": "agent_card/README.txt",
+      "public_path": "agent_card/README.txt",
+      "source_sha256": "198f01b31df2ef186219f2085b5986cafc189194d02c1403221760d22145e968"
+    },
+    {
+      "source": "live_review/node_configurations.json",
+      "public_path": "agents/node-configurations.json",
+      "source_sha256": "565a3ee8fa1f2cb432cdc4d719fe67a1ee621f50f2350cfe76aa7505961b7c3c"
+    },
+    {
+      "source": "live_review/FS_INVESTIGATION_SUPERVISOR.txt",
+      "public_path": "agents/prompts/FS_INVESTIGATION_SUPERVISOR.txt",
+      "source_sha256": "a160db528a796041e4df94686eb4b115242068ecdf3ec4f5c65e2a711273549d"
+    },
+    {
+      "source": "live_review/PORTFOLIO_SQL_AGENT.txt",
+      "public_path": "agents/prompts/PORTFOLIO_SQL_AGENT.txt",
+      "source_sha256": "fc14d1bff975497069131205244a2676a66f5e1138db5a19e3cc148a7eadc972"
+    },
+    {
+      "source": "live_review/INVESTIGATION_SQL_AGENT.txt",
+      "public_path": "agents/prompts/INVESTIGATION_SQL_AGENT.txt",
+      "source_sha256": "9b42b7933b41fc981cd4ad81160979b7a97dcb25181aa102c8db6477061716bb"
+    },
+    {
+      "source": "live_review/POLICY_RAG_AGENT.txt",
+      "public_path": "agents/prompts/POLICY_RAG_AGENT.txt",
+      "source_sha256": "218beb028fa79ec6d9436f1ac7aa9dd41e0ddbb1e77081cf4d7570377c7e2df3"
+    },
+    {
+      "source": "live_review/INVESTIGATION_BRIEF_AGENT.txt",
+      "public_path": "agents/prompts/INVESTIGATION_BRIEF_AGENT.txt",
+      "source_sha256": "7103309a7a57fd63ec251d5e85cdaf6e3052d36c2b19512a631c82c1af010a64"
+    },
+    {
+      "source": "live_review/compose_investigation_brief.txt",
+      "public_path": "agents/prompts/compose_investigation_brief.txt",
+      "source_sha256": "e6c68b37ec37034129b46b3957c67c43bf1942d9dba0cc90f31ce38f7656253f"
+    },
+    {
+      "source": "live_review/RAG_TOOL_DESCRIPTION.txt",
+      "public_path": "agents/prompts/RAG_TOOL_DESCRIPTION.txt",
+      "source_sha256": "889a0c7c10754efda91d393bcb6e7dff146c35633f5d7b7ff6bb79bbb4de83de"
+    },
+    {
+      "source": "live_review/RAG_PREAMBLE_OVERRIDE.txt",
+      "public_path": "agents/prompts/RAG_PREAMBLE_OVERRIDE.txt",
+      "source_sha256": "1ceb3e112e3682ee611fc663c1a1a47a1a2afd479e69e5ed5f1871ffe17250c3"
+    },
+    {
+      "source": "live_review/sample_prompts.txt",
+      "public_path": "agents/prompts/sample_prompts.txt",
+      "source_sha256": "23273bda1dfd832290c1664a319ca6927ded844a695af232dd9638c3734d1d81"
+    },
+    {
+      "source": "prompts/GUARDRAILS_CONFIGURATION.txt",
+      "public_path": "agents/prompts/GUARDRAILS_CONFIGURATION.txt",
+      "source_sha256": "6144865121cc4bebf887dcd255a22752138b545f0460456936f251aba3e763a1"
+    },
+    {
+      "source": "streamlit-paf-aidp/app.py",
+      "public_path": "apps/copilot/app.py",
+      "source_sha256": "a2c5ef463853bf8a0a1df524698fc4bdc2bde9e86114eed4b4befea2df957949"
+    },
+    {
+      "source": "streamlit-paf-aidp/paf_client.py",
+      "public_path": "apps/copilot/paf_client.py",
+      "source_sha256": "360b9b351989eaafc940973d1cf3ce057b0cefb063eb8e97adfb6408dd2ed822"
+    },
+    {
+      "source": "streamlit-paf-aidp/aidp_client.py",
+      "public_path": "apps/copilot/aidp_client.py",
+      "source_sha256": "e34c65bc5fce7bf37d15487f582ddc843d2cbb7d6f2bff452bedd5a8a8cd483c"
+    },
+    {
+      "source": "streamlit-paf-aidp/aidp_ui.py",
+      "public_path": "apps/copilot/aidp_ui.py",
+      "source_sha256": "414a25b6ca72a1b744e3e3c7d6828a4e1bdd7b7fefa0637603c1afd3a8fe6b62"
+    },
+    {
+      "source": "streamlit-paf-aidp/branding.py",
+      "public_path": "apps/copilot/branding.py",
+      "source_sha256": "9e4359c4bf9e744ac00e900dec82643e0b0edfbbf1916808044099fe6d89ca91"
+    },
+    {
+      "source": "streamlit-paf-aidp/response_view.py",
+      "public_path": "apps/copilot/response_view.py",
+      "source_sha256": "4324bf4e2d14379a1b803b80e5fa760e4fce594bbf0fa029761566bee9c40556"
+    },
+    {
+      "source": "streamlit-paf-aidp/response_ui.py",
+      "public_path": "apps/copilot/response_ui.py",
+      "source_sha256": "4969148fafbee8f31cba984c138ad7f849c2be5f96de0899c5d76638bdd87434"
+    },
+    {
+      "source": "streamlit-paf-aidp/history_store.py",
+      "public_path": "apps/copilot/history_store.py",
+      "source_sha256": "fadc5e899394318a379f91cad0be9c93028218fd079f5b7acdcb9dd627155f91"
+    },
+    {
+      "source": "streamlit-paf-aidp/tests/test_aidp_app.py",
+      "public_path": "apps/copilot/tests/test_aidp_app.py",
+      "source_sha256": "e04dd11ecad3c0985db5f78cccc2e5950d7c3e9a2cf68b84de2d3d21d14d345f"
+    },
+    {
+      "source": "streamlit-paf-aidp/tests/test_aidp_client.py",
+      "public_path": "apps/copilot/tests/test_aidp_client.py",
+      "source_sha256": "c52fdde89e37fa96c7c425c333a76bf39f253066a82f505b8c266d2bff5fe5df"
+    },
+    {
+      "source": "streamlit-paf-aidp/tests/test_app.py",
+      "public_path": "apps/copilot/tests/test_app.py",
+      "source_sha256": "64376b6b96637b71764ada01cb464b972a972aa8a9cb9154bab6b8c80eeb27cf"
+    },
+    {
+      "source": "streamlit-paf-aidp/tests/test_branding.py",
+      "public_path": "apps/copilot/tests/test_branding.py",
+      "source_sha256": "c9c8b18d7f87550e91d585e38173ddb84d2c2bac06f4a050e9043cc4e3c6d0f3"
+    },
+    {
+      "source": "streamlit-paf-aidp/tests/test_client.py",
+      "public_path": "apps/copilot/tests/test_client.py",
+      "source_sha256": "2469c57b13c2d213dab0aff3eb1f595d3af1f1d56be4951171afc5272b18c4c7"
+    },
+    {
+      "source": "streamlit-paf-aidp/tests/test_history.py",
+      "public_path": "apps/copilot/tests/test_history.py",
+      "source_sha256": "02bbb6f8f779d4e4bbaeb1b6b280b5fcbdfd1df4bbd8b76d84335418f1ed83af"
+    },
+    {
+      "source": "streamlit-paf-aidp/tests/test_https.py",
+      "public_path": "apps/copilot/tests/test_https.py",
+      "source_sha256": "7897a2c8e7c5870cfd90a686c9403064ba0069d33431b81e24867b560ab8290f"
+    },
+    {
+      "source": "streamlit-paf-aidp/tests/test_local.py",
+      "public_path": "apps/copilot/tests/test_local.py",
+      "source_sha256": "8636a50fc9c65e6a1a15ab3c6e0008d397b13bf3d95a2626eed5e52b4310f522"
+    },
+    {
+      "source": "streamlit-paf-aidp/tests/test_presentation.py",
+      "public_path": "apps/copilot/tests/test_presentation.py",
+      "source_sha256": "4917a4aa8deae96de25784e8520a927283725c6a760ff3cacd23ac7f67bdfc45"
+    },
+    {
+      "source": "streamlit-paf-aidp/.streamlit/config.toml",
+      "public_path": "apps/copilot/.streamlit/config.toml",
+      "source_sha256": "9c1aa6005737b14b0658933f37e4abb1bda9549313115177983ce263eef61efe"
+    },
+    {
+      "source": "streamlit-paf-aidp/assets/oracle-wordmark.png",
+      "public_path": "apps/copilot/assets/oracle-wordmark.png",
+      "source_sha256": "5d41820d01b4fa0eeb193ec62dfe5a1fbaf0ba680f864d8fabe3c0b5e3de93e8"
+    },
+    {
+      "source": "streamlit-paf-aidp/assets/oracle-wordmark.png",
+      "public_path": "media/brand/oracle-wordmark.png",
+      "source_sha256": "5d41820d01b4fa0eeb193ec62dfe5a1fbaf0ba680f864d8fabe3c0b5e3de93e8"
+    },
+    {
+      "source": "streamlit-paf-aidp/assets/oracle-symbol.png",
+      "public_path": "apps/copilot/assets/oracle-symbol.png",
+      "source_sha256": "0bcc8c60aa8ac73484646a6909c4c3ebc03afa48f213ce32b18d6db68faedaa7"
+    },
+    {
+      "source": "streamlit-paf-aidp/assets/oracle-symbol.png",
+      "public_path": "media/brand/oracle-symbol.png",
+      "source_sha256": "0bcc8c60aa8ac73484646a6909c4c3ebc03afa48f213ce32b18d6db68faedaa7"
+    }
+  ],
+  "publication_changes": [
+    "Notebook code and markdown preserved; saved outputs and execution metadata cleared.",
+    "Application deployment defaults removed; unit tests use a fictional deployment identifier.",
+    "Private connection profiles, wallets, secrets, histories, trace exports and session IDs excluded.",
+    "Acceptance CSV uses LF line endings so checkout bytes match release checksums.",
+    "Local validation runner respects AIDP_JAVA_HOME, JAVA_HOME or Java on PATH instead of assuming a macOS installation path."
+  ],
+  "current_agent_contract": "agents/node-configurations.json; Prompt tool input is evidence_packet (String).",
+  "setup_notebook_note": "Its original evidence_json build-time template is retained; use current node configuration when assembling the deployed Prompt tool."
+}

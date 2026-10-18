@@ -1,0 +1,8 @@
+Synthetic data notice and interpretation boundary
+SYNTHETIC DEMO ONLY — Meridian Demo Bank is fictional. Not a legal or regulatory policy.
+
+[FS-NOTICE-001 v1.0 §1] Effective from 2024-01-01; applies to synthetic 2024 transaction-review periods.
+Every account, transaction and document in this demonstration is synthetic. No real customer, investigation, loss or fraud outcome is represented. Amount values have no currency field in the source and are treated as INR solely by the demo's explicit assumption. No exchange rate is applied. US city/Online/ATM source labels are retained and do not imply an Indian operating dataset.
+
+[FS-NOTICE-001 v1.0 §2] Effective from 2024-01-01; applies to synthetic 2024 transaction-review periods.
+The purpose is to assemble an analyst investigation draft from structured transaction-risk evidence and fictional internal procedures. The system does not freeze accounts, contact customers, create operational cases, file reports or decide that fraud occurred. A human must validate evidence and determine any real-world action through separately governed systems.
