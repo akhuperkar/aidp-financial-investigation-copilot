@@ -1,0 +1,38 @@
+{
+  "recorded_on": "2026-10-18",
+  "scope": "Focused USD migration checks; not the complete T01-T12 acceptance suite",
+  "reference": "data/agent-serving-usd-reference.json",
+  "overall_hybrid_status": "FAIL",
+  "checks": [
+    {
+      "entry_point": "Agent Hub",
+      "case": "Focused SQL portfolio",
+      "status": "PASS",
+      "evidence": "media/screenshots/agent-hub-usd-focused.png",
+      "observation": "USD/rule1.1 response matched the existing serving snapshot December SQL aggregates."
+    },
+    {
+      "entry_point": "Streamlit",
+      "case": "Focused SQL portfolio",
+      "status": "PASS",
+      "evidence": "media/screenshots/streamlit-usd-focused.png",
+      "observation": "USD response matched the same existing serving snapshot December SQL aggregates."
+    },
+    {
+      "entry_point": "RAG tool test",
+      "case": "Narrow FS-POL-001 retrieval",
+      "status": "PASS",
+      "observation": "Policy corpus v1.1 retrieved; denomination/rule qualifiers checked separately from the combined brief."
+    },
+    {
+      "entry_point": "Streamlit",
+      "case": "Fresh full hybrid investigation",
+      "status": "FAIL",
+      "observation": "Returned USD/v1.1 wording but transaction rows did not reconcile: invented Debit/CardNotPresent patterns and a purported score60 flag conflicted with four actual Deposit/Transfer/Withdrawal evidence groups. A completed response does not establish content correctness.",
+      "root_cause": "Unverified; no behavior repair attempted during denomination migration."
+    }
+  ],
+  "privacy": "Operational endpoints, deployment/session identifiers, credentials and raw private traces excluded. Source-derived snapshot metadata is separate.",
+  "screenshot_scope": "Actual browser clips of focused December2024 USD client metric details; endpoints and operational identifiers excluded.",
+  "ai_registry": "Current USD v1.1 entry verified after retiring the previous entry; content acceptance remains separate."
+}

@@ -1,8 +1,8 @@
 Synthetic analyst brief template
 SYNTHETIC DEMO ONLY — Meridian Demo Bank is fictional. Not a legal or regulatory policy.
 
-[FS-BRIEF-001 v1.0 §1] Effective from 2024-01-01; applies to synthetic 2024 transaction-review periods.
+[FS-BRIEF-001 v1.1 §1] Effective from 2024-01-01; applies to synthetic 2024 transaction-review periods.
 Use six sections: Scope and snapshot; Structured evidence; Documentary evidence; Interpretation and limitations; Proposed analyst steps; Human-review status. Include portfolio context, selected account-month totals and a few illustrative source-row patterns. Keep numerical evidence and cited policy separate, then explain how the retrieved policy applies. Label any hypothesis and missing information.
 
-[FS-BRIEF-001 v1.0 §2] Effective from 2024-01-01; applies to synthetic 2024 transaction-review periods.
-Show amounts as INR under the explicit no-conversion assumption, retain exact period/account scope, disclose SQL row caps and include SQL/document citations. Never replace missing data with zero. Never infer probability from risk_score, fraud from a flag, loss from exposure or money saved from a draft. Finish with Human review required. No case, account, customer or regulatory action has been executed.
+[FS-BRIEF-001 v1.1 §2] Effective from 2024-01-01; applies to synthetic 2024 transaction-review periods.
+Show amounts as USD under the explicit no-conversion assumption, retain exact period/account scope, disclose SQL row caps and include SQL/document citations. Never replace missing data with zero. Never infer probability from risk_score, fraud from a flag, loss from exposure or money saved from a draft. Finish with Human review required. No case, account, customer or regulatory action has been executed.

@@ -2,7 +2,7 @@
 
 The investigation workflow answers three questions: which accounts deserve review first, which transaction evidence supports that order, and which policy applies. A shared medallion foundation supports analytics, an independent ML example and a read-only agent workflow.
 
-**Demonstration dataset; amounts shown in INR.** The queue ranks rule-flagged gross exposure. It is not a model-generated fraud prediction.
+**Demonstration dataset; amounts shown in USD.** The queue ranks rule-flagged gross exposure. It is not a model-generated fraud prediction.
 
 ![Financial investigation architecture](../media/diagrams/architecture.svg)
 

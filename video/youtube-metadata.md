@@ -19,7 +19,7 @@ Follow a financial-investigation workflow for fictional Meridian Demo Bank: Spar
 
 The copilot uses seven predefined, parameterized SQL tools and eight fictional policy/definition documents to support evidence-backed review. The existing agent tools use a dedicated snapshot; Oracle Analytics uses the separately verified Gold publication. Their totals must not be blended.
 
-Demonstration dataset; amounts shown in INR. Flags and P1 priority are screening measures, not confirmed fraud findings or calibrated probabilities. The ML training workflow does not score the deployed agent queue. No external action or implemented approval workflow is demonstrated.
+Demonstration dataset; amounts shown in USD. Flags and P1 priority are screening measures, not confirmed fraud findings or calibrated probabilities. The ML training workflow does not score the deployed agent queue. No external action or implemented approval workflow is demonstrated.
 
 Acceptance note: historical Streamlit connection, SQL and follow-up transport passed, but the hybrid answer failed evidence reconciliation. A successful combined-answer segment requires a fresh hosted acceptance check. Keep this note unless the final recording includes and documents that passed check.
 
@@ -56,7 +56,7 @@ Oracle AI Data Platform, AIDP, financial investigation, data engineering, medall
 ## Thumbnail and captions
 
 - Editable thumbnail: `cards/thumbnail.svg`; export to a high-quality 1280×720 PNG after checking the supplied Oracle wordmark resolves. No invented dashboard, fabricated amounts, or fraud-loss claims.
-- Thumbnail alt text: Text-led cover reading “Financial investigation, with evidence” and “Data foundation to analyst copilot” on a warm Oracle Redwood-aligned canvas, labelled Meridian Demo Bank, demonstration dataset, INR.
+- Thumbnail alt text: Text-led cover reading “Financial investigation, with evidence” and “Data foundation to analyst copilot” on a warm Oracle Redwood-aligned canvas, labelled Meridian Demo Bank, demonstration dataset, USD.
 - Caption language: English (`en`). Deliver a corrected UTF-8 SRT alongside the master. The visible lower caption band should be small to medium, two lines at most, on a translucent background, clear of controls.
 - Final video ID: `{{YOUTUBE_VIDEO_ID}}` — pending upload.
 - Final demo URL: `{{YOUTUBE_DEMO_URL}}` — pending upload.

@@ -357,8 +357,10 @@
     "Application deployment defaults removed; unit tests use a fictional deployment identifier.",
     "Private connection profiles, wallets, secrets, histories, trace exports and session IDs excluded.",
     "Acceptance CSV uses LF line endings so checkout bytes match release checksums.",
-    "Local validation runner respects AIDP_JAVA_HOME, JAVA_HOME or Java on PATH instead of assuming a macOS installation path."
+    "Local validation runner respects AIDP_JAVA_HOME, JAVA_HOME or Java on PATH instead of assuming a macOS installation path.",
+    "USD denomination labels and derived fields updated without rescaling source values; current embedded agent/tool definitions aligned with reviewed nodes; six genuine USD OAC captures replace active screenshots on 2026-10-18."
   ],
   "current_agent_contract": "agents/node-configurations.json; Prompt tool input is evidence_packet (String).",
-  "setup_notebook_note": "Its original evidence_json build-time template is retained; use current node configuration when assembling the deployed Prompt tool."
+  "setup_notebook_note": "Current generated PROMPTS/config/prompts.json are aligned with reviewed node configurations; Brief input is evidence_packet (String), and responses use Markdown. Original input hashes remain historical provenance.",
+  "provenance_note": "Original pre-migration selected input hashes; these are not current-artifact integrity hashes. Current USD release hashes are in package-manifest.json. Historical denomination evidence is under reference/archive-inr-2026-10-18."
 }

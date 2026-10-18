@@ -8,7 +8,7 @@ This checklist separates a reviewable public package from a currently validated 
 - [ ] Preserve the four exact notebook filenames and a usable source archive under `reference/`; document sanitized/revised copies separately from original-byte hashes.
 - [ ] Validate current file manifests against the packaged bytes. Do not reuse a historical manifest as the current release checksum list.
 - [ ] Keep seven SQL templates, configuration dictionaries, eight corpus files, current node settings and current prompts consistent. The latest briefing variable is `evidence_packet`, String.
-- [ ] Treat notebook-embedded prompts, older `config/prompts.json` and archived HTML as historical scaffolding where they differ from `agents/node-configurations.json` and `agents/prompts/`.
+- [x] Align current notebook-embedded prompts and `config/prompts.json` with `agents/node-configurations.json` and `agents/prompts/`; the builder now derives those definitions from the reviewed node configuration. Earlier archived scaffolding remains historical.
 - [ ] Run notebook JSON/compilation checks, the relevant AILH contract tests and app tests. Run local Spark calculation validation where its required environment is available; report skipped checks explicitly.
 - [ ] Test the documented venv install and app launch paths: `requirements/app.txt`, optional `requirements/oci.txt`, `requirements/validation.txt`, and `apps/copilot/app.py` on port 8501.
 - [ ] Check relative links and image paths in Markdown/HTML, asset dimensions and exported rendering. Confirm local paths do not leak into published content.
@@ -16,7 +16,7 @@ This checklist separates a reviewable public package from a currently validated 
 
 ## Claim and number review
 
-- [ ] Place “Demonstration dataset; amounts shown in INR” near the first numerical results.
+- [ ] Place “Demonstration dataset; amounts shown in USD” near the first numerical results.
 - [ ] Keep the 17 October Gold/OAC snapshot separate from earlier deployed-agent/Streamlit evidence. Match source versions, account/month, filters, rule, timezone and consumer path before comparing figures.
 - [ ] Preserve gross versus net, count flag rate versus monetary concentration, account totals versus capped evidence, and queue rank versus P1 assignment.
 - [ ] Explain that the unseeded source generator cannot reproduce exact frozen counts on demand. Label seed-42 local fixtures separately from cloud evidence.
@@ -58,7 +58,7 @@ This checklist separates a reviewable public package from a currently validated 
 ## Article, video and release links
 
 - [ ] Read the article beside the README, user guide and methodology; remove inconsistent figures, stale parameter names and unsupported all-pass claims.
-- [ ] Review screenshots for readable labels, selected month/filter scope, consistent INR formatting and sanitized runtime identifiers.
+- [ ] Review screenshots for readable labels, selected month/filter scope, consistent USD formatting and sanitized runtime identifiers.
 - [ ] Record only the demonstrated path. If showing a saved/historical response or a local fixture, label it accordingly; do not present it as a new live success.
 - [ ] Until video publication, keep `{{YOUTUBE_DEMO_URL}}` explicitly pending. Until article publication, keep `{{MEDIUM_ARTICLE_URL}}` explicitly pending in the README. Do not invent a watch/article URL.
 - [ ] Before adding the final master, verify it exists and was reviewed; intended path is `video/final/aidp-financial-investigation-copilot.mp4`. Track the master with Git LFS and keep `video/source/` ignored.
@@ -66,3 +66,12 @@ This checklist separates a reviewable public package from a currently validated 
 - [ ] Review the final staged diff and release artifacts, then perform only the separately authorized GitHub/article/video publication actions. Package readiness does not itself authorize publishing to a service.
 
 Companion guides: [build and run](user-guide.md), [OAC workbook](oac-workbook.md), [architecture](architecture.md), [metrics](metrics-and-methodology.md), [troubleshooting](troubleshooting.md), [hosted acceptance](hosted-acceptance.md).
+
+## USD OAC capture review — 18 October 2026
+
+- [x] Replace all six current OAC screenshot assets with genuine captures of the saved USD views: executive snapshot, activity/risk trends, monthly changes, investigation queue, risk exposure and executive brief. Each public PNG preserves the decoded pixels of its 1512 × 746 JPEG capture.
+- [x] Inspect the visible USD labels, rule `FS-TRIAGE-1.1`, December scope, unchanged reference amounts and preserved Auto Fit canvas presentation. The queue's first account remains ACC00004535 with USD 28,008.03 flagged gross.
+- [x] Retain the original screenshots and deck in the pre-migration archive; replace slide 6's embedded OAC screenshot and inspect its rendered fit.
+- [x] Verify both OAC custom SQL dataset definitions use USD aliases after save/reload; remove eight redundant preparation rename steps and preserve Maximum aggregation on `MONTH_FLAGGED_GROSS_USD`. The queries read native Gold directly; no physical-view rename or database DDL was required.
+
+These captures verify OAC presentation. They do not establish fresh Agent Hub/Streamlit acceptance; the source update changed OAC SQL aliases rather than database schema objects. Track those entry points separately.

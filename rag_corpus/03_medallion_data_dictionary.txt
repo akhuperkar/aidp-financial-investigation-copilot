@@ -1,11 +1,11 @@
 Finance medallion data dictionary
 SYNTHETIC DEMO ONLY — Meridian Demo Bank is fictional. Not a legal or regulatory policy.
 
-[FS-DATA-001 v1.0 §1] Effective from 2024-01-01; applies to synthetic 2024 transaction-review periods.
+[FS-DATA-001 v1.1 §1] Effective from 2024-01-01; applies to synthetic 2024 transaction-review periods.
 finance.gold.transaction_analytics_gold has one row per account_id and month_year (YYYY-MM). total_transactions is the row count; total_amount is signed SUM(amount); avg_amount is signed average; avg_risk_score is mean source score; high_risk_transactions counts score > 60. transaction_types and merchant_categories are maps of category to transaction count. Aggregate averages must be weighted by total_transactions. Distinct accounts are nonadditive across months.
 
-[FS-DATA-001 v1.0 §2] Effective from 2024-01-01; applies to synthetic 2024 transaction-review periods.
+[FS-DATA-001 v1.1 §2] Effective from 2024-01-01; applies to synthetic 2024 transaction-review periods.
 finance.gold.fraud_detection_model_gold stores transaction-level feature records: account_id, transaction_date, transaction_type, amount, merchant_category, location, risk_score, month, day_of_week, hour, is_fraud. is_fraud is generated as risk_score > 60. The notebook trains a Spark Random Forest in memory but does not persist its predictions or model metrics into these Gold tables. Declared DDL timestamp columns may be absent because later saveAsTable overwrites use narrower DataFrames.
 
-[FS-DATA-001 v1.0 §3] Effective from 2024-01-01; applies to synthetic 2024 transaction-review periods.
+[FS-DATA-001 v1.1 §3] Effective from 2024-01-01; applies to synthetic 2024 transaction-review periods.
 No unique transaction ID is supplied. Content fingerprints locate a source-row pattern and cannot distinguish identical repeated records. transaction_evidence_sql groups identical records and exposes duplicate_multiplicity. Amount totals preserve every source row. Evidence results are capped at twenty groups; use get_account_snapshot for complete account totals. Gross activity is SUM(ABS(amount)), net activity is SUM(amount), and flagged gross is SUM(ABS(amount)) where score > 60. None of these is a customer balance, revenue, realized loss or money saved.

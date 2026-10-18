@@ -46,14 +46,15 @@ def tables(markdown):
 
 
 def table_svg(rows, widths, title):
-    margin, fontsize, leading, pad = 24, 22, 31, 22
+    # Readable at Medium's article-column width rather than desktop-table scale.
+    margin, fontsize, leading, pad = 24, 28, 38, 20
     total_width = sum(widths) + 2 * margin
     wrapped = []
     for row in rows:
-        wrapped.append([textwrap.wrap(cell, width=max(8, int((width - pad * 2) / 12)),
+        wrapped.append([textwrap.wrap(cell, width=max(5, int((width - pad * 2) / (fontsize * 0.50))),
                                        break_long_words=False, break_on_hyphens=False)
                         or [""] for cell, width in zip(row, widths)])
-    heights = [max(78, max(map(len, row)) * leading + 36) for row in wrapped]
+    heights = [max(84, max(map(len, row)) * leading + 36) for row in wrapped]
     total_height = sum(heights) + 2 * margin + 5
     description = "; ".join(" | ".join(row) for row in rows)
     svg = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{total_width}" height="{total_height}" viewBox="0 0 {total_width} {total_height}" role="img" aria-labelledby="title description">',
@@ -95,8 +96,8 @@ if __name__ == "__main__":
     assets = BASE / "assets"
     assets.mkdir(exist_ok=True)
     specifications = [
-        ("december-reference-table", [900, 452], "December 2024 reference measures"),
-        ("medallion-responsibilities-table", [188, 724, 640], "Data layer responsibilities"),
+        ("december-reference-table", [580, 372], "December 2024 reference measures"),
+        ("medallion-responsibilities-table", [150, 400, 402], "Data layer responsibilities"),
     ]
     for rows, (name, widths, title) in zip(extracted, specifications):
         (assets / (name + ".svg")).write_text(table_svg(rows, widths, title))

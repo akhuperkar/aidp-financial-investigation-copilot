@@ -1,0 +1,40 @@
+{
+  "reference_id": "oac-gold-v4-2026-10-17",
+  "verified_on": "2026-10-17",
+  "dataset": "Meridian Demo Bank demonstration transactions",
+  "currency": "INR",
+  "currency_note": "Display assumption only; no foreign exchange conversion.",
+  "period_start": "2024-01",
+  "period_end": "2024-12",
+  "source_delta_version": 4,
+  "transactions": 149658,
+  "account_month_rows": 52735,
+  "accounts": 5000,
+  "december_2024": {
+    "transactions": 12699,
+    "active_accounts": 4436,
+    "gross_activity": 31642312.97,
+    "net_activity": 20071594.45,
+    "rule_flags": 4934,
+    "flag_rate_pct": 38.853453027797464,
+    "flagged_gross": 12547752.55,
+    "p1_accounts": 528,
+    "top10_flagged_gross": 236847.35,
+    "top10_share_pct": 1.887567905536996,
+    "transactions_mom_pct": 4.03899721448468,
+    "gross_mom_pct": 3.4260554624094337,
+    "flagged_mom_pct": 1.2314479729502559,
+    "flag_rate_change_pp": -1.028572205694261
+  },
+  "top_account": {
+    "account_id": "ACC00004535",
+    "flagged_gross_inr": 28008.03
+  },
+  "definition_notes": [
+    "gross = sum(abs(amount)); net = sum(amount), not a balance",
+    "transaction flag: risk_score > 60; flags are screening labels, not confirmed fraud",
+    "P1: monthly flagged gross >= 10000 OR any transaction score >= 85 AND abs(amount) >= 5000"
+  ],
+  "evidence_scope": "Sanitized summary of verified OAC reference; current tenant must be revalidated.",
+  "agent_snapshot_warning": "Older deployed-agent snapshot differs. Do not combine its totals with this reference."
+}

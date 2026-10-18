@@ -7,7 +7,7 @@
 #
 # **Decision:** Where should fraud-operations leaders focus analyst investigation this month?
 # **Scope:** synthetic account activity, transaction-risk flags, gross exposure, concentration and evidence.
-# Amounts are **assumed INR**, as requested; the source has no currency column. No FX conversion is applied.
+# Amounts are **assumed USD**, as requested; the source has no currency column. No FX conversion is applied.
 # These are risk-screening signals, not confirmed fraud, realized loss, account balances, revenue or EBITDA.
 # Source locations remain the original US/Online/ATM labels; currency labeling does not localize the dataset.
 #
@@ -78,7 +78,7 @@ accounts = account_metrics(tx).cache()
 portfolio = portfolio_metrics(accounts).cache()
 current = portfolio.filter(F.col("month_year") == report_month).first().asDict()
 scope_label = "All accounts" if not ACCOUNT_IDS else ", ".join(ACCOUNT_IDS)
-print(f"Period: {report_month} | Scope: {scope_label} | INR assumption, no FX conversion")
+print(f"Period: {report_month} | Scope: {scope_label} | USD assumption, no FX conversion")
 print(f"Observed source periods: {source_periods[0]} to {source_periods[-1]} | fingerprint: {source_fingerprint_at_start}")
 
 # %% [markdown]
@@ -91,10 +91,10 @@ print(f"Observed source periods: {source_periods[0]} to {source_periods[-1]} | f
 cards = [
     ("Transactions", f"{current['transaction_count']:,}", "Selected month and account scope"),
     ("Active accounts", f"{current['active_accounts']:,}", "Distinct accounts in selected month"),
-    ("Gross activity · INR", inr(current["gross_amount_inr"]), "Absolute transaction amounts"),
-    ("Net activity · INR", inr(current["net_amount_inr"]), "Signed sum; not an account balance"),
+    ("Gross activity · USD", usd(current["gross_amount_usd"]), "Absolute transaction amounts"),
+    ("Net activity · USD", usd(current["net_amount_usd"]), "Signed sum; not an account balance"),
     ("Rule-flagged activity", f"{current['flagged_count']:,} · {current['flagged_rate_pct']:.1f}%", "risk_score > 60; not confirmed fraud"),
-    ("Flagged gross · INR", inr(current["flagged_gross_inr"]), "Exposure proxy; not loss or savings"),
+    ("Flagged gross · USD", usd(current["flagged_gross_usd"]), "Exposure proxy; not loss or savings"),
 ]
 display(HTML("<div style='display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px'>" +
     "".join(f"<div style='padding:16px;border:1px solid #ccd5d8;border-top:4px solid #245b73;border-radius:6px'><div>{escape(label)}</div><strong style='font-size:24px'>{escape(value)}</strong><div style='font-size:12px;margin-top:8px'>{escape(note)}</div></div>" for label, value, note in cards) + "</div>"))
@@ -133,9 +133,9 @@ else:
 
 # %%
 fig, ax = plt.subplots()
-ax.plot(dates, values("gross_amount_inr", 100000), marker="o", color=COLORS["activity"], label="Gross activity")
-ax.plot(dates, values("flagged_gross_inr", 100000), marker="s", linestyle="--", color=COLORS["flag"], label="Flagged gross")
-ax.set(title=f"Monthly gross activity and flagged exposure · {scope_label}", ylabel="INR lakh (₹100,000)", xlabel="Calendar month")
+ax.plot(dates, values("gross_amount_usd", 1000000), marker="o", color=COLORS["activity"], label="Gross activity")
+ax.plot(dates, values("flagged_gross_usd", 1000000), marker="s", linestyle="--", color=COLORS["flag"], label="Flagged gross")
+ax.set(title=f"Monthly gross activity and flagged exposure · {scope_label}", ylabel="USD million", xlabel="Calendar month")
 ax.set_ylim(bottom=0); ax.legend()
 ax.set_xticks(tick_dates); ax.xaxis.set_major_formatter(DateFormatter("%b %Y"))
 fig.autofmt_xdate(rotation=0); fig.tight_layout(); plt.show()
@@ -143,25 +143,25 @@ display(Markdown("These measures use transaction magnitudes. They do not measure
 
 # %% [markdown]
 # ## 5. Investigation queue and concentration
-# P1: flagged gross ≥ ₹10,000 per account-month **or** at least one transaction with score ≥ 85 and
-# absolute amount ≥ ₹5,000. P2: other accounts with score > 60 activity. P3: no flagged activity.
+# P1: flagged gross ≥ USD 10,000 per account-month **or** at least one transaction with score ≥ 85 and
+# absolute amount ≥ USD 5,000. P2: other accounts with score > 60 activity. P3: no flagged activity.
 # These fictional demo thresholds prioritize analyst review; they are not regulatory standards or model outputs.
 
 # %%
 account_snapshot = accounts.filter(F.col("month_year") == report_month)
-priority_rows = rows(account_snapshot.filter(F.col("flagged_count") > 0).orderBy(F.desc("flagged_gross_inr"), F.desc("flagged_count"), "account_id"), TOP_N)
-formatted = [{**r, "flagged_gross_display": inr(r["flagged_gross_inr"]), "gross_display": inr(r["gross_amount_inr"]), "rate_display": f"{r['flagged_rate_pct']:.1f}%"} for r in priority_rows]
-display(HTML(table_html(formatted, [("account_id","Synthetic account"),("priority","Demo priority"),("transaction_count","Transactions"),("flagged_count","Rule flags"),("flagged_gross_display","Flagged gross INR"),("rate_display","Flag rate"),("high_value_flagged_count","Flags ≥ ₹5,000") ])))
-top_exposure = sum(float(r["flagged_gross_inr"]) for r in priority_rows)
-concentration_pct = 100 * top_exposure / current["flagged_gross_inr"] if current["flagged_gross_inr"] else None
+priority_rows = rows(account_snapshot.filter(F.col("flagged_count") > 0).orderBy(F.desc("flagged_gross_usd"), F.desc("flagged_count"), "account_id"), TOP_N)
+formatted = [{**r, "flagged_gross_display": usd(r["flagged_gross_usd"]), "gross_display": usd(r["gross_amount_usd"]), "rate_display": f"{r['flagged_rate_pct']:.1f}%"} for r in priority_rows]
+display(HTML(table_html(formatted, [("account_id","Synthetic account"),("priority","Demo priority"),("transaction_count","Transactions"),("flagged_count","Rule flags"),("flagged_gross_display","Flagged gross USD"),("rate_display","Flag rate"),("high_value_flagged_count","Flags ≥ USD 5,000") ])))
+top_exposure = sum(float(r["flagged_gross_usd"]) for r in priority_rows)
+concentration_pct = 100 * top_exposure / current["flagged_gross_usd"] if current["flagged_gross_usd"] else None
 display(Markdown(f"Showing {len(priority_rows)} accounts ranked by flagged gross. " +
     (f"They represent **{concentration_pct:.1f}%** of this month's flagged gross in the selected scope." if concentration_pct is not None else "No rule-flagged gross exposure in this scope.")))
 if priority_rows:
     data = list(reversed(priority_rows))
     fig, ax = plt.subplots(figsize=(11, max(4, len(data)*0.35)))
-    ax.barh([r["account_id"] for r in data], [r["flagged_gross_inr"] for r in data], color=COLORS["flag"])
-    ax.xaxis.set_major_formatter(FuncFormatter(lambda value, pos: f"₹{value:,.0f}"))
-    ax.set(title=f"Top {len(data)} accounts by flagged gross · {report_month}", xlabel="Flagged gross · INR")
+    ax.barh([r["account_id"] for r in data], [r["flagged_gross_usd"] for r in data], color=COLORS["flag"])
+    ax.xaxis.set_major_formatter(FuncFormatter(lambda value, pos: f"${value:,.0f}"))
+    ax.set(title=f"Top {len(data)} accounts by flagged gross · {report_month}", xlabel="Flagged gross · USD")
     fig.tight_layout(); plt.show()
 
 # %% [markdown]
@@ -173,13 +173,13 @@ if priority_rows:
 mix_tables = {}
 for dimension, title in [("transaction_type", "Transaction type"), ("location", "Location label")]:
     mix = snapshot.groupBy(dimension).agg(F.count("*").alias("transactions"), F.sum("rule_flag").alias("flags"),
-        F.sum(F.when(F.col("rule_flag") == 1, F.col("gross_amount_inr")).otherwise(0)).alias("flagged_gross_inr"))
-    data = rows(mix.orderBy(F.desc("flagged_gross_inr"), dimension), 30)
+        F.sum(F.when(F.col("rule_flag") == 1, F.col("gross_amount_usd")).otherwise(0)).alias("flagged_gross_usd"))
+    data = rows(mix.orderBy(F.desc("flagged_gross_usd"), dimension), 30)
     mix_tables[dimension] = data
     fig, ax = plt.subplots()
-    ax.barh([str(r[dimension]) for r in data][::-1], [r["flagged_gross_inr"] for r in data][::-1], color=COLORS["activity"])
-    ax.xaxis.set_major_formatter(FuncFormatter(lambda value, pos: f"₹{value/100000:,.2f}L"))
-    ax.set(title=f"Flagged gross by {title.lower()} · {report_month}", xlabel="Flagged gross · INR lakh")
+    ax.barh([str(r[dimension]) for r in data][::-1], [r["flagged_gross_usd"] for r in data][::-1], color=COLORS["activity"])
+    ax.xaxis.set_major_formatter(FuncFormatter(lambda value, pos: f"${value/1000000:,.2f}M"))
+    ax.set(title=f"Flagged gross by {title.lower()} · {report_month}", xlabel="Flagged gross · USD million")
     fig.tight_layout(); plt.show()
 
 # %%
@@ -200,12 +200,12 @@ display(Markdown("The generator assigns risk scores randomly. Any apparent patte
 # %%
 leader = priority_rows[0] if priority_rows else None
 brief = (f"## Investigation review · {report_month}\n\n"
-         f"Scope: {scope_label}. Synthetic amounts assumed INR; no currency conversion.\n\n"
-         f"- {current['transaction_count']:,} transactions across {current['active_accounts']:,} active accounts; gross activity {inr(current['gross_amount_inr'])}.\n"
-         f"- {current['flagged_count']:,} rule flags ({current['flagged_rate_pct']:.2f}%) represent {inr(current['flagged_gross_inr'])} flagged gross. This is not confirmed fraud or loss.\n"
+         f"Scope: {scope_label}. Synthetic amounts assumed USD; no currency conversion.\n\n"
+         f"- {current['transaction_count']:,} transactions across {current['active_accounts']:,} active accounts; gross activity {usd(current['gross_amount_usd'])}.\n"
+         f"- {current['flagged_count']:,} rule flags ({current['flagged_rate_pct']:.2f}%) represent {usd(current['flagged_gross_usd'])} flagged gross. This is not confirmed fraud or loss.\n"
          f"- {current['p1_accounts']:,} account-months meet fictional P1 review criteria under {RULE_VERSION}.\n")
 if leader:
-    brief += f"- Review {leader['account_id']} first by exposure: {inr(leader['flagged_gross_inr'])}, {leader['flagged_count']} rule flags; queue priority {leader['priority']}.\n"
+    brief += f"- Review {leader['account_id']} first by exposure: {usd(leader['flagged_gross_usd'])}, {leader['flagged_count']} rule flags; queue priority {leader['priority']}.\n"
 brief += ("\n**Next step:** Retrieve the applicable synthetic policy and transaction evidence through the Agent Flow; draft an analyst investigation packet. Human review is required before any action.\n\n"
           "**Evidence:** the two finance Gold tables, scoped as above. Neither model predictions nor confirmed fraud labels are persisted in these tables. AUC from the training notebook is not consumed or certified here.")
 display(Markdown(brief))
@@ -214,7 +214,7 @@ if ENABLE_ENTERPRISE_LLM:
     if not callable(callback):
         raise RuntimeError("ENABLE_ENTERPRISE_LLM=True requires an authorized enterprise_llm(prompt) callable")
     evidence = json.dumps({"period": report_month, "scope": scope_label, "metrics": current, "source_fingerprint": source_fingerprint_at_start}, default=str)
-    response = callback("Rewrite the supplied synthetic aggregate evidence into an INR investigation brief. Preserve numbers, scope, caveats and sources exactly. Do not infer confirmed fraud, loss, causal drivers or probabilities. Evidence: " + evidence)
+    response = callback("Rewrite the supplied synthetic aggregate evidence into a USD investigation brief. Preserve numbers, scope, caveats and sources exactly. Do not infer confirmed fraud, loss, causal drivers or probabilities. Evidence: " + evidence)
     display(Markdown("### Optional LLM draft — requires analyst verification\n" + str(response)))
 
 # %% [markdown]
@@ -224,16 +224,20 @@ if ENABLE_ENTERPRISE_LLM:
 # not a Delta commit/version or an immutable audit record. Rerun after any source refresh.
 
 # %%
-assert abs(current["positive_amount_inr"] - current["negative_magnitude_inr"] - current["net_amount_inr"]) < 0.02
+assert abs(current["positive_amount_usd"] - current["negative_magnitude_usd"] - current["net_amount_usd"]) < 0.02
 assert 0 <= current["flagged_count"] <= current["transaction_count"]
-assert current["flagged_gross_inr"] <= current["gross_amount_inr"] + 0.02
-assert abs(sum(float(r["flagged_gross_inr"]) for r in mix_tables["transaction_type"]) - current["flagged_gross_inr"]) < 0.02
+assert current["flagged_gross_usd"] <= current["gross_amount_usd"] + 0.02
+assert abs(sum(float(r["flagged_gross_usd"]) for r in mix_tables["transaction_type"]) - current["flagged_gross_usd"]) < 0.02
 source_fingerprint_at_end = content_fingerprint(*read_gold(spark, CATALOG))
 assert source_fingerprint_at_start == source_fingerprint_at_end, "Source changed during dashboard run; rerun"
 quality.update({"signed_amount_identity": "PASS", "risk_bounds": "PASS", "type_mix_totals": "PASS", "stable_source_content": "PASS"})
 display(HTML(table_html([{"check": key, "status": value} for key, value in quality.items()], [("check", "Quality check"), ("status", "Result")])))
 print("Dashboard checks passed for this run. Next: financial_services_multi_agent_demo_setup_aidp.ipynb")
 tx.unpersist(); accounts.unpersist(); portfolio.unpersist()
+
+# Plain-text proof remains readable if the browser cannot render HTML output frames.
+print("USD denomination validation; original numerical amounts preserved, no FX conversion")
+print(json.dumps({"period": report_month, "scope": scope_label, "currency_assumption": CURRENCY_ASSUMPTION, "rule_version": RULE_VERSION, "source_fingerprint": source_fingerprint_at_end, "transactions": current["transaction_count"], "active_accounts": current["active_accounts"], "gross_activity_usd": current["gross_amount_usd"], "net_activity_usd": current["net_amount_usd"], "flagged_count": current["flagged_count"], "flagged_gross_usd": current["flagged_gross_usd"], "flagged_rate_pct": current["flagged_rate_pct"], "p1_accounts": current["p1_accounts"], "checks": quality}, indent=2, default=str))
 
 # %% [markdown]
 # **Source adaptation:** replaces manufacturing P&L with transaction activity; plants/products with account risk;

@@ -2,7 +2,7 @@
   {
     "tool_name": "get_reporting_context",
     "executor_agent": "PORTFOLIO_SQL_AGENT",
-    "description": "First call for structured or hybrid requests. Returns READY source snapshot, period coverage, timezone, fictional rule version and INR assumption. No READY row means setup is not ready.",
+    "description": "First call for structured or hybrid requests. Returns READY source snapshot, period coverage, timezone, fictional rule version and USD assumption. No READY row means setup is not ready.",
     "dialect": "Spark SQL",
     "query": "SELECT * FROM finance.agent_demo_fs.snapshot_metadata_sql WHERE status = 'READY' LIMIT 1",
     "configuration": {
@@ -70,11 +70,11 @@
     "executor_agent": "PORTFOLIO_SQL_AGENT",
     "description": "Monthly flagged gross and transaction activity by transaction type (1) or location label (2). One dimension per call. Source locations are not KYC residence or verified geography.",
     "dialect": "Spark SQL",
-    "query": "SELECT * FROM finance.agent_demo_fs.exposure_mix_monthly_sql WHERE snapshot_id = (SELECT snapshot_id FROM finance.agent_demo_fs.snapshot_metadata_sql WHERE status = 'READY') AND period_key = CASE WHEN CAST({{period_key}} AS INT) = 0 THEN (SELECT MAX(period_key) FROM finance.agent_demo_fs.portfolio_monthly_sql WHERE snapshot_id = (SELECT snapshot_id FROM finance.agent_demo_fs.snapshot_metadata_sql WHERE status = 'READY')) ELSE CAST({{period_key}} AS INT) END AND dimension_code = CAST({{dimension_code}} AS INT) ORDER BY flagged_gross_inr DESC, dimension_value LIMIT 30",
+    "query": "SELECT * FROM finance.agent_demo_fs.exposure_mix_monthly_sql WHERE snapshot_id = (SELECT snapshot_id FROM finance.agent_demo_fs.snapshot_metadata_sql WHERE status = 'READY') AND period_key = CASE WHEN CAST({{period_key}} AS INT) = 0 THEN (SELECT MAX(period_key) FROM finance.agent_demo_fs.portfolio_monthly_sql WHERE snapshot_id = (SELECT snapshot_id FROM finance.agent_demo_fs.snapshot_metadata_sql WHERE status = 'READY')) ELSE CAST({{period_key}} AS INT) END AND dimension_code = CAST({{dimension_code}} AS INT) ORDER BY flagged_gross_usd DESC, dimension_value LIMIT 30",
     "configuration": {
       "catalogKey": "finance",
       "schemaKey": "agent_demo_fs",
-      "query": "SELECT * FROM finance.agent_demo_fs.exposure_mix_monthly_sql WHERE snapshot_id = (SELECT snapshot_id FROM finance.agent_demo_fs.snapshot_metadata_sql WHERE status = 'READY') AND period_key = CASE WHEN CAST({{period_key}} AS INT) = 0 THEN (SELECT MAX(period_key) FROM finance.agent_demo_fs.portfolio_monthly_sql WHERE snapshot_id = (SELECT snapshot_id FROM finance.agent_demo_fs.snapshot_metadata_sql WHERE status = 'READY')) ELSE CAST({{period_key}} AS INT) END AND dimension_code = CAST({{dimension_code}} AS INT) ORDER BY flagged_gross_inr DESC, dimension_value LIMIT 30",
+      "query": "SELECT * FROM finance.agent_demo_fs.exposure_mix_monthly_sql WHERE snapshot_id = (SELECT snapshot_id FROM finance.agent_demo_fs.snapshot_metadata_sql WHERE status = 'READY') AND period_key = CASE WHEN CAST({{period_key}} AS INT) = 0 THEN (SELECT MAX(period_key) FROM finance.agent_demo_fs.portfolio_monthly_sql WHERE snapshot_id = (SELECT snapshot_id FROM finance.agent_demo_fs.snapshot_metadata_sql WHERE status = 'READY')) ELSE CAST({{period_key}} AS INT) END AND dimension_code = CAST({{dimension_code}} AS INT) ORDER BY flagged_gross_usd DESC, dimension_value LIMIT 30",
       "isRowLimitEnabled": true,
       "maxRows": 30
     },
@@ -103,11 +103,11 @@
     "executor_agent": "INVESTIGATION_SQL_AGENT",
     "description": "Top ten flagged account-months ranked by flagged gross, retaining P1/P2 rule priority and total candidate count. Order is exposure rank, not proof of fraud or predicted loss. Empty results mean no flags, not confirmed safety.",
     "dialect": "Spark SQL",
-    "query": "SELECT *, COUNT(*) OVER () AS total_candidate_accounts FROM finance.agent_demo_fs.account_risk_monthly_sql WHERE snapshot_id = (SELECT snapshot_id FROM finance.agent_demo_fs.snapshot_metadata_sql WHERE status = 'READY') AND period_key = CASE WHEN CAST({{period_key}} AS INT) = 0 THEN (SELECT MAX(period_key) FROM finance.agent_demo_fs.portfolio_monthly_sql WHERE snapshot_id = (SELECT snapshot_id FROM finance.agent_demo_fs.snapshot_metadata_sql WHERE status = 'READY')) ELSE CAST({{period_key}} AS INT) END AND flagged_count > 0 ORDER BY flagged_gross_inr DESC, flagged_count DESC, account_id LIMIT 10",
+    "query": "SELECT *, COUNT(*) OVER () AS total_candidate_accounts FROM finance.agent_demo_fs.account_risk_monthly_sql WHERE snapshot_id = (SELECT snapshot_id FROM finance.agent_demo_fs.snapshot_metadata_sql WHERE status = 'READY') AND period_key = CASE WHEN CAST({{period_key}} AS INT) = 0 THEN (SELECT MAX(period_key) FROM finance.agent_demo_fs.portfolio_monthly_sql WHERE snapshot_id = (SELECT snapshot_id FROM finance.agent_demo_fs.snapshot_metadata_sql WHERE status = 'READY')) ELSE CAST({{period_key}} AS INT) END AND flagged_count > 0 ORDER BY flagged_gross_usd DESC, flagged_count DESC, account_id LIMIT 10",
     "configuration": {
       "catalogKey": "finance",
       "schemaKey": "agent_demo_fs",
-      "query": "SELECT *, COUNT(*) OVER () AS total_candidate_accounts FROM finance.agent_demo_fs.account_risk_monthly_sql WHERE snapshot_id = (SELECT snapshot_id FROM finance.agent_demo_fs.snapshot_metadata_sql WHERE status = 'READY') AND period_key = CASE WHEN CAST({{period_key}} AS INT) = 0 THEN (SELECT MAX(period_key) FROM finance.agent_demo_fs.portfolio_monthly_sql WHERE snapshot_id = (SELECT snapshot_id FROM finance.agent_demo_fs.snapshot_metadata_sql WHERE status = 'READY')) ELSE CAST({{period_key}} AS INT) END AND flagged_count > 0 ORDER BY flagged_gross_inr DESC, flagged_count DESC, account_id LIMIT 10",
+      "query": "SELECT *, COUNT(*) OVER () AS total_candidate_accounts FROM finance.agent_demo_fs.account_risk_monthly_sql WHERE snapshot_id = (SELECT snapshot_id FROM finance.agent_demo_fs.snapshot_metadata_sql WHERE status = 'READY') AND period_key = CASE WHEN CAST({{period_key}} AS INT) = 0 THEN (SELECT MAX(period_key) FROM finance.agent_demo_fs.portfolio_monthly_sql WHERE snapshot_id = (SELECT snapshot_id FROM finance.agent_demo_fs.snapshot_metadata_sql WHERE status = 'READY')) ELSE CAST({{period_key}} AS INT) END AND flagged_count > 0 ORDER BY flagged_gross_usd DESC, flagged_count DESC, account_id LIMIT 10",
       "isRowLimitEnabled": true,
       "maxRows": 10
     },
@@ -161,11 +161,11 @@
     "executor_agent": "INVESTIGATION_SQL_AGENT",
     "description": "Up to twenty grouped source-row patterns for the selected account and month, highest score first. Contains unflagged rows too. source_row_fingerprint identifies content, not a transaction ID; duplicate_multiplicity preserves repetitions. All account totals must come from get_account_snapshot.",
     "dialect": "Spark SQL",
-    "query": "SELECT *, COUNT(*) OVER () AS total_evidence_groups FROM finance.agent_demo_fs.transaction_evidence_sql WHERE snapshot_id = (SELECT snapshot_id FROM finance.agent_demo_fs.snapshot_metadata_sql WHERE status = 'READY') AND period_key = CASE WHEN CAST({{period_key}} AS INT) = 0 THEN (SELECT MAX(period_key) FROM finance.agent_demo_fs.portfolio_monthly_sql WHERE snapshot_id = (SELECT snapshot_id FROM finance.agent_demo_fs.snapshot_metadata_sql WHERE status = 'READY')) ELSE CAST({{period_key}} AS INT) END AND account_id = CONCAT('ACC', LPAD(CAST(CAST({{account_number}} AS BIGINT) AS STRING), 8, '0')) ORDER BY risk_score DESC, gross_amount_inr DESC, transaction_date DESC, source_row_fingerprint LIMIT 20",
+    "query": "SELECT *, COUNT(*) OVER () AS total_evidence_groups FROM finance.agent_demo_fs.transaction_evidence_sql WHERE snapshot_id = (SELECT snapshot_id FROM finance.agent_demo_fs.snapshot_metadata_sql WHERE status = 'READY') AND period_key = CASE WHEN CAST({{period_key}} AS INT) = 0 THEN (SELECT MAX(period_key) FROM finance.agent_demo_fs.portfolio_monthly_sql WHERE snapshot_id = (SELECT snapshot_id FROM finance.agent_demo_fs.snapshot_metadata_sql WHERE status = 'READY')) ELSE CAST({{period_key}} AS INT) END AND account_id = CONCAT('ACC', LPAD(CAST(CAST({{account_number}} AS BIGINT) AS STRING), 8, '0')) ORDER BY risk_score DESC, gross_amount_usd DESC, transaction_date DESC, source_row_fingerprint LIMIT 20",
     "configuration": {
       "catalogKey": "finance",
       "schemaKey": "agent_demo_fs",
-      "query": "SELECT *, COUNT(*) OVER () AS total_evidence_groups FROM finance.agent_demo_fs.transaction_evidence_sql WHERE snapshot_id = (SELECT snapshot_id FROM finance.agent_demo_fs.snapshot_metadata_sql WHERE status = 'READY') AND period_key = CASE WHEN CAST({{period_key}} AS INT) = 0 THEN (SELECT MAX(period_key) FROM finance.agent_demo_fs.portfolio_monthly_sql WHERE snapshot_id = (SELECT snapshot_id FROM finance.agent_demo_fs.snapshot_metadata_sql WHERE status = 'READY')) ELSE CAST({{period_key}} AS INT) END AND account_id = CONCAT('ACC', LPAD(CAST(CAST({{account_number}} AS BIGINT) AS STRING), 8, '0')) ORDER BY risk_score DESC, gross_amount_inr DESC, transaction_date DESC, source_row_fingerprint LIMIT 20",
+      "query": "SELECT *, COUNT(*) OVER () AS total_evidence_groups FROM finance.agent_demo_fs.transaction_evidence_sql WHERE snapshot_id = (SELECT snapshot_id FROM finance.agent_demo_fs.snapshot_metadata_sql WHERE status = 'READY') AND period_key = CASE WHEN CAST({{period_key}} AS INT) = 0 THEN (SELECT MAX(period_key) FROM finance.agent_demo_fs.portfolio_monthly_sql WHERE snapshot_id = (SELECT snapshot_id FROM finance.agent_demo_fs.snapshot_metadata_sql WHERE status = 'READY')) ELSE CAST({{period_key}} AS INT) END AND account_id = CONCAT('ACC', LPAD(CAST(CAST({{account_number}} AS BIGINT) AS STRING), 8, '0')) ORDER BY risk_score DESC, gross_amount_usd DESC, transaction_date DESC, source_row_fingerprint LIMIT 20",
       "isRowLimitEnabled": true,
       "maxRows": 20
     },

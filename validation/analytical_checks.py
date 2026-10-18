@@ -12,12 +12,12 @@ records = []
 for account, amount, risk in [(1,5000.,60),(1,-5000.,61),(1,-5000.,61),(1,5000.,85),
                                (2,-4999.99,85),(2,1.,0),(3,10000.,60),(4,10000.,61)]:
     records.append((f"ACC{account:08d}", datetime(2024,1,15,12), "Transfer", amount, "Online", "Online", risk, 1, 2, 12, int(risk > 60)))
-small = spark.createDataFrame(records, schema).withColumn("month_year", F.lit("2024-01")).withColumn("period_key", F.lit(202401)).withColumn("gross_amount_inr", F.abs("amount")).withColumn("rule_flag", (F.col("risk_score") > 60).cast("int"))
+small = spark.createDataFrame(records, schema).withColumn("month_year", F.lit("2024-01")).withColumn("period_key", F.lit(202401)).withColumn("gross_amount_usd", F.abs("amount")).withColumn("rule_flag", (F.col("risk_score") > 60).cast("int"))
 small_accounts = account_metrics(small)
 actual = {r["account_id"]:r.asDict() for r in small_accounts.collect()}
 a1 = actual["ACC00000001"]
 check("exact boundaries and duplicate retention", a1["transaction_count"] == 4 and a1["flagged_count"] == 3)
-check("signed cancellation does not hide gross exposure", a1["net_amount_inr"] == 0 and a1["gross_amount_inr"] == 20000 and a1["flagged_gross_inr"] == 15000)
+check("signed cancellation does not hide gross exposure", a1["net_amount_usd"] == 0 and a1["gross_amount_usd"] == 20000 and a1["flagged_gross_usd"] == 15000)
 check("high value threshold is inclusive", a1["high_value_flagged_count"] == 3 and a1["very_high_value_count"] == 1)
 check("P1 OR conditions", a1["priority"] == "P1" and actual["ACC00000004"]["priority"] == "P1")
 check("4999.99 below high value; score 85 alone does not force P1", actual["ACC00000002"]["priority"] == "P2")
@@ -27,8 +27,8 @@ check("risk score average is transaction weighted", math.isclose(small_portfolio
 check("portfolio account and transaction denominators", small_portfolio["active_accounts"] == 4 and small_portfolio["transaction_count"] == 8 and small_portfolio["flagged_count"] == 5)
 
 # Verify end-to-end semantic data against independent direct source aggregates.
-source_totals = transactions.agg(F.count("*").alias("n"), F.sum("gross_amount_inr").alias("gross"), F.sum("rule_flag").alias("flags")).first()
-published_totals = spark.table("finance.agent_demo_fs.portfolio_monthly_sql").agg(F.sum("transaction_count").alias("n"), F.sum("gross_amount_inr").alias("gross"), F.sum("flagged_count").alias("flags")).first()
+source_totals = transactions.agg(F.count("*").alias("n"), F.sum("gross_amount_usd").alias("gross"), F.sum("rule_flag").alias("flags")).first()
+published_totals = spark.table("finance.agent_demo_fs.portfolio_monthly_sql").agg(F.sum("transaction_count").alias("n"), F.sum("gross_amount_usd").alias("gross"), F.sum("flagged_count").alias("flags")).first()
 check("materialized totals equal original source", source_totals["n"] == published_totals["n"] and source_totals["flags"] == published_totals["flags"] and abs(source_totals["gross"]-published_totals["gross"]) < 0.02)
 all_tool_results = []
 for tool in SQL_TOOLS:
@@ -62,7 +62,7 @@ else:
 
 manifest_disk = json.loads((root/"config/rag_manifest.json").read_text())
 check("RAG corpus hashes match manifest", all(hashlib.sha256((root/"rag_corpus"/item["filename"]).read_bytes()).hexdigest() == item["sha256"] for item in manifest_disk))
-check("eight documents with durable citation markers", len(RAG_DOCUMENTS)==8 and all(f"[{d['document_id']} v1.0 §" in d["content"] for d in RAG_DOCUMENTS))
+check("eight documents with durable citation markers", len(RAG_DOCUMENTS)==8 and all(f"[{d['document_id']} v1.1 §" in d["content"] for d in RAG_DOCUMENTS))
 check("source snapshot unchanged after tests", content_fingerprint(*read_gold(spark,"finance")) == source_fingerprint)
 (root/"validation/local_tool_results.json").write_text(json.dumps(all_tool_results,indent=2,default=str,ensure_ascii=False))
 (root/"validation/analytical_results.json").write_text(json.dumps(analytical_results,indent=2))

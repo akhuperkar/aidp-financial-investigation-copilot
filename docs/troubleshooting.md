@@ -31,7 +31,7 @@ If a source changes during setup, complete the upstream refresh first and rerun 
 | No context row | Setup is not READY, identifiers point to another schema, or read access is missing. Stop the investigation until fixed. |
 | Valid explicit period returns no rows | Check observed coverage. Preserve the requested period; never silently fall back to latest. `0` is the deliberate latest-month sentinel. |
 | A numeric account returns no rows | Convert an actual `ACC########` suffix to an integer and preserve the period. Do not infer that default account 1 exists in every month. |
-| Queue/exposure numbers look wrong | Compare exact field names. `flagged_gross_inr` is flagged exposure; `gross_amount_inr` is total gross activity. Preserve SQL ordering and signs. |
+| Queue/exposure numbers look wrong | Compare exact field names. `flagged_gross_usd` is flagged exposure; `gross_amount_usd` is total gross activity. Preserve SQL ordering and signs. |
 | Evidence rows do not total to monthly exposure | Evidence is capped/grouped and can include unflagged rows. Read complete totals from `get_account_snapshot`; retain multiplicity and full-group counts. |
 | Malformed numeric inputs are accepted | Block rollout and add/enforce deterministic parameter validation appropriate to the execution path. Descriptions, casts and local smoke validation do not enforce hosted integer bounds. Keep the execution principal SELECT-only. |
 | Combined tools return different snapshots | Stop the combined answer, finish one refresh, and start a new investigation on one READY snapshot. |

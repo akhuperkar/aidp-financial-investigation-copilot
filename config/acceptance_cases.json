@@ -2,19 +2,19 @@
   {
     "test_id": "T01",
     "kind": "structured",
-    "question": "For the latest observed month, show portfolio transactions, flagged gross in INR and P1 account count.",
-    "expected": "Context and portfolio tools; one explicit period and snapshot; synthetic/INR caveats. No RAG needed."
+    "question": "For the latest observed month, show portfolio transactions, flagged gross in USD and P1 account count.",
+    "expected": "Context and portfolio tools; one explicit period and snapshot; synthetic/USD caveats. No RAG needed."
   },
   {
     "test_id": "T02",
     "kind": "RAG",
     "question": "Retrieve FS-POL-001. Is score 60 flagged, and what exactly makes an account-month P1?",
-    "expected": "Score 60 not flagged; P1 >=10000 flagged gross OR score>=85 and abs>=5000; [FS-POL-001 v1.0 §1/§2] with actual retrieval."
+    "expected": "Score 60 not flagged; P1 >=10000 flagged gross OR score>=85 and abs>=5000; [FS-POL-001 v1.1 §1/§2] with actual retrieval."
   },
   {
     "test_id": "T03",
     "kind": "hybrid hero",
-    "question": "For the latest observed month, rank accounts by flagged gross exposure, investigate the top account, retrieve the applicable synthetic triage policy, and draft an INR analyst brief with citations and human-review steps.",
+    "question": "For the latest observed month, rank accounts by flagged gross exposure, investigate the top account, retrieve the applicable synthetic triage policy, and draft a USD analyst brief with citations and human-review steps.",
     "expected": "Context→portfolio→RAG→queue→account snapshot+evidence→brief. All numeric/documentary claims cited; snapshot/month/account consistent; no external actions."
   },
   {

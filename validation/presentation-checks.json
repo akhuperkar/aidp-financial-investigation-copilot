@@ -1,7 +1,7 @@
 {
   "schemaVersion": "presentation-finalization.v1",
-  "finalSha256": "4f38272ae84a469310ece799a678b9bcf8319c39ea912c2ee8fa98e354e077eb",
-  "byteCount": 3480989,
+  "finalSha256": "b64cdf705e68eb676ecb70eacfd9b8477bc128ad54c31b746b689a281341b9cc",
+  "byteCount": 3112359,
   "packageIntegrity": {
     "chart_count": 0,
     "claim_boundary": "Structural package checks only; no slide text, notes, formulas, chart values, or native PowerPoint execution were inspected.",
@@ -18,18 +18,6 @@
   "presentationLayout": {
     "finding_count": 0,
     "findings": [],
-    "font_policy": {
-      "checked_text_script_count": 147,
-      "native_font_rendering_verified": false,
-      "observed_font_families": [
-        "Oracle Sans Tab"
-      ],
-      "observed_font_use_counts": {
-        "Oracle Sans Tab": 147
-      },
-      "passed": true,
-      "performed": true
-    },
     "slide_count": 10,
     "slide_size_in": [
       13.3333,
@@ -38,19 +26,20 @@
     "warning_count": 0,
     "warnings": [],
     "exitCode": 0,
-    "findingCount": 0,
-    "fontPolicy": {
-      "checked_text_script_count": 147,
-      "native_font_rendering_verified": false,
-      "observed_font_families": [
-        "Oracle Sans Tab"
-      ],
-      "observed_font_use_counts": {
-        "Oracle Sans Tab": 147
-      },
-      "passed": true,
-      "performed": true
-    }
+    "findingCount": 0
+  },
+  "fontSelection": {
+    "basis": "unspecified",
+    "approvedFamilies": [],
+    "scriptFonts": {},
+    "referenceSha256": null,
+    "referenceFontsVerifiedInEncodedText": false
+  },
+  "firstPartyImport": {
+    "performed": true,
+    "passed": true,
+    "slideCount": 10,
+    "sha256": "b64cdf705e68eb676ecb70eacfd9b8477bc128ad54c31b746b689a281341b9cc"
   },
   "nativeTableArithmetic": {
     "performed": true,
@@ -82,11 +71,42 @@
     "native_chart_count": 0,
     "native_powerpoint_verified": false,
     "passed": true,
-    "presentation_sha256": "4f38272ae84a469310ece799a678b9bcf8319c39ea912c2ee8fa98e354e077eb",
+    "presentation_sha256": "b64cdf705e68eb676ecb70eacfd9b8477bc128ad54c31b746b689a281341b9cc",
     "schema_version": "presentation-native-chart-titles.v1",
     "slide_count": 10,
     "source_text_emitted": false,
     "unresolved_linked_title_count": 0
   },
-  "visual_review": "All ten slide previews inspected; editable architecture and agent diagrams retained. Native PowerPoint execution was not performed."
+  "sourceDerivedPolicyFlags": [
+    "--expected-slide-size-emu",
+    "12192000,6858000",
+    "--validate-bullet-geometry",
+    "--validate-heading-fit",
+    "--require-native-table-slide",
+    "5",
+    "--cover-role",
+    "none",
+    "--expected-slide-count",
+    "10"
+  ],
+  "nativeChartValidation": {
+    "detectedOwnerSlides": [],
+    "detectedChartCount": 0,
+    "targetApplication": null,
+    "sourceChartOwnersExplicitlyDeclared": false,
+    "validatorRan": false,
+    "passed": true
+  },
+  "verified_on": "2026-10-18",
+  "visual_review": {
+    "rendered_slide_count": 10,
+    "reviewed_slide_numbers": [
+      1,
+      6
+    ],
+    "scope": "Slide1 currency edits reviewed earlier in the migration; final slide6 genuine USD screenshot inspected after replacement. Other eight slides retain their earlier content; no claim of a fresh ten-slide visual review.",
+    "final_slide6": "PASS: proportionate image fit, readable USD labels, no clipping/distortion",
+    "all_ten_visually_reinspected_for_this_change": false,
+    "native_powerpoint_execution": "NOT_RUN"
+  }
 }

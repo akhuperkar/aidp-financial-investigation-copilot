@@ -2,7 +2,7 @@
 
 This guide reproduces the data contracts, analytical views and read-only investigation workflow for fictional Meridian Demo Bank. It takes you from Spark Gold tables to a supervisor with four specialist agents, then to Agent Hub and a local Streamlit client.
 
-**Demonstration dataset; amounts shown in INR.** Screening flags and exposure rankings guide analyst review. They do not establish confirmed fraud or loss. The separate random forest training example does not supply predictions to the agent.
+**Demonstration dataset; amounts shown in USD.** Screening flags and exposure rankings guide analyst review. They do not establish confirmed fraud or loss. The separate random forest training example does not supply predictions to the agent.
 
 The hosted evidence is partial: native AILH publication and a Streamlit SQL response were verified historically; the recorded Streamlit hybrid follow-up passed transport but failed content reconciliation. Complete [hosted acceptance](hosted-acceptance.md) in your environment before presenting a fully reconciled hybrid result.
 
@@ -162,15 +162,15 @@ Changing `CATALOG` or `AGENT_SCHEMA_NAME` remaps the notebook registry. The sepa
 Version 1.0 documents carry an effective-from date of 2024-01-01 and explicit synthetic scope. Test these two narrow queries:
 
 ```text
-Retrieve FS-POL-001 v1.0 section 1. Is risk_score=60 flagged?
+Retrieve FS-POL-001 v1.1 section 1. Is risk_score=60 flagged?
 Return the exact flag sentences and their explicit source header.
 
-Retrieve FS-POL-001 v1.0 section 2. Return the complete P1 account-month
+Retrieve FS-POL-001 v1.1 section 2. Return the complete P1 account-month
 rule, both alternatives, all score and amount conditions, and any adjacent
 chunk continuation. Preserve AND/OR and inclusive/exclusive comparisons.
 ```
 
-Accept only actual passages showing `risk_score > 60`, and P1 when flagged gross is at least INR 10,000 **or** at least one transaction has score at least 85 **and** absolute amount at least INR 5,000. Cite `[FS-POL-001 v1.0 §1]` and `[FS-POL-001 v1.0 §2]` only when the returned headers support them. Chunk indices are not section numbers.
+Accept only actual passages showing `risk_score > 60`, and P1 when flagged gross is at least USD 10,000 **or** at least one transaction has score at least 85 **and** absolute amount at least USD 5,000. Cite `[FS-POL-001 v1.1 §1]` and `[FS-POL-001 v1.1 §2]` only when the returned headers support them. Chunk indices are not section numbers.
 
 For a policy revision, create a new explicit document version/effective scope, update the manifest, remove superseded material from the selected data source as your ingestion mechanism requires, reingest and rerun retrieval tests. Never assume uploading a replacement immediately removes old vector chunks. If SQL rule metadata and retrieved policy disagree, withhold the policy conclusion and resolve the version mismatch.
 
@@ -216,7 +216,7 @@ Test `get_reporting_context` first; `get_portfolio_snapshot(period_key=0)` next;
 
 Create a visual flow named `FS_Investigation_Copilot` and attach active AI Compute. Add `Message → Guardrails → FS_INVESTIGATION_SUPERVISOR`. Connect four executors to the supervisor as delegated specialists; these connections are not a serial data pipeline. Prefer stateless executor isolation and pass scope/evidence explicitly.
 
-Use the current [`agents/node-configurations.json`](../agents/node-configurations.json) and matching individual texts in [`agents/prompts/`](../agents/prompts/). Older notebook-embedded `PROMPTS`, `config/prompts.json` and archived HTML are historical scaffolding; they can differ in output format and the briefing parameter name.
+Use the current [`agents/node-configurations.json`](../agents/node-configurations.json) and matching individual texts in [`agents/prompts/`](../agents/prompts/). The builder embeds the same reviewed definitions in setup `PROMPTS` and exports `config/prompts.json` plus matching text files. The current Brief gateway uses `evidence_packet` and preserves the Prompt tool's Markdown. Earlier archived versions remain historical scaffolding.
 
 | Node | Reference model selection | Output tokens | Temperature | Attached tools |
 |---|---|---:|---|---|
@@ -246,7 +246,7 @@ For a full investigation, obtain context/portfolio first, resolve one explicit p
 
 Run individual tool tests before the integrated flow. Then run all cases in [`config/acceptance_cases.json`](../config/acceptance_cases.json) and record dated results in [`config/tenant_acceptance_log.csv`](../config/tenant_acceptance_log.csv). The seven presenter prompts are a useful rehearsal subset; they are not the complete negative/control suite. Follow the [hosted acceptance worksheet](hosted-acceptance.md) for exact gates.
 
-Create the Agent Card from [`agent_card/agent-card.editable-metadata.json`](../agent_card/agent-card.editable-metadata.json) and [`agent_card/agent-card.form-fields.txt`](../agent_card/agent-card.form-fields.txt). Use the four skills: Portfolio Risk Analytics; Account Triage and Transaction Evidence; Synthetic Policy Retrieval; Grounded Investigation Brief. Agent version `1.0.0` is separate from A2A protocol `0.3.0`. Keep generated transport/input/output fields under AIDP control. Set documentation/provider URLs only to real published resources owned by the actual operator. Fictional Meridian Demo Bank is not the service owner.
+Create the Agent Card from [`agent_card/agent-card.editable-metadata.json`](../agent_card/agent-card.editable-metadata.json) and [`agent_card/agent-card.form-fields.txt`](../agent_card/agent-card.form-fields.txt). Use the four skills: Portfolio Risk Analytics; Account Triage and Transaction Evidence; Synthetic Policy Retrieval; Grounded Investigation Brief. Agent version `1.1.0` is separate from A2A protocol `0.3.0`. Keep generated transport/input/output fields under AIDP control. Set documentation/provider URLs only to real published resources owned by the actual operator. Fictional Meridian Demo Bank is not the service owner.
 
 In your tenant's deployment workflow:
 
@@ -347,7 +347,7 @@ The screenshots document an OAC workbook; they are not an importable workbook ex
 2. Create an account-month SQL dataset from [`sql/oac/account_month_risk.sql`](../sql/oac/account_month_risk.sql). Replace `GOLD` with your verified physical owner if different. This query derives exact account totals and screening priority from transaction Gold, then adds the monthly exposure rank and monthly flagged-gross denominator.
 3. Create a monthly SQL dataset from [`sql/oac/monthly_risk_review.sql`](../sql/oac/monthly_risk_review.sql), with the same owner substitution. It returns portfolio totals, P1 count, top-ten concentration and calendar-aware prior-month changes. Create a separate transaction-level dataset from the native `FRAUD_DETECTION_MODEL_GOLD` for type/location breakdowns. Do not join complete monthly totals onto raw transaction rows and then sum them.
 4. Set account IDs, report month, type, location and priority as attributes. Treat counts/amounts as measures; keep precomputed percentage/rank fields from being summed. Restrict a KPI to one monthly row. Use `100 * SUM(RULE_FLAGS) / SUM(TRANSACTION_COUNT)` for a count-based rate across an explicitly selected population, rather than averaging account percentages.
-5. Create the six canvases below. Use a consistent selected month, INR formatting with two decimal places, integer counts and percentages with one or two decimal places. Keep `REPORT_MONTH` in the trend dataset so a single-month canvas filter does not unintentionally remove its full history.
+5. Create the six canvases below. Use a consistent selected month, USD formatting with two decimal places, integer counts and percentages with one or two decimal places. Keep `REPORT_MONTH` in the trend dataset so a single-month canvas filter does not unintentionally remove its full history.
 
 | Canvas | Dataset and content |
 |---|---|
@@ -364,9 +364,9 @@ For a transaction-level breakdown, the underlying Oracle SQL pattern is:
 SELECT TO_CHAR(TRANSACTION_DATE, 'YYYY-MM') AS REPORT_MONTH,
        TRANSACTION_TYPE,
        COUNT(*) AS TRANSACTIONS,
-       SUM(ABS(AMOUNT)) AS GROSS_ACTIVITY_INR,
+       SUM(ABS(AMOUNT)) AS GROSS_ACTIVITY_USD,
        SUM(CASE WHEN RISK_SCORE > 60 THEN 1 ELSE 0 END) AS RULE_FLAGS,
-       SUM(CASE WHEN RISK_SCORE > 60 THEN ABS(AMOUNT) ELSE 0 END) AS FLAGGED_GROSS_INR,
+       SUM(CASE WHEN RISK_SCORE > 60 THEN ABS(AMOUNT) ELSE 0 END) AS FLAGGED_GROSS_USD,
        100.0 * SUM(CASE WHEN RISK_SCORE > 60 THEN 1 ELSE 0 END)
              / NULLIF(COUNT(*), 0) AS FLAG_RATE_PCT
 FROM GOLD.FRAUD_DETECTION_MODEL_GOLD

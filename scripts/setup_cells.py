@@ -3,7 +3,7 @@
 #
 # **Use case:** high-value suspicious-transaction investigation, grounded in finance medallion Gold and
 # a self-contained synthetic policy corpus. Produces an analyst briefing packet with SQL evidence and document citations.
-# All monetary amounts are assumed INR; no FX conversion is applied. This is not a confirmed-fraud, AML,
+# All monetary amounts are assumed USD; no FX conversion is applied. This is not a confirmed-fraud, AML,
 # regulatory-reporting or automated account-action system.
 #
 # Run `financial_services_medallion_architecture_demo.ipynb` first. This setup reads its two existing Gold tables
@@ -80,8 +80,8 @@ def enrich(df, source_tables, grain):
             .withColumn("currency_assumption", F.lit(CURRENCY_ASSUMPTION))
             .withColumn("rule_version", F.lit(RULE_VERSION))
             .withColumn("risk_threshold_exclusive", F.lit(RISK_THRESHOLD))
-            .withColumn("high_value_inr", F.lit(HIGH_VALUE_INR))
-            .withColumn("p1_account_exposure_inr", F.lit(P1_ACCOUNT_EXPOSURE_INR))
+            .withColumn("high_value_usd", F.lit(HIGH_VALUE_USD))
+            .withColumn("p1_account_exposure_usd", F.lit(P1_ACCOUNT_EXPOSURE_USD))
             .withColumn("very_high_score_inclusive", F.lit(VERY_HIGH_SCORE)))
 
 def metadata_frame(status):
@@ -98,7 +98,7 @@ publish(enrich(account_monthly, gold_source, "account x month"), "account_risk_m
 evidence_columns = ["account_id", "month_year", "period_key", "transaction_date", "transaction_type", "amount", "merchant_category", "location", "risk_score", "is_fraud"]
 transaction_evidence = (transactions.groupBy(*evidence_columns).agg(F.count("*").alias("duplicate_multiplicity"))
     .withColumn("source_row_fingerprint", F.sha2(F.to_json(F.struct(*evidence_columns)), 256))
-    .withColumn("gross_amount_inr", F.abs("amount").cast("double"))
+    .withColumn("gross_amount_usd", F.abs("amount").cast("double"))
     .withColumnRenamed("is_fraud", "synthetic_rule_label"))
 publish(enrich(transaction_evidence, gold_source, "source row content group; retain multiplicity"), "transaction_evidence_sql")
 
@@ -106,8 +106,8 @@ mix_frames = []
 for code, dimension in [(1, "transaction_type"), (2, "location")]:
     df = transactions.groupBy("month_year", "period_key", dimension).agg(
         F.count("*").alias("transaction_count"), F.sum("rule_flag").alias("flagged_count"),
-        F.sum("gross_amount_inr").alias("gross_amount_inr"),
-        F.sum(F.when(F.col("rule_flag") == 1, F.col("gross_amount_inr")).otherwise(0)).alias("flagged_gross_inr"))
+        F.sum("gross_amount_usd").alias("gross_amount_usd"),
+        F.sum(F.when(F.col("rule_flag") == 1, F.col("gross_amount_usd")).otherwise(0)).alias("flagged_gross_usd"))
     mix_frames.append(df.withColumnRenamed(dimension, "dimension_value").withColumn("dimension_code", F.lit(code)))
 exposure_mix = mix_frames[0].unionByName(mix_frames[1])
 publish(enrich(exposure_mix, gold_source, "month x dimension code x dimension value; never sum across dimension codes"), "exposure_mix_monthly_sql")
@@ -191,8 +191,8 @@ published_evidence = spark.table(f"{AGENT_SCHEMA}.transaction_evidence_sql")
 assert published_portfolio.select("month_year").distinct().count() == published_portfolio.count()
 assert published_accounts.count() == published_accounts.select("account_id", "month_year").distinct().count()
 assert published_evidence.agg(F.sum("duplicate_multiplicity")).first()[0] == transactions.count()
-evidence_totals = published_evidence.agg(F.sum(F.col("gross_amount_inr") * F.col("duplicate_multiplicity")).alias("gross")).first()["gross"]
-assert abs(float(evidence_totals) - float(portfolio_monthly.agg(F.sum("gross_amount_inr")).first()[0])) < 0.02
+evidence_totals = published_evidence.agg(F.sum(F.col("gross_amount_usd") * F.col("duplicate_multiplicity")).alias("gross")).first()["gross"]
+assert abs(float(evidence_totals) - float(portfolio_monthly.agg(F.sum("gross_amount_usd")).first()[0])) < 0.02
 for name in ["portfolio_monthly_sql", "account_risk_monthly_sql", "transaction_evidence_sql", "exposure_mix_monthly_sql"]:
     assert {r["snapshot_id"] for r in spark.table(f"{AGENT_SCHEMA}.{name}").select("snapshot_id").distinct().collect()} == {snapshot_id}
 assert content_fingerprint(*read_gold(spark, CATALOG)) == source_fingerprint, "Source changed during setup; rerun before marking READY"
@@ -211,7 +211,7 @@ def test_query(tool, params):
         raise ValueError("Unresolved SQL template variable")
     return spark.sql(query)
 
-seed_account = published_accounts.filter((F.col("period_key") == latest_period_key) & (F.col("flagged_count") > 0)).orderBy(F.desc("flagged_gross_inr"), "account_id").first()
+seed_account = published_accounts.filter((F.col("period_key") == latest_period_key) & (F.col("flagged_count") > 0)).orderBy(F.desc("flagged_gross_usd"), "account_id").first()
 if seed_account is None:
     seed_account = published_accounts.filter(F.col("period_key") == latest_period_key).orderBy("account_id").first()
 seed_account_number = int(seed_account["account_id"][3:])
@@ -227,7 +227,7 @@ publish_registry(smoke_rows, "sql_smoke_results", "tool")
 publish(metadata_frame("READY"), "snapshot_metadata_sql")
 display(HTML(table_html(smoke_rows, [("tool", "Tool query"), ("rows", "Rows"), ("status", "Spark SQL check")])))
 print(f"Demo seed: period {latest_period_key}; account {seed_account['account_id']}; account_number={seed_account_number}")
-print("Hero prompt: For the latest observed month, rank accounts by flagged gross exposure, investigate the top account, retrieve the applicable synthetic triage policy, and draft an INR analyst brief with citations and human-review steps.")
+print("Hero prompt: For the latest observed month, rank accounts by flagged gross exposure, investigate the top account, retrieve the applicable synthetic triage policy, and draft a USD analyst brief with citations and human-review steps.")
 print("Setup READY. Next: ingest and test RAG independently, then build and test the no-code Agent Flow.")
 account_monthly.unpersist(); portfolio_monthly.unpersist()
 
@@ -235,7 +235,7 @@ account_monthly.unpersist(); portfolio_monthly.unpersist()
 # ## 8. No-code handoff
 # 1. Check the source and demo schema in Master catalog. Confirm `snapshot_metadata_sql.status = READY`.
 # 2. Upload `rag_corpus` TXT files into one managed/external volume folder. Create a Knowledge Base and ingest it.
-# 3. Verify a RAG tool test returns the exact P1 thresholds and `[FS-POL-001 v1.0 §2]`; empty retrieval blocks hybrid readiness.
+# 3. Verify a RAG tool test returns the exact P1 thresholds and `[FS-POL-001 v1.1 §2]`; empty retrieval blocks hybrid readiness.
 # 4. Create Message → Guardrails → one Supervisor → four Executors. Attach the registered SQL, RAG and Prompt tools.
 # 5. Copy prompts and SQL configurations from the package or registry tables. Select available region/model and active compute.
 # 6. Run acceptance cases, inspect traces, deploy/redeploy, and repeat the hero prompt in Playground.

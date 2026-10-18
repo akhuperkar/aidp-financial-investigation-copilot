@@ -56,7 +56,7 @@ Regenerate the public-link copy and SVGs with `python3 article/build_medium_expo
 - [ ] Run the [hosted acceptance checks](../docs/hosted-acceptance.md) before representing a new hybrid answer as reconciled. If acceptance is still pending, retain the article's current evidence wording.
 - [ ] Transfer headings, both tables, four images, captions and source links into Medium. Check column alignment and threshold symbols after paste.
 - [ ] Verify the Gartner and McKinsey links remain attached to the correct dated survey populations. Keep the methodology intact.
-- [ ] Check mobile and desktop previews, including diagram text, account IDs and INR amounts.
+- [ ] Check mobile and desktop previews, including diagram text, account IDs and USD amounts.
 - [ ] Review title, subtitle, author, tags and cover crop in the final publication preview.
 - [ ] Publish only when authorized. Record the resulting actual Medium URL in the repository publication record after it exists.
 
@@ -65,3 +65,7 @@ Regenerate the public-link copy and SVGs with `python3 article/build_medium_expo
 The story demonstrates an investigation workflow and an enterprise data foundation. It does not claim validated production fraud detection, predicted losses, measured savings, automated account action or an implemented approval gate. Preserve the separate OAC and deployed-agent snapshot paths. Present the random forest as a separate notebook exercise; it does not score the agent's queue.
 
 Do not add the unverified 83% statistic or reinterpret 88% AI adoption as workflow disconnection. The article deliberately uses only the independently verified Gartner and McKinsey findings recorded in the source register.
+
+## USD image refresh
+
+The two table exports use larger text and a narrower layout for article-column reading. Upload the current PNGs and choose Medium’s wide image display where appropriate; avoid centering a small original-width image. Preserve the author-added cover, Agent Hub and Streamlit screenshots. Refresh any currency-bearing application screenshot from a verified USD run, and keep the original images only in the historical archive.

@@ -22,16 +22,16 @@ For this project, the implication is practical: build the reporting definitions,
 
 The verified December 2024 OAC reference gives the analyst a concrete starting point.
 
-> **Demonstration dataset; amounts shown in INR.**
+> **Demonstration dataset; amounts shown in USD.** The denomination is an explicit scenario assumption; no FX conversion or numerical rescaling is applied.
 
 | December 2024 measure | Reference value |
 |---|---:|
 | Transactions | 12,699 |
 | Active accounts | 4,436 |
-| Gross activity | INR 31,642,312.97 |
+| Gross activity | USD 31,642,312.97 |
 | Rule-flagged transactions | 4,934 |
 | Rule flag rate | 38.85% |
-| Flagged gross activity | INR 12,547,752.55 |
+| Flagged gross activity | USD 12,547,752.55 |
 | Accounts meeting P1 review rules | 528 |
 
 ![Meridian Demo Bank executive snapshot for December 2024, showing portfolio activity and rule-based review measures.](../media/screenshots/executive-snapshot.png)
@@ -74,13 +74,13 @@ That distinction avoids a common architectural shortcut: drawing every consumer 
 
 The investigation queue ranks flagged account-months by flagged gross activity, then flagged transaction count, then account ID. The P1/P2 designation appears alongside that exposure order.
 
-In the December OAC reference, `ACC00004535` leads the queue with INR 28,008.03 in flagged gross activity. The top ten accounts together account for INR 236,847.35, or 1.89% of the month’s flagged gross. The queue therefore provides a useful starting order, while the portfolio still requires broader review.
+In the December OAC reference, `ACC00004535` leads the queue with USD 28,008.03 in flagged gross activity. The top ten accounts together account for USD 236,847.35, or 1.89% of the month’s flagged gross. The queue therefore provides a useful starting order, while the portfolio still requires broader review.
 
 ![December investigation queue with accounts ordered by flagged gross activity and separate rule-based priority labels.](../media/screenshots/investigation-queue.png)
 
 *Figure 3. Exposure rank helps select the next account; the priority label explains which review rule it meets.*
 
-The fictional [FS-POL-001 v1.0 policy](../rag_corpus/01_synthetic_transaction_triage_policy.txt) makes those rules precise. A transaction is flagged when its score is **strictly greater than 60**. An account-month is P1 when its flagged gross is at least INR 10,000, **or** it contains a transaction with score at least 85 **and** absolute amount at least INR 5,000.
+The fictional [FS-POL-001 v1.1 policy](../rag_corpus/01_synthetic_transaction_triage_policy.txt) makes those rules precise. A transaction is flagged when its score is **strictly greater than 60**. An account-month is P1 when its flagged gross is at least USD 10,000, **or** it contains a transaction with score at least 85 **and** absolute amount at least USD 5,000.
 
 The AND/OR relationship matters as much as the thresholds. A generated explanation that changes it can sound plausible while assigning the wrong priority.
 
@@ -100,13 +100,21 @@ The intended answer starts by establishing the available period and snapshot. It
 
 This is where conversation can reduce manual assembly: the analyst can ask for the meaning behind a number while retaining the context of the investigation. There are no external action tools or implemented approval workflow in this package. Decisions about account restrictions or case disposition remain outside it.
 
+![Agent Hub focused SQL metrics in USD for December 2024, cropped client metric detail.](../media/screenshots/agent-hub-usd-focused.png)
+
+*Figure 5. Agent Hub focused SQL capture, December 2024 USD. Cropped client metric detail from the older serving snapshot; separate from the OAC reference.*
+
+![Streamlit focused SQL metrics in USD for December 2024, cropped client metric detail.](../media/screenshots/streamlit-usd-focused.png)
+
+*Figure 6. Streamlit focused SQL capture, December 2024 USD. The matching metrics establish this focused pass; they do not validate the hybrid brief.*
+
 ## Methodology and current evidence
 
 Meridian Demo Bank uses generated transaction data and fictional policies. The notebook derives `is_fraud` from `risk_score > 60`, using randomly generated scores. Its separate random forest exercise does not supply the agent’s queue or establish validated fraud-detection performance. The workflow demonstrates how to assemble screening evidence for analyst review; flagged gross is not confirmed fraud or loss, and the scores are not calibrated probabilities.
 
 The OAC figures use the [reference verified on 17 October 2026](../data/reference-snapshot.json), with source Delta version 4. The deployed-agent/Streamlit reference uses an older snapshot with different December totals, so each path must retain its own reporting context. Initial publication of both native AILH tables passed full-row comparison; changed-data replacement remains pending validation. Full metric definitions, model boundaries, data gaps and publication details are in the [metrics and methodology guide](../docs/metrics-and-methodology.md).
 
-Historical Streamlit tests established successful transport and a SQL response. The hybrid follow-up also completed transport, but its evidence rows failed content reconciliation. A fresh [hosted acceptance run](../docs/hosted-acceptance.md) must verify those rows and totals before the brief is described as validated. Agent Hub success across seven prompts is user-reported; the available root-only trace export does not establish every internal tool call.
+Fresh focused SQL responses in USD from Agent Hub and Streamlit on 18 October 2026 matched SQL on the older serving snapshot, and the standalone policy RAG test passed with version 1.1. The fresh hybrid response still failed transaction-row reconciliation, repeating the historical evidence-fidelity issue. The [hosted acceptance record](../docs/hosted-acceptance.md) preserves both results: focused SQL and policy retrieval work, while the combined investigation brief remains unvalidated.
 
 ## What I would validate in a customer POC
 

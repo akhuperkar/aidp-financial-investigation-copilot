@@ -1,7 +1,7 @@
 {
   "scope": "offline artifact structure, links, public hygiene and metric contracts; no hosted execution",
   "status": "PASS",
-  "files_checked": 181,
+  "files_checked": 204,
   "code_cells_compiled": 71,
   "checks": [
     {
@@ -650,6 +650,11 @@
       "detail": ""
     },
     {
+      "check": "Packaged file hash: agents/prompts/retrieve_fs_investigation_policy.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
       "check": "Packaged file hash: agents/prompts/sample_prompts.txt",
       "passed": true,
       "detail": ""
@@ -835,6 +840,11 @@
       "detail": ""
     },
     {
+      "check": "Packaged file hash: config/prompts.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
       "check": "Packaged file hash: config/rag_documents.json",
       "passed": true,
       "detail": ""
@@ -851,6 +861,11 @@
     },
     {
       "check": "Packaged file hash: config/tenant_acceptance_log.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: data/agent-serving-usd-reference.json",
       "passed": true,
       "detail": ""
     },
@@ -900,6 +915,11 @@
       "detail": ""
     },
     {
+      "check": "Packaged file hash: docs/usd-migration.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
       "check": "Packaged file hash: docs/user-guide.md",
       "passed": true,
       "detail": ""
@@ -911,6 +931,11 @@
     },
     {
       "check": "Packaged file hash: media/brand/oracle-wordmark.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: media/cover.png",
       "passed": true,
       "detail": ""
     },
@@ -950,6 +975,11 @@
       "detail": ""
     },
     {
+      "check": "Packaged file hash: media/screenshots/agent-hub-usd-focused.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
       "check": "Packaged file hash: media/screenshots/executive-brief.png",
       "passed": true,
       "detail": ""
@@ -976,6 +1006,11 @@
     },
     {
       "check": "Packaged file hash: media/screenshots/risk-exposure.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: media/screenshots/streamlit-usd-focused.png",
       "passed": true,
       "detail": ""
     },
@@ -1045,6 +1080,66 @@
       "detail": ""
     },
     {
+      "check": "Packaged file hash: reference/archive-inr-2026-10-18/README.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: reference/archive-inr-2026-10-18/data/reference-snapshot.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: reference/archive-inr-2026-10-18/media/screenshots/activity-risk-trends.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: reference/archive-inr-2026-10-18/media/screenshots/executive-brief.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: reference/archive-inr-2026-10-18/media/screenshots/executive-snapshot.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: reference/archive-inr-2026-10-18/media/screenshots/investigation-queue.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: reference/archive-inr-2026-10-18/media/screenshots/monthly-changes.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: reference/archive-inr-2026-10-18/media/screenshots/provenance.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: reference/archive-inr-2026-10-18/media/screenshots/risk-exposure.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: reference/archive-inr-2026-10-18/slides/aidp-financial-investigation-copilot.pptx",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: reference/archive-inr-2026-10-18/validation/presentation-checks.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: reference/archive-inr-2026-10-18/validation/publication-checks.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
       "check": "Packaged file hash: reference/financial_services_medallion_architecture_demo.ipynb",
       "passed": true,
       "detail": ""
@@ -1090,7 +1185,17 @@
       "detail": ""
     },
     {
+      "check": "Packaged file hash: scripts/migrate_existing_snapshot_to_usd.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
       "check": "Packaged file hash: scripts/setup_cells.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: scripts/update_package_manifest.py",
       "passed": true,
       "detail": ""
     },
@@ -1231,6 +1336,11 @@
     },
     {
       "check": "Packaged file hash: validation/test_fs_ailh_notebook.py",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: validation/test_usd_contract.py",
       "passed": true,
       "detail": ""
     },

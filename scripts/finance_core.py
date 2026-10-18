@@ -8,12 +8,12 @@ from html import escape
 from pyspark.sql import functions as F
 from pyspark.sql import types as T
 
-RULE_VERSION = "FS-TRIAGE-1.0"
+RULE_VERSION = "FS-TRIAGE-1.1"
 RISK_THRESHOLD = 60                 # Matches the supplied Gold construction: strictly greater.
-HIGH_VALUE_INR = 5000.0             # Fictional demo policy; source has no currency column.
-P1_ACCOUNT_EXPOSURE_INR = 10000.0
+HIGH_VALUE_USD = 5000.0             # Fictional demo policy; source has no currency column.
+P1_ACCOUNT_EXPOSURE_USD = 10000.0
 VERY_HIGH_SCORE = 85
-CURRENCY_ASSUMPTION = "INR"
+CURRENCY_ASSUMPTION = "USD"
 
 SOURCE_CONTRACTS = {
     "transaction_analytics_gold": {
@@ -76,7 +76,7 @@ def read_gold(spark, catalog):
         raise ValueError("Duplicate Gold account-month rows; aggregation would double-count")
     tx = (tx.withColumn("month_year", F.date_format("transaction_date", "yyyy-MM"))
           .withColumn("period_key", F.date_format("transaction_date", "yyyyMM").cast("int"))
-          .withColumn("gross_amount_inr", F.abs("amount").cast("double"))
+          .withColumn("gross_amount_usd", F.abs("amount").cast("double"))
           .withColumn("rule_flag", (F.col("risk_score") > RISK_THRESHOLD).cast("int")))
     return tx, monthly
 
@@ -84,18 +84,18 @@ def read_gold(spark, catalog):
 def account_metrics(tx):
     return (tx.groupBy("month_year", "period_key", "account_id").agg(
         F.count("*").alias("transaction_count"),
-        F.sum("amount").cast("double").alias("net_amount_inr"),
-        F.sum("gross_amount_inr").alias("gross_amount_inr"),
-        F.sum(F.when(F.col("amount") > 0, F.col("amount")).otherwise(0)).cast("double").alias("positive_amount_inr"),
-        F.sum(F.when(F.col("amount") < 0, -F.col("amount")).otherwise(0)).cast("double").alias("negative_magnitude_inr"),
+        F.sum("amount").cast("double").alias("net_amount_usd"),
+        F.sum("gross_amount_usd").alias("gross_amount_usd"),
+        F.sum(F.when(F.col("amount") > 0, F.col("amount")).otherwise(0)).cast("double").alias("positive_amount_usd"),
+        F.sum(F.when(F.col("amount") < 0, -F.col("amount")).otherwise(0)).cast("double").alias("negative_magnitude_usd"),
         F.avg("risk_score").alias("avg_risk_score"),
         F.max("risk_score").alias("max_risk_score"),
         F.sum("rule_flag").alias("flagged_count"),
-        F.sum(F.when(F.col("rule_flag") == 1, F.col("gross_amount_inr")).otherwise(0)).alias("flagged_gross_inr"),
-        F.sum(F.when((F.col("rule_flag") == 1) & (F.col("gross_amount_inr") >= HIGH_VALUE_INR), 1).otherwise(0)).alias("high_value_flagged_count"),
-        F.sum(F.when((F.col("risk_score") >= VERY_HIGH_SCORE) & (F.col("gross_amount_inr") >= HIGH_VALUE_INR), 1).otherwise(0)).alias("very_high_value_count"),
+        F.sum(F.when(F.col("rule_flag") == 1, F.col("gross_amount_usd")).otherwise(0)).alias("flagged_gross_usd"),
+        F.sum(F.when((F.col("rule_flag") == 1) & (F.col("gross_amount_usd") >= HIGH_VALUE_USD), 1).otherwise(0)).alias("high_value_flagged_count"),
+        F.sum(F.when((F.col("risk_score") >= VERY_HIGH_SCORE) & (F.col("gross_amount_usd") >= HIGH_VALUE_USD), 1).otherwise(0)).alias("very_high_value_count"),
     ).withColumn("flagged_rate_pct", 100.0 * F.col("flagged_count") / F.col("transaction_count"))
-     .withColumn("priority", F.when((F.col("flagged_gross_inr") >= P1_ACCOUNT_EXPOSURE_INR) |
+     .withColumn("priority", F.when((F.col("flagged_gross_usd") >= P1_ACCOUNT_EXPOSURE_USD) |
                                     (F.col("very_high_value_count") > 0), "P1")
                  .when(F.col("flagged_count") > 0, "P2").otherwise("P3")))
 
@@ -103,22 +103,22 @@ def account_metrics(tx):
 def portfolio_metrics(accounts):
     return (accounts.groupBy("month_year", "period_key").agg(
         F.count("*").alias("active_accounts"),
-        *[F.sum(c).alias(c) for c in ["transaction_count", "net_amount_inr", "gross_amount_inr",
-             "positive_amount_inr", "negative_magnitude_inr", "flagged_count", "flagged_gross_inr", "high_value_flagged_count"]],
+        *[F.sum(c).alias(c) for c in ["transaction_count", "net_amount_usd", "gross_amount_usd",
+             "positive_amount_usd", "negative_magnitude_usd", "flagged_count", "flagged_gross_usd", "high_value_flagged_count"]],
         (F.sum(F.col("avg_risk_score") * F.col("transaction_count")) / F.sum("transaction_count")).alias("avg_risk_score"),
         F.sum(F.when(F.col("priority") == "P1", 1).otherwise(0)).alias("p1_accounts"),
     ).withColumn("flagged_rate_pct", 100.0 * F.col("flagged_count") / F.col("transaction_count")))
 
 
 def reconciliation_checks(tx, monthly):
-    expected = account_metrics(tx).select("account_id", "month_year", "transaction_count", "net_amount_inr", "avg_risk_score", "flagged_count")
+    expected = account_metrics(tx).select("account_id", "month_year", "transaction_count", "net_amount_usd", "avg_risk_score", "flagged_count")
     joined = expected.alias("e").join(monthly.alias("m"), ["account_id", "month_year"], "full")
     # Currency totals in source may have DECIMAL(15,2) rounding. Risk averages are not rounded.
     bad = joined.filter(
         F.col("e.transaction_count").isNull() | F.col("m.total_transactions").isNull() |
         (F.col("e.transaction_count") != F.col("m.total_transactions")) |
-        (F.abs(F.col("e.net_amount_inr") - F.col("m.total_amount")) > 0.02) |
-        (F.abs(F.col("e.net_amount_inr") / F.col("e.transaction_count") - F.col("m.avg_amount")) > 0.02) |
+        (F.abs(F.col("e.net_amount_usd") - F.col("m.total_amount")) > 0.02) |
+        (F.abs(F.col("e.net_amount_usd") / F.col("e.transaction_count") - F.col("m.avg_amount")) > 0.02) |
         (F.abs(F.col("e.avg_risk_score") - F.col("m.avg_risk_score")) > 1e-8) |
         (F.col("e.flagged_count") != F.col("m.high_risk_transactions"))
     )
@@ -150,8 +150,8 @@ def rows(df, limit=20):
     return [r.asDict(recursive=True) for r in df.limit(limit).collect()]
 
 
-def inr(value):
-    return "—" if value is None else f"₹{float(value):,.2f}"
+def usd(value):
+    return "—" if value is None else f"USD {float(value):,.2f}"
 
 
 def table_html(data, columns):

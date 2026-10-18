@@ -14,7 +14,7 @@
         "heading": "From data foundation\nto financial investigation",
         "purpose": "title_slide",
         "subtitle": "Oracle AI Data Platform • Meridian Demo Bank",
-        "notes": "Abhijit Khuperkar | 18 October 2026. Mixed business and technical audience. Follow one monthly investigation from portfolio context to account evidence and policy. Demonstration dataset; amounts shown in INR, a display assumption without FX conversion. No confirmed-fraud, calibrated-probability or realized-loss claim."
+        "notes": "Abhijit Khuperkar | 18 October 2026. Mixed business and technical audience. Follow one monthly investigation from portfolio context to account evidence and policy. Demonstration dataset; amounts shown in USD, a display assumption without FX conversion. No confirmed-fraud, calibrated-probability or realized-loss claim."
       },
       {
         "heading": "AI outcomes depend on data and workflow design",
@@ -107,10 +107,10 @@
       {
         "heading": "Start with a portfolio view; drill into evidence",
         "purpose": "body_single_column",
-        "subtitle": "December 2024 • OAC reference verified 17 October 2026",
+        "subtitle": "December 2024 • USD OAC capture 18 October 2026",
         "bullets": [],
         "visual": "dashboard",
-        "notes": "Reference data/reference-snapshot.json: 12,699 transactions, 4,436 active accounts; INR31,642,312.97 gross, INR20,071,594.45 net; 4,934 score>60 flags,38.853453027797464% count flag rate; INR12,547,752.55 flagged gross. Six AutoFit canvases: executive snapshot, executive brief, activity/risk trends, investigation queue, exposure breakdown, monthly changes. Whole-portfolio monthly comparisons are independent of account filters. Demonstration dataset; amounts shown in INR. Screening exposure is not confirmed fraud or loss. The screenshot is cropped, never reconstructed."
+        "notes": "Reference data/reference-snapshot.json: 12,699 transactions, 4,436 active accounts; USD31,642,312.97 gross, USD20,071,594.45 net; 4,934 score>60 flags,38.853453027797464% count flag rate; USD12,547,752.55 flagged gross. Six AutoFit canvases: executive snapshot, executive brief, activity/risk trends, investigation queue, exposure breakdown, monthly changes. Whole-portfolio monthly comparisons are independent of account filters. Demonstration dataset; amounts shown in USD. Screening exposure is not confirmed fraud or loss. The screenshot is cropped, never reconstructed. The six OAC canvases were captured with USD presentation and rule FS-TRIAGE-1.1 on 18 October 2026. Original numeric reference remains 17 October; no amount rescaling."
       },
       {
         "heading": "Combine structured evidence with cited policy",

@@ -48,14 +48,14 @@ class AIDPAppTests(unittest.TestCase):
         with patch('aidp_client.AIDPClient.preflight', return_value={'name':'FS Investigation Copilot'}):
             {x.label:x for x in app.button}['Connect / verify AIDP'].click().run()
         self.assertFalse(app.chat_input[0].disabled)
-        result = {'response':'## Evidence\n\nINR 12.50', 'rows':[{'account':'ACC1', 'amount':12.5}], 'roomId':'ctx-1'}
+        result = {'response':'## Evidence\n\nUSD 12.50', 'rows':[{'account':'ACC1', 'amount':12.5}], 'roomId':'ctx-1'}
         with patch('aidp_client.AIDPClient.send', return_value=result) as send:
             app.chat_input[0].set_value('first').run()
             self.assertEqual(send.call_args.args[1], None)
             app.chat_input[0].set_value('next').run()
             self.assertEqual(send.call_args.args[1], 'ctx-1')
         self.assertEqual(len(app.exception), 0)
-        self.assertTrue(any('INR 12.50' in x.value for x in app.markdown))
+        self.assertTrue(any('USD 12.50' in x.value for x in app.markdown))
         self.assertEqual(app.session_state['room_id'], 'ctx-1')
         self.assertNotIn('aidp-test-only', Path(self.temp.name+'/aidp.sqlite3').read_bytes().decode(errors='ignore'))
         with patch('aidp_client.AIDPClient.preflight', side_effect=ValueError('Fixture access denied')):

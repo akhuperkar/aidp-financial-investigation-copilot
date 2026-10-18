@@ -1,6 +1,21 @@
 # Hosted acceptance and evidence reconciliation
 
-**Hosted status is not all-pass.** The publication preserves a successful data-publication result and working client transport/SQL evidence, alongside an unresolved hybrid content failure. No new live retest was performed as part of preparing this package.
+**Hosted status is not all-pass.** The publication preserves a successful data-publication result and working client transport/SQL evidence, alongside an unresolved hybrid content failure. Fresh focused USD responses in Agent Hub and Streamlit passed on 18 October 2026, and the standalone policy RAG test retrieved version 1.1; a fresh hybrid answer still failed transaction-row reconciliation.
+
+## Current USD checks — 18 October 2026
+
+| Check | Status | Observed result |
+|---|---|---|
+| Agent Hub focused SQL | PASS | December portfolio counts and amounts matched direct SQL; USD output |
+| Streamlit focused SQL | PASS | Same serving snapshot and aggregates; USD output |
+| Standalone policy RAG | PASS | Version1.1 policy retrieval; complete rule checked independently |
+| Fresh Streamlit hybrid | **FAIL** | USD/v1.1 wording, but invented transaction patterns and incorrect score-boundary labeling |
+
+The actual [Agent Hub](../media/screenshots/agent-hub-usd-focused.png) and [Streamlit](../media/screenshots/streamlit-usd-focused.png) captures show cropped December 2024 USD client metric details. The current USD v1.1 AI Registry entry was verified after the previous entry was retired; registration does not establish content correctness.
+
+The [current sanitized acceptance record](../validation/current-hosted-usd-acceptance.json) and [agent-serving reference](../data/agent-serving-usd-reference.json) keep this run separate from the Gold/OAC reference. The unchanged older serving dataset has 147,385 transaction rows and 52,556 account-month rows. Its December response contains 12,566 transactions, 4,376 active accounts, USD 31,352,430.06 gross activity, USD 12,682,845.51 flagged gross, 5,046 flags and 40.16% displayed flag rate.
+
+The failed hybrid answer introduced Debit/CardNotPresent rows instead of preserving the four actual Deposit/Transfer/Withdrawal groups and purportedly flagged score 60 despite the strict `>60` rule. This repeats the historical evidence-fidelity failure; root cause is not established and no behavior change was made during currency migration. Focused SQL/RAG passes do not validate the full hybrid path. The full T01–T12 suite remains separately uncompleted.
 
 ## Historical evidence ledger
 
@@ -65,7 +80,7 @@ Use one stable READY snapshot and a fresh conversation. Then repeat with a same-
 
 1. Save direct SQL tool Test outputs for context, portfolio, queue, selected account and evidence. Preserve actual source fields, timestamps, signs, types, scores, labels, multiplicities and complete counts.
 2. Capture the investigation executor's returned evidence, supervisor handoff, exact `evidence_packet`, Prompt tool output and supervisor final output where the platform exposes them.
-3. Match each displayed row to actual tool-result content and scope. Compare named fields, not positions. Confirm `flagged_gross_inr` was not substituted with total `gross_amount_inr`.
+3. Match each displayed row to actual tool-result content and scope. Compare named fields, not positions. Confirm `flagged_gross_usd` was not substituted with total `gross_amount_usd`.
 4. Establish whether missing rows reflect the display/tool cap, grouping with multiplicity, a genuinely incomplete packet or altered/invented content. Never derive full totals from the sample to fill a gap.
 5. Compare policy quotes/citations with actual retrieved chunks, including the complete section-2 compound rule.
 6. Locate the first observable boundary where content diverges. If that boundary is unavailable in the trace, record that limit; do not assign root cause to client, model, tool or data without evidence.

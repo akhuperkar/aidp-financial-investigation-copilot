@@ -1,7 +1,7 @@
 BASIC DETAILS
 Name: FS_Investigation_Copilot
-Description: Read-only financial-services investigation copilot for synthetic medallion data. Provides portfolio KPIs, exposure-ranked account triage, account-month transaction evidence, cited synthetic policy retrieval, and INR Markdown analyst briefs. Flags and P1/P2 priorities are demo screening rules, not confirmed fraud, calibrated probabilities or realized losses. INR is a display assumption without FX conversion. Human review is required; no customer contact, account freeze, case creation or regulatory filing is performed.
-Version: 1.0.0
+Description: Read-only financial-services investigation copilot for synthetic medallion data. Provides portfolio KPIs, exposure-ranked account triage, account-month transaction evidence, cited synthetic policy retrieval, and USD Markdown analyst briefs. Flags and P1/P2 priorities are demo screening rules, not confirmed fraud, calibrated probabilities or realized losses. USD is a display assumption without FX conversion. Human review is required; no customer contact, account freeze, case creation or regulatory filing is performed.
+Version: 1.1.0
 Documentation URL: (blank)
 Provider Organization: (blank)
 Provider URL: (blank)
@@ -10,16 +10,16 @@ Streaming: True
 SKILL 1
 Skill name: Portfolio Risk Analytics
 Skill ID: fs_portfolio_analytics
-Description: Retrieve monthly portfolio KPIs, observed-period trends and exposure breakdowns from structured medallion data. Show transaction counts, active accounts, gross activity, rule-flagged counts, flagged gross exposure and count-based flag rates as INR Markdown tables with period and snapshot references. Respect unavailable periods and do not derive complete totals from capped samples.
+Description: Retrieve monthly portfolio KPIs, observed-period trends and exposure breakdowns from structured medallion data. Show transaction counts, active accounts, gross activity, rule-flagged counts, flagged gross exposure and count-based flag rates as USD Markdown tables with period and snapshot references. Respect unavailable periods and do not derive complete totals from capped samples.
 Tags: financial-services, portfolio-analytics, sql, medallion, inr, synthetic-demo
-Example: For the latest observed month, show portfolio transaction count, active accounts, gross activity, flagged gross and flag rate in an INR Markdown table. Include the period and source snapshot.
+Example: For the latest observed month, show portfolio transaction count, active accounts, gross activity, flagged gross and flag rate in a USD Markdown table. Include the period and source snapshot.
 
 SKILL 2
 Skill name: Account Triage and Transaction Evidence
 Skill ID: fs_account_triage
 Description: Rank flagged accounts by flagged gross exposure and inspect a selected account-month using complete account totals and bounded transaction evidence. Distinguish flagged exposure from total gross activity, preserve account identifiers and snapshot scope, and disclose returned counts, evidence caps and duplicate multiplicity. Screening priority is a synthetic rule outcome, not a confirmed fraud finding or predictive risk rank.
 Tags: financial-services, account-triage, transaction-evidence, sql, exposure-ranking, synthetic-demo
-Example: Rank the top five accounts by flagged gross exposure for the latest observed month. Show account, demo priority, transaction count, rule flags, flagged gross INR and flag rate in a Markdown table.
+Example: Rank the top five accounts by flagged gross exposure for the latest observed month. Show account, demo priority, transaction count, rule flags, flagged gross USD and flag rate in a Markdown table.
 
 SKILL 3
 Skill name: Synthetic Policy Retrieval
@@ -31,6 +31,6 @@ Example: Retrieve FS-POL-001 sections 1 and 2. Is score 60 flagged? State every 
 SKILL 4
 Skill name: Grounded Investigation Brief
 Skill ID: fs_investigation_brief
-Description: Combine scoped portfolio and account SQL evidence with retrieved synthetic policy into an INR Markdown analyst investigation draft. Separate portfolio KPIs, account totals, actual transaction evidence, policy citations, evidence gaps and proposed human-review steps. Identify unavailable facts and policy retrieval failures rather than inventing fraud outcomes, balances, probabilities, losses or approvals. No external operational action is executed.
+Description: Combine scoped portfolio and account SQL evidence with retrieved synthetic policy into a USD Markdown analyst investigation draft. Separate portfolio KPIs, account totals, actual transaction evidence, policy citations, evidence gaps and proposed human-review steps. Identify unavailable facts and policy retrieval failures rather than inventing fraud outcomes, balances, probabilities, losses or approvals. No external operational action is executed.
 Tags: financial-services, investigation-brief, multi-agent, sql-and-rag, markdown, human-review
-Example: For the latest observed month, investigate the highest-exposure flagged account. Combine the exact portfolio and account SQL totals, five transaction-evidence patterns, and the applicable retrieved triage policy. Return an INR Markdown analyst brief with separate portfolio/account tables, policy citations, evidence gaps and human-review steps.
+Example: For the latest observed month, investigate the highest-exposure flagged account. Combine the exact portfolio and account SQL totals, five transaction-evidence patterns, and the applicable retrieved triage policy. Return a USD Markdown analyst brief with separate portfolio/account tables, policy citations, evidence gaps and human-review steps.

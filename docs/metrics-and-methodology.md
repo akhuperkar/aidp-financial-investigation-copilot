@@ -2,7 +2,7 @@
 
 The analysis prioritizes transaction-screening review using complete monthly aggregates, bounded transaction evidence and retrieved fictional policies. It does not measure confirmed fraud, recovered money or a production model's detection performance.
 
-**Demonstration dataset; amounts shown in INR.** There is no currency column in the source. INR is a display assumption without foreign-exchange conversion. Original transaction-type and US/Online/ATM location labels are retained.
+**Demonstration dataset; amounts shown in USD.** There is no currency column in the source. USD is a display assumption without foreign-exchange conversion. Original transaction-type and US/Online/ATM location labels are retained.
 
 ## Reference data and snapshot separation
 
@@ -12,20 +12,26 @@ The 17 October 2026 [Gold/OAC reference](../data/reference-snapshot.json) has 14
 |---|---:|
 | Transactions | 12,699 |
 | Active accounts | 4,436 |
-| Gross activity | INR 31,642,312.97 |
-| Signed net activity | INR 20,071,594.45 |
+| Gross activity | USD 31,642,312.97 |
+| Signed net activity | USD 20,071,594.45 |
 | Rule-flagged transactions | 4,934 |
 | Transaction-count flag rate | 38.853453027797464% |
-| Flagged gross exposure | INR 12,547,752.55 |
+| Flagged gross exposure | USD 12,547,752.55 |
 | P1 accounts | 528 |
-| Top-ten flagged gross | INR 236,847.35 |
+| Top-ten flagged gross | USD 236,847.35 |
 | Top-ten share of portfolio flagged gross | 1.887567905536996% |
 | First exposure-ranked account | ACC00004535 |
-| First account's flagged gross | INR 28,008.03 |
+| First account's flagged gross | USD 28,008.03 |
 
-These values are a frozen reference, not assertions about a new run. Earlier deployed-agent/Streamlit records use a different snapshot and different December totals. Do not combine their queue, evidence, percentages or screenshots with this OAC reference. A matching month alone does not establish a matching source.
+These numeric values are a frozen reference, not assertions about a new run. USD was adopted on 18 October 2026 without rescaling these values. All six saved OAC canvases were recaptured in USD on that date; the original numeric-verification date, denomination update and later OAC presentation check are recorded separately in the reference JSON. Earlier deployed-agent/Streamlit records use a different snapshot and different December totals. Do not combine their queue, evidence, percentages or screenshots with this OAC reference. A matching month alone does not establish a matching source.
 
 For every comparison, retain consumer path, source versions/fingerprint, semantic `snapshot_id` where applicable, period, account/filter scope, rule version, timezone and preparation time. Source table version 4 is independent of an agent `snapshot_id` and an Agent Card version.
+
+## Current OAC presentation evidence
+
+The six current [OAC screenshots](../media/screenshots/executive-snapshot.png) were captured on 18 October 2026 with USD labels and rule `FS-TRIAGE-1.1`. They retain the same underlying reference amounts and Auto Fit presentation. The executive brief is an explicitly fixed December reference; use the other canvases for filter-responsive measures. Original pre-migration screenshots remain archived.
+
+The account-month and monthly-risk datasets use OAC custom SQL against native `GOLD.FRAUD_DETECTION_MODEL_GOLD`; their table labels do not establish physical database views. Both saved queries were updated by exact currency-alias replacement and verified after dataset reload. The eight redundant preparation rename steps were removed, and `MONTH_FLAGGED_GROSS_USD` retains Maximum aggregation to avoid summing its repeated monthly denominator. Current custom SQL and supplied clean-install SQL use USD aliases. No database DDL, numeric rescaling or calculation change was needed.
 
 ## Three levels of reproduction
 
@@ -51,13 +57,13 @@ All formulas apply to the selected period and account population. Aggregate amou
 |---|---|---|
 | `transaction_count` | Count of transaction rows, including repeated content | Activity count |
 | `active_accounts` | Distinct accounts with transactions in the selected month | Nonadditive across months |
-| `gross_amount_inr` | `SUM(ABS(amount))` | Total transaction magnitude |
-| `net_amount_inr` | `SUM(amount)` | Signed activity; not cash/account balance |
-| `positive_amount_inr` | Sum of positive amounts | Source-sign activity |
-| `negative_magnitude_inr` | Sum of absolute negative amounts | Source-sign activity magnitude |
+| `gross_amount_usd` | `SUM(ABS(amount))` | Total transaction magnitude |
+| `net_amount_usd` | `SUM(amount)` | Signed activity; not cash/account balance |
+| `positive_amount_usd` | Sum of positive amounts | Source-sign activity |
+| `negative_magnitude_usd` | Sum of absolute negative amounts | Source-sign activity magnitude |
 | `rule_flag` / `is_fraud` | 1 only if `risk_score > 60` | Synthetic screening label |
 | `flagged_count` | Sum of rule flags | Flagged transaction count |
-| `flagged_gross_inr` | Sum of absolute amounts where score > 60 | Flagged exposure; not total gross, loss or probability |
+| `flagged_gross_usd` | Sum of absolute amounts where score > 60 | Flagged exposure; not total gross, loss or probability |
 | `flagged_rate_pct` | `100 × flagged_count / transaction_count` | Count percentage; not share of monetary value |
 | `high_value_flagged_count` | Count where score > 60 and absolute amount ≥ 5,000 | Inclusive amount threshold |
 | `very_high_value_count` | Count where score ≥ 85 and absolute amount ≥ 5,000 | Both conditions apply to the same transaction |
@@ -69,21 +75,21 @@ Where portfolio flagged gross is zero, a concentration percentage is undefined; 
 
 ### Priority and queue ordering
 
-The fictional rule version is `FS-TRIAGE-1.0`:
+The fictional rule version is `FS-TRIAGE-1.1`:
 
 ```text
 flagged transaction = risk_score > 60
 
-P1 account-month = flagged_gross_inr >= 10000
+P1 account-month = flagged_gross_usd >= 10000
                    OR exists transaction where
                       risk_score >= 85 AND abs(amount) >= 5000
 P2 account-month = has a flagged transaction and is not P1
 P3 account-month = has no flagged transaction
 ```
 
-Score 60 is not flagged; 61 is flagged. Score 85 alone does not trigger the second P1 alternative if the amount is INR 4,999.99. INR 5,000 meets the amount threshold. INR 10,000 of **flagged** gross meets the first P1 alternative.
+Score 60 is not flagged; 61 is flagged. Score 85 alone does not trigger the second P1 alternative if the amount is USD 4,999.99. USD 5,000 meets the amount threshold. USD 10,000 of **flagged** gross meets the first P1 alternative.
 
-The queue includes only accounts with `flagged_count > 0`. Its stable order is `flagged_gross_inr DESC, flagged_count DESC, account_id`. The top ten are exposure-ranked, not ranked by predicted loss or necessarily grouped by P1 before P2. Use the actual first returned account; do not hard-code an account from a different snapshot.
+The queue includes only accounts with `flagged_count > 0`. Its stable order is `flagged_gross_usd DESC, flagged_count DESC, account_id`. The top ten are exposure-ranked, not ranked by predicted loss or necessarily grouped by P1 before P2. Use the actual first returned account; do not hard-code an account from a different snapshot.
 
 ### Time, filters and dimensionality
 
@@ -95,9 +101,9 @@ Exposure mix dimension 1 is transaction type; dimension 2 is source location lab
 
 ## Reconciliation and numerical precision
 
-The consumer notebooks independently aggregate transaction Gold and join it to account-month Gold across **all** keys. They reject missing/duplicate keys and differences in transaction counts, signed totals, averages, flags and category-count maps. Amount comparisons allow the source's decimal rounding tolerance of INR 0.02; score-average tolerance is `1e-8`. These are calculation-contract checks, not detection-accuracy tests.
+The consumer notebooks independently aggregate transaction Gold and join it to account-month Gold across **all** keys. They reject missing/duplicate keys and differences in transaction counts, signed totals, averages, flags and category-count maps. Amount comparisons allow the source's decimal rounding tolerance of USD 0.02; score-average tolerance is `1e-8`. These are calculation-contract checks, not detection-accuracy tests.
 
-The setup checks that evidence multiplicities sum to the source row count and that multiplicity-weighted gross agrees with complete portfolio gross within INR 0.02. It verifies all semantic data tables share one snapshot and that the source fingerprint is unchanged before publishing READY.
+The setup checks that evidence multiplicities sum to the source row count and that multiplicity-weighted gross agrees with complete portfolio gross within USD 0.02. It verifies all semantic data tables share one snapshot and that the source fingerprint is unchanged before publishing READY.
 
 The AILH publisher independently pins both Delta versions, normalizes the native contract and checks schemas, counts and exact decimal totals. With `verify_full_rows=True`, a bidirectional `exceptAll` compares the complete normalized row multisets, including duplicate multiplicities, canonicalized JSON and timestamps. Passing counts/totals alone is weaker than full-row equality. Version pinning stabilizes each table; it does not prove both tables came from a single atomic upstream batch.
 
@@ -109,7 +115,7 @@ There is no unique transaction ID in the source. `transaction_evidence_sql` grou
 
 The queue returns at most ten accounts; transaction evidence returns at most twenty groups. A report may show five rows. Record displayed rows, returned rows, full candidate/group counts and cap separately. Four returned groups out of four observed groups with a cap of twenty is **not** “four of twenty transactions.” Unflagged evidence rows are allowed. Complete account exposure comes from `get_account_snapshot`, never from summing the bounded sample.
 
-Numeric claims cite the actual SQL tool, explicit period/account and snapshot, for example `[SQL:get_account_snapshot | YYYYMM | ACC######## | snapshot]`. Policy claims cite an actually retrieved document, version and explicit section header, for example `[FS-POL-001 v1.0 §2]`. Preserve returned source references without inventing filenames, section numbers, chunk IDs or similarity scores. A policy summary can omit a clause; inspect actual passages and adjacent continuations.
+Numeric claims cite the actual SQL tool, explicit period/account and snapshot, for example `[SQL:get_account_snapshot | YYYYMM | ACC######## | snapshot]`. Policy claims cite an actually retrieved document, version and explicit section header, for example `[FS-POL-001 v1.1 §2]`. Preserve returned source references without inventing filenames, section numbers, chunk IDs or similarity scores. A policy summary can omit a clause; inspect actual passages and adjacent continuations.
 
 ## What the ML example measures
 
@@ -121,4 +127,4 @@ The feature list excludes `risk_score`. This avoids directly passing the thresho
 
 The dataset has no independently confirmed fraud outcomes, realized losses, recoveries, balances, KYC, counterparties or persisted model scores. All policies are fictional. Proposed analyst steps are draft guidance; no external action or approval workflow is implemented.
 
-Historical user-reported Agent Hub successes, local calculation checks, native publication verification and client transport checks establish different things. The recorded Streamlit hybrid result failed evidence-row reconciliation despite a completed task and preserved context. Root cause remains unverified. Read [hosted acceptance](hosted-acceptance.md) before claiming current end-to-end correctness; the package does not claim an all-pass hosted run.
+Fresh focused SQL responses in USD from Agent Hub and Streamlit on 18 October 2026 matched SQL for the unchanged older serving snapshot: 12,566 December transactions, 4,376 active accounts, USD 31,352,430.06 gross activity, USD 12,682,845.51 flagged gross, 5,046 flags and 40.16% displayed flag rate. The standalone policy RAG test passed with corpus v1.1. These results are recorded separately in the [agent-serving reference](../data/agent-serving-usd-reference.json); the Gold/OAC numbers above remain unchanged. A fresh Streamlit hybrid response still failed transaction-row reconciliation, repeating the historical failure despite USD/v1.1 wording. Root cause remains unverified. Read [hosted acceptance](hosted-acceptance.md) before claiming current end-to-end correctness; no all-pass hybrid run is claimed.

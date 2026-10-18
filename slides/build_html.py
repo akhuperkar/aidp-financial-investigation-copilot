@@ -13,7 +13,7 @@ for number, section in enumerate(data['content']['sections'], 1):
     visual = section.get('visual')
     body = ''
     if number == 1:
-        body = '<p class="lead">Which account should I review first?<br>What evidence supports the priority?<br>Which policy applies?</p><p class="disclosure">Demonstration dataset · INR display assumption</p>'
+        body = '<p class="lead">Which account should I review first?<br>What evidence supports the priority?<br>Which policy applies?</p><p class="disclosure">Demonstration dataset · USD display assumption</p>'
     elif number == 2:
         body = '<div class="two"><div class="stat"><b>63%</b><p>Lacked or were unsure of suitable data-management practices for AI.</p><small>Gartner · July 2024 survey · n=1,203</small></div><div class="stat"><b>21%</b><p>Reported fundamental redesign of at least some workflows.</p><small>McKinsey · respondents using generative AI</small></div></div><p class="disclosure">Independent findings with different populations. Sources and context are in presenter notes.</p>'
     elif visual:
@@ -21,7 +21,7 @@ for number, section in enumerate(data['content']['sections'], 1):
         alt = {'architecture':'Separate Spark-agent and AILH-OAC serving paths', 'dashboard':'Verified December 2024 OAC dashboard', 'agent-flow':'Supervisor with portfolio SQL, investigation SQL, policy RAG and brief executors'}[visual]
         body = f'<figure><img src="{src}" alt="{alt}" loading="lazy"></figure>'
         if visual == 'dashboard':
-            body += '<div class="mini-kpis"><span><b>12,699</b>transactions</span><span><b>INR 31.64M</b>gross activity</span><span><b>38.85%</b>count flag rate</span></div><p class="disclosure">Screening flags are not confirmed fraud or losses. Frozen OAC reference; do not blend with older agent snapshots.</p>'
+            body += '<div class="mini-kpis"><span><b>12,699</b>transactions</span><span><b>USD 31.64M</b>gross activity</span><span><b>38.85%</b>count flag rate</span></div><p class="disclosure">Screening flags are not confirmed fraud or losses. Frozen OAC reference; do not blend with older agent snapshots.</p>'
     elif 'table' in section:
         t=section['table'];body='<div class="table-scroll"><table><thead><tr>'+''.join(f'<th>{esc(x)}</th>' for x in t['columns'])+'</tr></thead><tbody>'
         body+=''.join('<tr>'+''.join(f'<td>{esc(x)}</td>' for x in row)+'</tr>' for row in t['rows'])+'</tbody></table></div>'

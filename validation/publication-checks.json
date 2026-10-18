@@ -5,36 +5,70 @@
       "status": "PASS",
       "tests": 43,
       "python": "3.13.7",
-      "services": "mocked plus loopback HTTPS fixture"
+      "services": "mocked plus loopback HTTPS fixture",
+      "duration_seconds": 8.653,
+      "verification": "Root reran the full existing app test suite on 2026-10-18; mocked services plus loopback HTTPS fixture"
     },
     "ailh_contracts": {
       "status": "PASS",
       "tests": 19,
       "spark_required": false
+    },
+    "usd_contracts": {
+      "status": "PASS",
+      "tests": 6,
+      "scope": "frozen amount preservation, currency/rule thresholds, source generator preservation, policy/citation consistency, reviewed node/embedded prompt concordance"
     }
   },
   "fresh_venv_install": "NOT_RUN; existing local venv used without modification",
-  "local_spark_rerun": "NOT_RUN in publication pass; only source-preservation and offline contracts rerun",
-  "hosted_acceptance": "NOT_RUN in publication pass; see docs/hosted-acceptance.md",
+  "local_spark_rerun": {
+    "status": "PASS",
+    "duration_seconds": 57.6,
+    "product_notebooks": 2,
+    "cell_count": 68,
+    "analytical_checks": 28,
+    "scope": "seeded local Spark 3.5.3; Parquet/catalog adapter; no hosted AIDP data regeneration",
+    "display_units": "USD millions"
+  },
+  "hosted_acceptance": {
+    "verified_on": "2026-10-18",
+    "agent_hub_focused_sql": "PASS",
+    "streamlit_focused_sql": "PASS",
+    "standalone_policy_rag_v1_1": "PASS",
+    "fresh_streamlit_hybrid": "FAIL: transaction evidence rows did not reconcile; USD/version labels do not establish content correctness",
+    "ai_registry_usd_v1_1": "VERIFIED",
+    "full_T01_T12_suite": "NOT_COMPLETED",
+    "details": "current-hosted-usd-acceptance.json"
+  },
   "historical_gaps": [
-    "AIDP hybrid response completed transport but failed evidence reconciliation.",
+    "Historical hybrid content failure preserved; fresh USD hybrid run repeats transaction-row reconciliation failure. Root cause unverified.",
     "Changed-data AILH replacement remains unvalidated."
   ],
   "browser_preview": {
-    "slide_cards": "Presentation mode, next-button and ArrowRight navigation, and visible image load verified in Chrome",
-    "article": "Headings, tables and all four images verified in Chrome"
+    "local_article_html_browser_review": "NOT_RUN for revised local HTML; structure/links checked offline. Live Medium review is a separate activity.",
+    "current_assets": "Six genuine final USD OAC screenshots, two clean focused-client metric clips, both larger Medium tables and local USD monetary plot visually inspected."
   },
   "powerpoint": {
-    "status": "PASS",
+    "status": "PASS_CURRENT_USD_ASSET_AND_STRUCTURAL_CHECKS",
     "slides": 10,
-    "package_integrity": "PASS",
-    "layout": "PASS",
+    "sha256": "b64cdf705e68eb676ecb70eacfd9b8477bc128ad54c31b746b689a281341b9cc",
+    "bytes": 3112359,
+    "package_integrity": "PASS: zero findings",
+    "layout": "PASS: zero findings/warnings; genuine current USD OAC screenshot proportionately fitted on slide6",
+    "rendered_slide_count": 10,
+    "visual_review_slides": [
+      1,
+      6
+    ],
+    "visual_review_scope": "Slide1 earlier currency-edit review and final slide6 review; no new all-ten-slide inspection claim",
     "native_editable_diagram_slides": [
       3,
       7
     ],
     "native_table_slide": 5,
-    "native_powerpoint_execution": "NOT_RUN"
+    "native_powerpoint_execution": "NOT_RUN",
+    "currency_text": "Current USD strings and genuine USD screenshot installed; slide 6 capture subtitle dated 18 October 2026",
+    "details": "presentation-checks.json"
   },
   "structure": {
     "status": "PASS",
@@ -50,5 +84,6 @@
     "source_recordings": "not supplied",
     "ass_coordinate_fixture": "1920x1080 header verified",
     "pixel_caption_calibration": "not completed; installed FFmpeg lacks subtitles/libass filter"
-  }
+  },
+  "release": "USD denomination 1.1"
 }

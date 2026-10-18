@@ -8,7 +8,7 @@
 
 **Recording branches:** chapter 11 is the safe default and explicitly explains the open hybrid acceptance gate. Do not rewrite that chapter as a successful hybrid demonstration until a fresh hosted run passes the checks in `recording-guide.md` and `../docs/hosted-acceptance.md`. A limitation-led cut remains truthful but must retain the gate in both the video and description.
 
-**Read only the blockquotes.** Headings, timing notes, and holds are production directions. Pronunciations: AIDP = “A I D P”; AILH = “AI Lakehouse” after first use; OAC = “Oracle Analytics”; SQL = “sequel”; RAG = “rag”; INR = “Indian rupees”; P1 = “P one”; A2A = “A two A”. The OAC account identifier is `ACC00004535`; show it exactly on screen. Spoken expansions increase actual duration slightly, so measure the recorded voice.
+**Read only the blockquotes.** Headings, timing notes, and holds are production directions. Pronunciations: AIDP = “A I D P”; AILH = “AI Lakehouse” after first use; OAC = “Oracle Analytics”; SQL = “sequel”; RAG = “rag”; USD = “Indian rupees”; P1 = “P one”; A2A = “A two A”. The OAC account identifier is `ACC00004535`; show it exactly on screen. Spoken expansions increase actual duration slightly, so measure the recorded voice.
 
 ## 00-cover — Financial investigation, with evidence
 

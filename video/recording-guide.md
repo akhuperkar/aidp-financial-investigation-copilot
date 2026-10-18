@@ -52,13 +52,13 @@ The exact action/proof/hold targets live in `storyboard.csv`. The following oper
 | Chapter | Record | Hold and inspection point |
 |---|---|---|
 | 00 Cover | `cards/00-cover.svg`, then a dissolve to the context diagram | Keep the question readable; the cover chapter includes its spoken question, so do not assume the whole chapter is a silent title card |
-| 01 Context | `../media/diagrams/architecture.svg` and `medallion.svg`, once supplied by integration | Make the AILH-to-OAC path and dedicated agent snapshot distinguishable; show “Demonstration dataset; amounts shown in INR” near the first numbers |
+| 01 Context | `../media/diagrams/architecture.svg` and `medallion.svg`, once supplied by integration | Make the AILH-to-OAC path and dedicated agent snapshot distinguishable; show “Demonstration dataset; amounts shown in USD” near the first numbers |
 | 02 Bronze | Existing medallion notebook, “Bronze Layer: Raw Data Ingestion,” schema/table and bounded sample | Show exact account ID, signed amount and source timestamp. Do not execute data generation |
 | 03 Silver | “Silver Layer: Data Cleaning and Validation,” transformation logic and sample | Preserve the source meaning while showing validation/enrichment; do not equate schema cleanliness with completeness of business context |
 | 04 Gold | “Gold Layer: Analytics and ML-Ready Data,” the two table definitions and verified reference | Distinguish transaction grain from account-month grain; label the date/version beside historical counts |
 | 05 ML | “Gold Layer: ML Model Training and Evaluation,” label derivation, features, split, fit and evaluation code | Show `is_fraud = risk_score > 60` and that `risk_score` is not an input feature. Show random-score generation before any evaluation metric |
 | 06 AILH | Existing AILH notebook appendix, mapping/configuration, pinned versions and initial publication readback/checks | Show both tables and full-row comparison. Do not present a dry run as a write test or a failed refresh as successful |
-| 07 Notebook + OAC | Executive analytics notebook, then existing OAC workbook: executive snapshot → activity/risk trends → investigation queue → monthly changes → risk exposure | Keep December 2024 filter and source label visible. Capture account `ACC00004535` and flagged gross `INR 28,008.03` in the verified reference |
+| 07 Notebook + OAC | Executive analytics notebook, then existing OAC workbook: executive snapshot → activity/risk trends → investigation queue → monthly changes → risk exposure | Keep December 2024 filter and source label visible. Capture account `ACC00004535` and flagged gross `USD 28,008.03` in the verified reference |
 | 08 Agent Builder | Existing `FS_INVESTIGATION_SUPERVISOR` flow and its SQL/RAG/brief paths; one tool's parameters and fictional corpus | Use current tenant UI labels. The diagram is reference artwork; do not imply it is a live trace |
 | 09 Testing/deployment | Narrow response checks and existing deployed state, with endpoints masked | Show requested scope, expected boundary and actual outcome together. Status/URL proves neither inner execution nor answer correctness |
 | 10 Hub | Portfolio → queue → narrow policy prompt; full brief only after reconciliation | Keep sources and period/snapshot readable; retain exported actual outputs privately |
@@ -75,7 +75,7 @@ If integration places a file elsewhere, update the link rather than inventing an
 
 ### Numeric evidence for the OAC chapter
 
-The verified 17 October 2026 Gold reference uses source Delta version 4, January–December 2024: 149,658 transaction rows; 52,735 account-month analytics rows; 5,000 accounts. December: 12,699 transactions; 4,436 active accounts; gross INR 31,642,312.97; net INR 20,071,594.45; 4,934 rule flags; flag rate 38.853453027797464%; flagged gross INR 12,547,752.55; 528 P1 accounts. Top queue account: `ACC00004535`, flagged gross INR 28,008.03. Values may be rounded for speech, but show exact values in evidence.
+The verified 17 October 2026 Gold reference uses source Delta version 4, January–December 2024: 149,658 transaction rows; 52,735 account-month analytics rows; 5,000 accounts. December: 12,699 transactions; 4,436 active accounts; gross USD 31,642,312.97; net USD 20,071,594.45; 4,934 rule flags; flag rate 38.853453027797464%; flagged gross USD 12,547,752.55; 528 P1 accounts. Top queue account: `ACC00004535`, flagged gross USD 28,008.03. Values may be rounded for speech, but show exact values in evidence.
 
 These are the Gold/OAC reference values, not expected answers for an older agent snapshot. If recording a refreshed source, update the source record, script, captions and metadata consistently. Do not silently force a current screen to match a historical reference. Do not combine the older agent's 12,566-transaction December snapshot with these OAC figures.
 
@@ -83,10 +83,10 @@ These are the Gold/OAC reference values, not expected answers for an older agent
 
 Use a text file beside the recorder or paste into the existing chat input. These are drafts derived from the source-workspace `live_review/sample_prompts.txt`; confirm that the current deployment accepts the wording. They do not authorize changing prompts, deployment, tools or data. If the current app has no suggested-prompt picker, do not add one to the film.
 
-1. **Portfolio:** “For the latest observed month, show portfolio transaction count, active accounts, gross activity, flagged gross and flag rate in an INR Markdown table. Include the period and source snapshot.”
-2. **Queue:** “Rank the top five accounts by flagged gross exposure for the latest observed month. Show account, demo priority, transaction count, rule flags, flagged gross INR and flag rate in a Markdown table.”
+1. **Portfolio:** “For the latest observed month, show portfolio transaction count, active accounts, gross activity, flagged gross and flag rate in a USD Markdown table. Include the period and source snapshot.”
+2. **Queue:** “Rank the top five accounts by flagged gross exposure for the latest observed month. Show account, demo priority, transaction count, rule flags, flagged gross USD and flag rate in a Markdown table.”
 3. **Policy boundary:** “Retrieve FS-POL-001 sections 1 and 2. Is score 60 flagged? State every condition that makes an account-month P1, preserving AND/OR logic and all amount and score thresholds. Cite the retrieved document/version/section.”
-4. **Combined brief:** “For the latest observed month, investigate the highest-exposure flagged account. Combine the exact portfolio and account SQL totals, five transaction-evidence patterns, and the applicable retrieved triage policy. Return an INR Markdown analyst brief with separate portfolio/account tables, policy citations, evidence gaps and human-review steps.”
+4. **Combined brief:** “For the latest observed month, investigate the highest-exposure flagged account. Combine the exact portfolio and account SQL totals, five transaction-evidence patterns, and the applicable retrieved triage policy. Return a USD Markdown analyst brief with separate portfolio/account tables, policy citations, evidence gaps and human-review steps.”
 5. **Same conversation:** “For that same account and month, show five transaction-evidence patterns in a Markdown table. State duplicate multiplicity and whether the returned list is complete; use the account snapshot for total exposure.”
 6. **Unavailable facts:** “Show confirmed fraud loss, fraud probability and the cash balance of the top account. Distinguish any available risk-screening measures from unavailable facts.”
 7. **Unavailable period:** “Prepare the account-risk report for June 2026. Do not substitute another reporting period if June 2026 is unavailable.”
@@ -100,9 +100,9 @@ For a decisive proof sequence, resolve latest once, record the returned month/sn
 Before using the optional success narration, retain a fresh acceptance record that includes:
 
 - UTC run time, private deployment reference, client/Hub used, conversation/context continuity and actual task outcome.
-- Returned period, exact account ID, snapshot ID and rule version. The queue and account snapshot must agree on `flagged_gross_inr`; total gross must not be substituted.
+- Returned period, exact account ID, snapshot ID and rule version. The queue and account snapshot must agree on `flagged_gross_usd`; total gross must not be substituted.
 - Exact portfolio/account SQL result files, actual transaction-evidence groups, signed amounts, timestamps, scores, labels and duplicate multiplicities. Distinguish returned groups, total groups and cap; do not sum a bounded sample as complete exposure.
-- Actual retrieved FS-POL-001 version/section passages. Score 60 is not flagged. P1 means flagged gross ≥ INR 10,000 **OR** at least one transaction with score ≥85 **AND** absolute amount ≥ INR 5,000. Verify the retrieved source itself; a generated summary is insufficient.
+- Actual retrieved FS-POL-001 version/section passages. Score 60 is not flagged. P1 means flagged gross ≥ USD 10,000 **OR** at least one transaction with score ≥85 **AND** absolute amount ≥ USD 5,000. Verify the retrieved source itself; a generated summary is insufficient.
 - Missing-data and unavailable-period behavior; no invented balance, KYC, counterparty, calibrated fraud probability, confirmed loss, filing or approval.
 - A reviewer and explicit outcome for content reconciliation, kept separate from transport success. The public recording should show the accepted proof or the limitation.
 
@@ -116,11 +116,11 @@ Record or generate the final voice only after the chapter script is reviewed and
 
 Prefer 48 kHz, 24-bit WAV for the voice master. Edit breaths and clipping gently; retain natural cadence. No music is required. If music is later requested, use a licensed track at a level that leaves speech unambiguous and retain its attribution/license. Do not add a remote asset or telemetry dependency.
 
-Create an English UTF-8 SRT from the final voice, then correct it manually against the final edit. Preserve account leading zeros, ₹/INR, dates, two-decimal amounts, “strictly greater than,” and the P1 AND/OR logic. Do not place raw tokens or private identifiers into captions.
+Create an English UTF-8 SRT from the final voice, then correct it manually against the final edit. Preserve account leading zeros, $/USD, dates, two-decimal amounts, “strictly greater than,” and the P1 AND/OR logic. Do not place raw tokens or private identifiers into captions.
 
 For a 1920×1080 final, reserve a lower band of at least 140 pixels before adding captions. Keep actual application imagery above it rather than placing text over the last row, chat input or notebook controls. Target a 32–36 pixel visible caption font, at most two lines, approximately 42–55 characters per line, white text on a translucent charcoal box. Use a sans-serif font, a stable lower-center position, and readable in/out timing; keep box width inside 90% of the frame. The assembly helper uses a 160-pixel band and a nominal 34-pixel ASS font. It converts a temporary copy of the SRT to ASS, sets `PlayResX=1920`, `PlayResY=1080` and `WrapStyle=2`, and retains the original SRT for delivery. This avoids scaling a 34-unit caption from FFmpeg's smaller default script resolution. Inspect the actual rendered font and two-line cues for overflow. Adapt the design after seeing footage if any meaningful control is covered.
 
-Keep the dataset/INR note visible in context and methodology, and screening-versus-confirmed-fraud language near conclusions. Captions must faithfully represent the spoken voice; do not insert a caveat solely as tiny text while the voice makes an unsupported claim.
+Keep the dataset/USD note visible in context and methodology, and screening-versus-confirmed-fraud language near conclusions. Captions must faithfully represent the spoken voice; do not insert a caveat solely as tiny text while the voice makes an unsupported claim.
 
 ## Edit and export
 

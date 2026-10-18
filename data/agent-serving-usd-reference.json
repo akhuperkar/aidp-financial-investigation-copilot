@@ -1,0 +1,23 @@
+{
+  "reference_id": "agent-serving-usd-2026-10-18",
+  "recorded_on": "2026-10-18",
+  "currency": "USD",
+  "rule_version": "FS-TRIAGE-1.1",
+  "source_scope": "Older existing agent-serving snapshot; separate from the 149658-row Gold/OAC version 4 reference",
+  "transaction_rows": 147385,
+  "account_month_rows": 52556,
+  "amount_values_rescaled": false,
+  "source_data_regenerated": false,
+  "migration_verification": "Full existing-row multiset parity passed before READY",
+  "december_2024": {
+    "period_key": 202412,
+    "transactions": 12566,
+    "active_accounts": 4376,
+    "gross_activity_usd": 31352430.06,
+    "flagged_gross_usd": 12682845.51,
+    "rule_flags": 5046,
+    "flag_rate_pct_display": 40.16
+  },
+  "scope_warning": "Focused SQL responses are verified; hybrid transaction evidence failed reconciliation. Do not blend this snapshot with OAC values.",
+  "snapshot_reference": "Older existing serving snapshot; exact identifier retained privately"
+}

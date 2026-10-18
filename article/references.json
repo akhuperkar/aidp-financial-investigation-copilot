@@ -162,16 +162,16 @@
       "december": {
         "transactions": 12699,
         "active_accounts": 4436,
-        "gross_inr": "31642312.97",
-        "net_inr": "20071594.45",
+        "gross_usd": "31642312.97",
+        "net_usd": "20071594.45",
         "rule_flags": 4934,
         "flag_rate_percent": "38.853453027797464",
-        "flagged_gross_inr": "12547752.55",
+        "flagged_gross_usd": "12547752.55",
         "p1_accounts": 528,
-        "top_ten_flagged_gross_inr": "236847.35",
+        "top_ten_flagged_gross_usd": "236847.35",
         "top_ten_share_percent": "1.887567905536996",
         "leading_account": "ACC00004535",
-        "leading_account_flagged_gross_inr": "28008.03"
+        "leading_account_flagged_gross_usd": "28008.03"
       },
       "qualifications": [
         "Older deployed-agent/Streamlit snapshot differs; no blending."

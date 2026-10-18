@@ -1,9 +1,8 @@
 {
-  "reference_id": "oac-gold-v4-2026-10-17",
-  "verified_on": "2026-10-17",
+  "reference_id": "oac-gold-v4-usd-denomination-2026-10-18",
   "dataset": "Meridian Demo Bank demonstration transactions",
-  "currency": "INR",
-  "currency_note": "Display assumption only; no foreign exchange conversion.",
+  "currency": "USD",
+  "currency_note": "USD denomination adopted 2026-10-18; original numeric amounts preserved. No FX conversion or rescaling.",
   "period_start": "2024-01",
   "period_end": "2024-12",
   "source_delta_version": 4,
@@ -28,13 +27,49 @@
   },
   "top_account": {
     "account_id": "ACC00004535",
-    "flagged_gross_inr": 28008.03
+    "flagged_gross_usd": 28008.03
   },
   "definition_notes": [
     "gross = sum(abs(amount)); net = sum(amount), not a balance",
     "transaction flag: risk_score > 60; flags are screening labels, not confirmed fraud",
     "P1: monthly flagged gross >= 10000 OR any transaction score >= 85 AND abs(amount) >= 5000"
   ],
-  "evidence_scope": "Sanitized summary of verified OAC reference; current tenant must be revalidated.",
-  "agent_snapshot_warning": "Older deployed-agent snapshot differs. Do not combine its totals with this reference."
+  "evidence_scope": "Numeric basis is the 2026-10-17 Gold version 4 reference. USD denomination and all six saved OAC presentation views were checked separately on 2026-10-18; no numeric rescaling.",
+  "agent_snapshot_warning": "Older deployed-agent snapshot differs. Do not combine its totals with this reference.",
+  "numeric_verification_date": "2026-10-17",
+  "denomination_updated_on": "2026-10-18",
+  "historical_reference": "reference/archive-inr-2026-10-18/data/reference-snapshot.json",
+  "oac_presentation_verification": {
+    "captured_on": "2026-10-18",
+    "canvas_count": 6,
+    "period": "2024-12 for monthly views; 2024 observed trend",
+    "currency_labels": "USD",
+    "rule_version": "FS-TRIAGE-1.1",
+    "canvas_layout": "Auto Fit preserved",
+    "capture_dimensions_px": [
+      1512,
+      746
+    ],
+    "assets": [
+      "media/screenshots/executive-snapshot.png",
+      "media/screenshots/activity-risk-trends.png",
+      "media/screenshots/monthly-changes.png",
+      "media/screenshots/investigation-queue.png",
+      "media/screenshots/risk-exposure.png",
+      "media/screenshots/executive-brief.png"
+    ],
+    "source_amounts_rescaled": false,
+    "database_ddl_issued": false,
+    "scope": "Presentation capture verification; does not establish Agent Hub/Streamlit acceptance.",
+    "source_contract_verified_on": "2026-10-18",
+    "source_alias_migration": {
+      "source_type": "OAC custom SQL over native transaction Gold",
+      "saved_reload_verified": true,
+      "aliases": "USD throughout both custom SQL definitions",
+      "calculation_change": false,
+      "redundant_preparation_renames_removed": 8,
+      "month_flagged_gross_aggregation": "Maximum",
+      "physical_database_view_ddl_required": false
+    }
+  }
 }

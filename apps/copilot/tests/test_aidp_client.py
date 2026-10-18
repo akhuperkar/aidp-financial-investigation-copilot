@@ -9,7 +9,7 @@ except ModuleNotFoundError:
     aidp_client = None
 
 BASE = 'https://gateway.aidp.us-chicago-1.oci.oraclecloud.com/agentendpoint/00000000-0000-4000-8000-000000000001'
-ANSWER = '## Evidence\n\n| Account | INR |\n|---|---:|\n| ACC00003604 | 28,845.44 |'
+ANSWER = '## Evidence\n\n| Account | USD |\n|---|---:|\n| ACC00003604 | 28,845.44 |'
 
 
 class Reply:
