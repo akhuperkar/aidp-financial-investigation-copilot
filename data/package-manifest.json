@@ -730,8 +730,8 @@
     },
     {
       "path": "scripts/update_package_manifest.py",
-      "bytes": 1230,
-      "sha256": "a627453d354b4c991f247f0fbf44c617f7fb328c15f9a415678d2736c8bd0f47"
+      "bytes": 1243,
+      "sha256": "96621f09ec61b79422a502cac8b025a5e25e87df7a27f01826656f58f50994e8"
     },
     {
       "path": "scripts/validate_notebooks.py",
@@ -877,11 +877,6 @@
       "path": "validation/test_usd_contract.py",
       "bytes": 5294,
       "sha256": "93ff5784cc03fe10957db2c32766e933d549ea0e7193624ea6dff9f44e59a733"
-    },
-    {
-      "path": "video/.DS_Store",
-      "bytes": 6148,
-      "sha256": "b87462429f045514d4402ca749a732a2e3ea579a59d17e9f258eac2809b9d2fc"
     },
     {
       "path": "video/README.md",

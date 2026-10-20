@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "data/package-manifest.json"
 files = []
 for p in sorted(ROOT.rglob("*")):
-    if not p.is_file() or p == OUTPUT or any(part in p.parts for part in (".git", "__pycache__", ".venv", "metastore_db", "spark-warehouse")):
+    if not p.is_file() or p == OUTPUT or any(part in p.parts for part in (".git", "__pycache__", ".venv", ".DS_Store", "metastore_db", "spark-warehouse")):
         continue
     relative = p.relative_to(ROOT)
     if relative.parts[0] == "validation" and p.suffix == ".json":
