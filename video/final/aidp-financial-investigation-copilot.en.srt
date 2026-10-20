@@ -1,0 +1,427 @@
+1
+00:00:00,880 --> 00:00:04,845
+A flagged transaction is the start of an investigation.
+
+2
+00:00:04,880 --> 00:00:09,885
+Which account needs attention, what happened, and which policy applies?
+
+3
+00:00:09,920 --> 00:00:12,005
+At Meridian Demo Bank, we'll use
+
+4
+00:00:12,040 --> 00:00:15,565
+Oracle AI Data Platform to connect transaction
+
+5
+00:00:15,600 --> 00:00:19,445
+data, policy documents and specialist agents.
+
+6
+00:00:19,480 --> 00:00:21,805
+Then we'll bring the investigation copilot
+
+7
+00:00:21,840 --> 00:00:24,395
+to users in Agent Hub and Streamlit.
+
+8
+00:00:26,390 --> 00:00:28,185
+Before an agent can answer those
+
+9
+00:00:28,220 --> 00:00:31,675
+questions, it needs a useful data foundation.
+
+10
+00:00:31,710 --> 00:00:38,435
+In Workbench, the Spark notebook organizes transactions into Bronze, Silver and Gold.
+
+11
+00:00:38,470 --> 00:00:41,035
+Bronze keeps the incoming records.
+
+12
+00:00:41,070 --> 00:00:44,875
+Silver validates them and adds time features.
+
+13
+00:00:44,910 --> 00:00:49,595
+Gold prepares account-month analytics and transaction-level features.
+
+14
+00:00:49,630 --> 00:00:52,815
+A separate random forest exercise shows how those
+
+15
+00:00:52,850 --> 00:00:56,555
+features can support model training and evaluation.
+
+16
+00:00:56,590 --> 00:01:00,635
+The investigation queue in this demo uses screening rules.
+
+17
+00:01:00,670 --> 00:01:06,475
+We publish the Gold tables into Autonomous AI Lakehouse for executive analytics.
+
+18
+00:01:06,510 --> 00:01:11,435
+Catalog, schema and table definitions remain configurable.
+
+19
+00:01:11,470 --> 00:01:16,876
+The agent's SQL tools query prepared Spark serving tables derived from Gold.
+
+20
+00:01:18,920 --> 00:01:21,035
+The dashboards give us the portfolio
+
+21
+00:01:21,070 --> 00:01:24,565
+picture before we open an individual account.
+
+22
+00:01:24,600 --> 00:01:32,205
+The notebook and Oracle Analytics show activity, screening flags, exposure and concentration.
+
+23
+00:01:32,240 --> 00:01:36,125
+The investigation queue turns a broad portfolio signal
+
+24
+00:01:36,160 --> 00:01:38,680
+into a short list for analyst review.
+
+25
+00:01:38,900 --> 00:01:43,005
+Trends and exposure breakdowns add context: is the
+
+26
+00:01:43,040 --> 00:01:49,125
+activity concentrated in particular accounts, transaction types or locations?
+
+27
+00:01:49,160 --> 00:01:51,680
+That is the handoff to the copilot.
+
+28
+00:01:51,920 --> 00:01:54,425
+Take a focused question beyond the chart, and
+
+29
+00:01:54,460 --> 00:01:57,344
+retrieve the records and policy behind it.
+
+30
+00:01:59,380 --> 00:02:01,915
+In Agent Builder, the flow starts with a
+
+31
+00:02:01,950 --> 00:02:06,465
+message, a guardrails node and the investigation supervisor.
+
+32
+00:02:06,500 --> 00:02:11,305
+The supervisor interprets the request and coordinates four specialists.
+
+33
+00:02:11,340 --> 00:02:14,175
+The portfolio SQL agent retrieves reporting
+
+34
+00:02:14,210 --> 00:02:18,985
+context, monthly totals, trends and exposure mix.
+
+35
+00:02:19,020 --> 00:02:22,050
+The investigation SQL agent retrieves ranked
+
+36
+00:02:22,360 --> 00:02:26,105
+accounts, an account snapshot and transaction evidence.
+
+37
+00:02:26,140 --> 00:02:31,785
+Seven predefined SQL tools keep aggregation and ranking in the data layer.
+
+38
+00:02:31,820 --> 00:02:36,945
+We can inspect a tool's query, input parameters and test result.
+
+39
+00:02:36,980 --> 00:02:41,745
+This makes the connection between a business question and its data explicit.
+
+40
+00:02:41,780 --> 00:02:45,425
+The policy agent searches a curated knowledge base.
+
+41
+00:02:45,460 --> 00:02:49,435
+Its RAG tool retrieves relevant passages and source
+
+42
+00:02:49,470 --> 00:02:54,385
+references, adding business context alongside the structured evidence.
+
+43
+00:02:54,420 --> 00:02:57,455
+The brief agent uses a Prompt tool to organize
+
+44
+00:02:57,490 --> 00:03:01,825
+the supplied facts and passages into an analyst draft.
+
+45
+00:03:01,860 --> 00:03:07,665
+It is configured to preserve scope, show tables and identify missing information.
+
+46
+00:03:07,700 --> 00:03:10,505
+The value comes from coordination.
+
+47
+00:03:10,540 --> 00:03:13,560
+Each specialist has a clear role, and the supervisor
+
+48
+00:03:13,880 --> 00:03:17,539
+brings the required contributions back to the user's question.
+
+49
+00:03:19,880 --> 00:03:23,325
+Let's start in the playground with a portfolio question.
+
+50
+00:03:23,360 --> 00:03:26,505
+The response returns the reporting month, transaction
+
+51
+00:03:26,540 --> 00:03:29,765
+activity and flagged exposure in a table.
+
+52
+00:03:29,800 --> 00:03:33,165
+The source and reporting scope stay with the answer.
+
+53
+00:03:33,200 --> 00:03:37,365
+Next, we ask for the complete priority-one policy.
+
+54
+00:03:37,400 --> 00:03:42,645
+The policy agent retrieves the threshold conditions and cites the document.
+
+55
+00:03:42,680 --> 00:03:47,005
+Those conditions explain how an account enters the review queue.
+
+56
+00:03:47,040 --> 00:03:51,685
+Now we investigate the account with the highest flagged exposure.
+
+57
+00:03:51,720 --> 00:03:55,495
+The draft separates account totals from supporting transactions,
+
+58
+00:03:55,530 --> 00:04:00,230
+with amounts, dates, transaction types and screening scores.
+
+59
+00:04:00,320 --> 00:04:05,565
+It also presents the relevant policy and proposed analyst review steps.
+
+60
+00:04:05,600 --> 00:04:08,355
+This gives the investigator a starting point for
+
+61
+00:04:08,390 --> 00:04:11,845
+review, while the underlying records remain essential.
+
+62
+00:04:11,880 --> 00:04:15,765
+A fluent draft still needs checking against its sources.
+
+63
+00:04:15,800 --> 00:04:19,100
+Testing matters at each layer: the SQL tool
+
+64
+00:04:19,280 --> 00:04:24,245
+result, the retrieved policy passage, and the combined response.
+
+65
+00:04:24,280 --> 00:04:27,205
+Focused follow-ups help us inspect the evidence
+
+66
+00:04:27,240 --> 00:04:29,045
+and check what the agent can actually
+
+67
+00:04:29,080 --> 00:04:31,981
+support before making it available to users.
+
+68
+00:04:35,890 --> 00:04:40,495
+After testing, the workflow is deployed on AI compute.
+
+69
+00:04:40,530 --> 00:04:43,575
+The Agent Card describes what the copilot can do,
+
+70
+00:04:43,610 --> 00:04:47,660
+with a version, a clear description and example questions.
+
+71
+00:04:47,930 --> 00:04:52,570
+Here, four skills cover portfolio analytics, account triage
+
+72
+00:04:52,730 --> 00:04:57,655
+and transaction evidence, policy retrieval, and investigation briefing.
+
+73
+00:04:57,690 --> 00:05:02,775
+Those skill descriptions help people understand when to use the agent.
+
+74
+00:05:02,810 --> 00:05:06,635
+Registering the deployed agent in AI Registry makes
+
+75
+00:05:06,670 --> 00:05:11,695
+those capabilities discoverable, subject to its access permissions.
+
+76
+00:05:11,730 --> 00:05:15,760
+The deployment provides an endpoint for applications to call.
+
+77
+00:05:15,970 --> 00:05:19,335
+The card and registry connect that running workflow
+
+78
+00:05:19,370 --> 00:05:22,173
+with the users and applications that need it.
+
+79
+00:05:24,380 --> 00:05:27,290
+In Agent Hub, users can find the copilot
+
+80
+00:05:27,380 --> 00:05:30,185
+and ask a question without opening the builder.
+
+81
+00:05:30,220 --> 00:05:33,295
+Here, a focused follow-up asks for the current
+
+82
+00:05:33,330 --> 00:05:37,065
+transaction evidence behind an account's screening totals.
+
+83
+00:05:37,100 --> 00:05:41,185
+The response shows the supporting rows and policy context.
+
+84
+00:05:41,220 --> 00:05:44,425
+This is where the analyst can inspect dates, amounts
+
+85
+00:05:44,460 --> 00:05:48,385
+and scores, rather than relying on a summary alone.
+
+86
+00:05:48,420 --> 00:05:51,202
+The output remains a draft for human review.
+
+87
+00:05:57,400 --> 00:06:02,685
+The same deployed workflow can also sit behind a local Streamlit application.
+
+88
+00:06:02,720 --> 00:06:04,635
+The application connects to the agent
+
+89
+00:06:04,670 --> 00:06:08,785
+endpoint and presents a focused copilot interface.
+
+90
+00:06:08,820 --> 00:06:12,095
+Here, we review portfolio activity, then ask
+
+91
+00:06:12,130 --> 00:06:15,885
+which accounts have the highest flagged exposure.
+
+92
+00:06:15,920 --> 00:06:17,495
+The answer comes back as a
+
+93
+00:06:17,530 --> 00:06:21,085
+readable table, with source and scope information.
+
+94
+00:06:21,120 --> 00:06:25,525
+The investigation capability stays with the deployed agent.
+
+95
+00:06:25,560 --> 00:06:29,345
+The application controls how people interact with it.
+
+96
+00:06:29,380 --> 00:06:32,585
+This brings connected data and policy context into
+
+97
+00:06:32,620 --> 00:06:36,270
+an interface an analyst can use, while leaving
+
+98
+00:06:36,330 --> 00:06:39,748
+the decision about further investigation with the analyst.
+
+99
+00:06:41,880 --> 00:06:45,975
+We've connected a prepared data foundation, executive analytics
+
+100
+00:06:46,010 --> 00:06:50,285
+and specialist agents into one investigation experience.
+
+101
+00:06:50,320 --> 00:06:52,135
+The aim is to reduce the effort
+
+102
+00:06:52,170 --> 00:06:54,585
+of searching for records, finding the
+
+103
+00:06:54,620 --> 00:06:57,885
+right policy and assembling a review draft.
+
+104
+00:06:57,920 --> 00:07:03,285
+The notebooks, agent setup and application code are in the project repository.
+
+105
+00:07:03,320 --> 00:07:04,805
+Start with a signal.
+
+106
+00:07:04,840 --> 00:07:06,525
+Follow the evidence.
+
+107
+00:07:06,560 --> 00:07:08,510
+Keep the analyst in control.

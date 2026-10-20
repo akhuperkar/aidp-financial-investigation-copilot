@@ -60,8 +60,8 @@ This checklist separates a reviewable public package from a currently validated 
 - [ ] Read the article beside the README, user guide and methodology; remove inconsistent figures, stale parameter names and unsupported all-pass claims.
 - [ ] Review screenshots for readable labels, selected month/filter scope, consistent USD formatting and sanitized runtime identifiers.
 - [ ] Record only the demonstrated path. If showing a saved/historical response or a local fixture, label it accordingly; do not present it as a new live success.
-- [ ] Until video publication, keep `{{YOUTUBE_DEMO_URL}}` explicitly pending. Until article publication, keep `{{MEDIUM_ARTICLE_URL}}` explicitly pending in the README. Do not invent a watch/article URL.
-- [ ] Before adding the final master, verify it exists and was reviewed; intended path is `video/final/aidp-financial-investigation-copilot.mp4`. Track the master with Git LFS and keep `video/source/` ignored.
+- [x] Replace video placeholders with the [published YouTube link](https://www.youtube.com/watch?v=7Jhn-jmz2vg); link the [actual Medium story](https://medium.com/@abhijit.khuperkar/73440372750f) with its current Draft status.
+- [ ] Before adding the final master, verify it exists and was reviewed; intended path is `video/final/aidp-financial-investigation-copilot.mp4`. Use the documented media storage mode and keep `video/source/` ignored.
 - [ ] Check that no empty/fake MP4 or placeholder screenshot is represented as a completed recording.
 - [ ] Review the final staged diff and release artifacts, then perform only the separately authorized GitHub/article/video publication actions. Package readiness does not itself authorize publishing to a service.
 
@@ -75,3 +75,15 @@ Companion guides: [build and run](user-guide.md), [OAC workbook](oac-workbook.md
 - [x] Verify both OAC custom SQL dataset definitions use USD aliases after save/reload; remove eight redundant preparation rename steps and preserve Maximum aggregation on `MONTH_FLAGGED_GROSS_USD`. The queries read native Gold directly; no physical-view rename or database DDL was required.
 
 These captures verify OAC presentation. They do not establish fresh Agent Hub/Streamlit acceptance; the source update changed OAC SQL aliases rather than database schema objects. Track those entry points separately.
+
+## Publication refresh — 20 October 2026
+
+- [x] Synchronize the agent-focused article, executive-dashboard section, eleven figures and final video link with the current Medium draft; retain the brief methodology note.
+- [x] Add the Medium crop-safe cover while preserving the original artwork.
+- [x] Add the author-approved motion version 2 captioned and clean masters, unchanged SRT, final narration, nine chapter markers and metadata. Raw footage is excluded.
+- [x] Verify the final MP4 hashes and media structure against the production quality report; narration and caption identity were checked during final production.
+- [x] Replace stale video-pending descriptions in the primary README and publication handoffs. Record the actual URLs in data/publication.json.
+
+This refresh changes public documentation and media, not the platform implementation or hosted-acceptance status. The Medium draft has not been published by this repository synchronization.
+
+**Storage resolution:** GitHub rejected the initial LFS upload because the account budget was exhausted. The two finished MP4s are each below the regular Git file limit and are committed as ordinary binary files. No billing configuration was changed. The checkout workflow does not require LFS downloads for this release.

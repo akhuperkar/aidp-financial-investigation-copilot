@@ -1,0 +1,25 @@
+{
+  "checked_on": "2026-10-20",
+  "scope": "Publication-only refresh; no hosted execution",
+  "medium_story_status": "draft",
+  "medium_prose_paragraphs": 56,
+  "medium_prose_fnv1a32": "7ef53267",
+  "article_prose_matches_current_medium": true,
+  "article_images": 11,
+  "video_version": "motion_v2",
+  "published_youtube_url": "https://www.youtube.com/watch?v=7Jhn-jmz2vg",
+  "source_recordings_excluded": true,
+  "offline_checks": {
+    "client_tests": {
+      "passed": 43,
+      "failed": 0
+    },
+    "ailh_and_usd_contract_tests": {
+      "passed": 25,
+      "failed": 0
+    },
+    "article_prose": "56 paragraphs match the current Medium draft",
+    "video_files": "Both SHA-256 hashes and media structures match the verified motion v2 masters"
+  },
+  "video_storage": "regular_git"
+}

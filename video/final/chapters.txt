@@ -1,0 +1,9 @@
+00:00 From signal to investigation
+00:25 Build the data foundation
+01:18 See the portfolio picture
+01:58 Coordinate specialist agents
+03:19 Work through an investigation
+04:35 Deploy, describe and discover
+05:23 Ask questions in Agent Hub
+05:56 Bring the copilot into Streamlit
+06:41 Follow the evidence

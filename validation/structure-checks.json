@@ -1,7 +1,7 @@
 {
   "scope": "offline artifact structure, links, public hygiene and metric contracts; no hosted execution",
   "status": "PASS",
-  "files_checked": 204,
+  "files_checked": 232,
   "code_cells_compiled": 71,
   "checks": [
     {
@@ -810,6 +810,66 @@
       "detail": ""
     },
     {
+      "check": "Packaged file hash: article/media/agent-card-registry.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: article/media/agent-hub-streamlit.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: article/media/agent-workflow.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: article/media/architecture.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: article/media/cover-medium-safe-v2.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: article/media/cover.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: article/media/executive-dashboard.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: article/media/executor-roles.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: article/media/investigation-conversation.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: article/media/medallion-layers.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: article/media/playground-trace.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: article/media/rag-tool.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
       "check": "Packaged file hash: article/medium-article.md",
       "passed": true,
       "detail": ""
@@ -821,6 +881,11 @@
     },
     {
       "check": "Packaged file hash: article/medium-ready.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: article/preview.css",
       "passed": true,
       "detail": ""
     },
@@ -866,6 +931,11 @@
     },
     {
       "check": "Packaged file hash: data/agent-serving-usd-reference.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: data/publication.json",
       "passed": true,
       "detail": ""
     },
@@ -931,6 +1001,11 @@
     },
     {
       "check": "Packaged file hash: media/brand/oracle-wordmark.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: media/cover-medium-safe-v2.png",
       "passed": true,
       "detail": ""
     },
@@ -1510,6 +1585,56 @@
       "detail": ""
     },
     {
+      "check": "Packaged file hash: video/final/aidp-financial-investigation-copilot-clean.mp4",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/final/aidp-financial-investigation-copilot.en.srt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/final/aidp-financial-investigation-copilot.mp4",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/final/chapters.txt",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/final/cover.png",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/final/narration.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/final/quality-check.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/final/youtube-metadata.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/final/youtube-metadata.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/final/youtube-thumbnail.jpg",
+      "passed": true,
+      "detail": ""
+    },
+    {
       "check": "Packaged file hash: video/input-manifest.example.json",
       "passed": true,
       "detail": ""
@@ -1526,6 +1651,11 @@
     },
     {
       "check": "Packaged file hash: video/storyboard.csv",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Packaged file hash: video/voice-profile.json",
       "passed": true,
       "detail": ""
     },

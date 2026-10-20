@@ -1,129 +1,203 @@
-# Why a Financial Investigation Copilot Starts with the Data Foundation
+# Building a Multi-Agent Financial Investigation Copilot with Oracle AI Data Platform
 
-*An evidence-led analyst workflow with Oracle AI Data Platform, Autonomous AI Lakehouse and Oracle Analytics Cloud*
+Connecting financial data, policy documents and specialist agents — from a visual workflow to Agent Hub and Streamlit.
 
-**Abhijit Khuperkar · 18 October 2026**
+![Cover illustration of a financial investigation supported by connected data and specialist AI agents on Oracle AI Data Platform.](https://raw.githubusercontent.com/akhuperkar/aidp-financial-investigation-copilot/main/article/media/cover-medium-safe-v2.png)
 
-A financial investigation copilot is useful only if an analyst can trace its recommendation back to the records, definitions and reporting period behind it.
+A financial analyst starts with a practical question:
 
-Consider a monthly review at the fictional Meridian Demo Bank. The analyst needs to answer three questions: **Which accounts should I investigate first? What evidence supports that order? Which policy applies?** Answering them usually means moving between a dashboard, transaction extracts and policy documents. A conversational interface can bring that work together, provided the numbers and the explanation remain connected.
+> *“Which accounts should I investigate first, what activity supports that priority, and which policy applies?”*
 
-I built this demonstration around that requirement. Oracle AI Data Platform provides the engineering and agent workbench; Autonomous AI Lakehouse serves published Gold data for Oracle Analytics Cloud; SQL tools and a policy knowledge base support the investigation conversation. The interesting design decision is how these parts share meaning while retaining clear boundaries.
+Answering it usually involves several steps: reviewing a dashboard, querying transactions, finding the relevant policy and assembling an investigation summary.
 
-## Why the foundation deserves attention
+I built a financial investigation copilot to bring those steps into one conversation. Using Oracle AI Data Platform (AIDP), a supervisor coordinates specialist agents that retrieve financial measures, examine account activity, search policy documents and prepare an analyst brief.
 
-The data problem is well documented. In a [February 2025 Gartner publication](https://www.gartner.com/en/newsroom/press-releases/2025-02-26-lack-of-ai-ready-data-puts-ai-projects-at-risk), 63% of organizations lacked, or were uncertain about having, suitable data-management practices for AI. The underlying July 2024 survey covered 1,203 data-management leaders.
+For Meridian Demo Bank, a fictional bank, the workflow brings connected transaction data and policy documents into one conversation to support investigation and proposed review steps.
 
-There is a workflow problem alongside it. [McKinsey’s March 2025 State of AI survey](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-how-organizations-are-rewiring-to-capture-value) found that 21% of respondents whose organizations used generative AI reported fundamental redesign of at least some workflows. That is a finding about workflow change among those respondents, rather than a measure of how many AI systems are disconnected from enterprise data.
+## A data foundation that supports the conversation
 
-For this project, the implication is practical: build the reporting definitions, evidence access and analyst handoff together. A strong language model cannot resolve an undocumented difference between two snapshots or decide what a business means by “exposure.” Those decisions belong in the data contract. For an analyst, that contract makes a follow-up question dependable: the account, month, calculation and policy version must stay consistent as the conversation moves from summary to detail.
+Agents need access to information that has enough structure and context to answer business questions.
 
-## Start with the decision on the dashboard
+[Gartner](https://www.gartner.com/en/newsroom/press-releases/2025-02-26-lack-of-ai-ready-data-puts-ai-projects-at-risk) reported that 63% of organizations either lacked — or were unsure they had — the right data-management practices for AI. That finding reinforces a practical requirement: prepare the data an agent needs alongside the workflow it will support.
 
-The verified December 2024 OAC reference gives the analyst a concrete starting point.
+For this project, Spark notebooks organize banking transactions into three medallion layers:
 
-> **Demonstration dataset; amounts shown in USD.** The denomination is an explicit scenario assumption; no FX conversion or numerical rescaling is applied.
+![Medallion layers: Bronze retains ingested transactions, Silver validates fields and derives attributes, and Gold provides account-month analytics and transaction features.](https://raw.githubusercontent.com/akhuperkar/aidp-financial-investigation-copilot/main/article/media/medallion-layers.png)
 
-| December 2024 measure | Reference value |
-|---|---:|
-| Transactions | 12,699 |
-| Active accounts | 4,436 |
-| Gross activity | USD 31,642,312.97 |
-| Rule-flagged transactions | 4,934 |
-| Rule flag rate | 38.85% |
-| Flagged gross activity | USD 12,547,752.55 |
-| Accounts meeting P1 review rules | 528 |
+*Financial transaction data foundation medallion layers and their purpose*
 
-![Meridian Demo Bank executive snapshot for December 2024, showing portfolio activity and rule-based review measures.](https://raw.githubusercontent.com/akhuperkar/aidp-financial-investigation-copilot/main/media/screenshots/executive-snapshot.png)
+Gold data is published to Autonomous AI Lakehouse for Oracle Analytics Cloud dashboards. The copilot’s SQL tools query Gold-derived Spark serving tables stored in Delta format. Gold also supports a separate ML training and evaluation workflow.
 
-*Figure 1. The executive view establishes the period, portfolio scale and measures before the investigation begins.*
+This foundation provides the financial context. The multi-agent workflow determines how to use it.
 
-Gross activity is the sum of absolute transaction amounts. Net activity retains their signs. Keeping those measures separate prevents incoming and outgoing amounts from cancelling the volume under review. The flag rate is a transaction-count ratio, not the share of money flagged.
+![Architecture showing Spark medallion data, AILH and OAC analytics, a policy knowledge base, a supervisor with four specialist agents, and deployment through AI Registry to Agent Hub and Streamlit.](https://raw.githubusercontent.com/akhuperkar/aidp-financial-investigation-copilot/main/article/media/architecture.png)
 
-These definitions look straightforward. Their value becomes apparent when a dashboard, a SQL result and a generated brief must explain the same account.
+*Financial Investigation Copilot Architecture*
 
-## Give each data layer a clear responsibility
+## Executive dashboards provide the starting point
 
-The engineering pipeline uses Spark and Delta tables in three schemas: `finance.bronze`, `finance.silver` and `finance.gold`.
+Before asking an agent to investigate an account, a fraud-operations leader needs a view of the portfolio.
 
-| Layer | Responsibility in this demonstration | Downstream value |
-|---|---|---|
-| Bronze | Retain generated transaction records | A reference for the transformation path |
-| Silver | Check required fields and derive time features | Consistent inputs for subsequent processing |
-| Gold | Produce account-month analytics and transaction-level ML features | Reusable analytical and modelling inputs |
+I first created executive analytics in a Spark notebook, then built interactive dashboards in Oracle Analytics Cloud using Gold tables published to Autonomous AI Lakehouse. The workbook brings together six views: an executive snapshot, a summary brief, activity and risk trends, an investigation queue, exposure breakdowns and monthly changes.
 
-The reference Gold data covers January–December 2024: 149,658 transaction rows, 52,735 account-month analytics rows and 5,000 accounts. The grain matters. An account-month aggregate is useful for trend analysis; transaction-level records are needed to explain individual activity. Treating them as interchangeable would create misleading counts and joins.
+These views answer practical questions: How much activity occurred this month? What proportion was flagged for review? Which accounts contribute the most flagged exposure? How does activity vary by transaction type and location?
 
-Oracle documents [medallion processing, Spark notebooks and machine-learning workloads](https://docs.oracle.com/en/cloud/paas/ai-data-platform/aidug/overview-oracle-ai-data-platform.html) as AI Data Platform use cases. Here, those capabilities provide an organized route from source records to reusable data products. The demonstration’s Silver checks are deliberately limited; an enterprise implementation would extend them with source-specific validation, reconciliation and quality ownership.
+The executive snapshot combines headline measures with monthly trends and a ranked account queue. Amounts are displayed in USD, with reporting-period controls providing context for the analysis.
 
-## Make the actual consumption paths visible
+An analyst can then take the investigation further:
 
-The architecture has two structured-data serving paths.
+> *“Investigate the highest-exposure account for this reporting month. Show the supporting transactions and the applicable review policy.”*
 
-The OAC path publishes two Gold tables through an AILH external catalog into a native Oracle schema. OAC uses that published data for the analytical experience. The existing agent path uses seven predefined SQL tools against dedicated Spark snapshot tables in `finance.agent_demo_fs`. Eight documents supply fictional policy, definitions and investigation guidance through retrieval.
+That question brings together structured financial data, transaction evidence and written guidance — the work coordinated by the multi-agent copilot.
 
-![Architecture showing Spark Bronze, Silver and Gold processing, Gold publication to Autonomous AI Lakehouse and OAC, a separate Spark snapshot path for SQL tools, and policy retrieval for the agent.](https://raw.githubusercontent.com/akhuperkar/aidp-financial-investigation-copilot/main/media/diagrams/architecture.png)
+![Oracle Analytics Cloud executive dashboard with USD portfolio measures, monthly activity and screening trends, and an account investigation queue.](https://raw.githubusercontent.com/akhuperkar/aidp-financial-investigation-copilot/main/article/media/executive-dashboard.png)
 
-*Figure 2. The deployed paths are explicit: the agent’s SQL tools currently query Spark snapshots; OAC consumes the AILH publication.*
+*The OAC executive snapshot brings portfolio activity, screening measures and the investigation queue into one view.*
 
-[Oracle’s external-catalog documentation](https://docs.oracle.com/en/cloud/paas/ai-data-platform/aidug/external-catalogs.html) explains how external-source metadata becomes discoverable and queryable in the platform. In this implementation, creating the native Gold tables is a publication step with its own verification. Catalog registration alone does not establish that the copied rows agree.
+## Build a multi-agent workflow and give each agent a clear job
 
-That distinction avoids a common architectural shortcut: drawing every consumer behind one box while the running system still uses different serving tables. A shared foundation needs an explicit snapshot contract across those paths.
+I built the copilot using AIDP’s no-code visual Agent Builder. The flow connects a chat trigger, guardrails, a supervisor and four executor agents.
 
-## Move from a portfolio view to an investigation
+The supervisor interprets the request and selects the specialist executors needed to answer it. Each executor has a focused role and its own attached tools.
 
-The investigation queue ranks flagged account-months by flagged gross activity, then flagged transaction count, then account ID. The P1/P2 designation appears alongside that exposure order.
+![Four executor roles: Portfolio SQL has four tools, Investigation SQL has three, Policy RAG retrieves cited guidance, and Investigation Brief formats the collected evidence.](https://raw.githubusercontent.com/akhuperkar/aidp-financial-investigation-copilot/main/article/media/executor-roles.png)
 
-In the December OAC reference, `ACC00004535` leads the queue with USD 28,008.03 in flagged gross activity. The top ten accounts together account for USD 236,847.35, or 1.89% of the month’s flagged gross. The queue therefore provides a useful starting order, while the portfolio still requires broader review.
+*Specialist agents with focused roles and attached tools*
 
-![December investigation queue with accounts ordered by flagged gross activity and separate rule-based priority labels.](https://raw.githubusercontent.com/akhuperkar/aidp-financial-investigation-copilot/main/media/screenshots/investigation-queue.png)
+I separated these responsibilities so each specialist has focused instructions and tool access. This makes configuration, handoffs and troubleshooting easier to inspect.
 
-*Figure 3. Exposure rank helps select the next account; the priority label explains which review rule it meets.*
+A guardrails node screens incoming requests before they reach the supervisor. Agent instructions define responsibilities, permitted tools, response format and boundaries.
 
-The fictional [FS-POL-001 v1.1 policy](https://github.com/akhuperkar/aidp-financial-investigation-copilot/blob/main/rag_corpus/01_synthetic_transaction_triage_policy.txt) makes those rules precise. A transaction is flagged when its score is **strictly greater than 60**. An account-month is P1 when its flagged gross is at least USD 10,000, **or** it contains a transaction with score at least 85 **and** absolute amount at least USD 5,000.
+A policy question needs document retrieval; a portfolio question needs SQL. The supervisor selects the relevant specialists, while a broader investigation brings their results together.
 
-The AND/OR relationship matters as much as the thresholds. A generated explanation that changes it can sound plausible while assigning the wrong priority.
+Oracle documents this supervisor pattern as a way to route requests and delegate work to focused agents. [Oracle agent creation documentation](https://docs.oracle.com/en/cloud/paas/ai-data-platform/aidug/agent-creation.html).
 
-## Let SQL establish facts and retrieval explain policy
+![AIDP Agent Builder canvas connecting the message trigger and guardrails to a supervisor, four executor agents, seven SQL tools, one RAG tool and one Prompt tool.](https://raw.githubusercontent.com/akhuperkar/aidp-financial-investigation-copilot/main/article/media/agent-workflow.png)
 
-The agent flow separates portfolio analysis, account investigation, policy retrieval and brief composition under a supervisor. Its SQL tools cover reporting context, portfolio snapshot and trend, exposure mix, priority accounts, account snapshot and transaction evidence.
+*One supervisor coordinates portfolio analysis, account investigation, policy retrieval and brief composition.*
 
-[Oracle’s agent-tool documentation](https://docs.oracle.com/en/cloud/paas/ai-data-platform/aidug/agent-flow-tools.html) describes SQL tools as design-time queries with runtime parameters. It also describes RAG tools that retrieve relevant knowledge-base content. This gives the model a bounded way to obtain facts and policy context rather than inventing a query for every question.
+## Use different tools for different kinds of work
 
-![Agent flow separating portfolio SQL, investigation SQL, policy retrieval and brief composition, with source context and human review.](https://raw.githubusercontent.com/akhuperkar/aidp-financial-investigation-copilot/main/media/diagrams/agent-flow.png)
+The workflow combines three tool types: SQL, retrieval-augmented generation and Prompt.
 
-*Figure 4. Structured facts and retrieved policy meet in the analyst brief.*
+**SQL tools retrieve structured financial facts.** Seven predefined, parameterized SQL queries cover reporting context, portfolio snapshot, portfolio trends, exposure mix, priority accounts, account snapshot and transaction evidence. Runtime parameters select the reporting month, account or breakdown.
 
-A useful analyst request is: “For the latest available month, investigate the highest-exposure flagged account. Show the portfolio context, account totals, transaction evidence and applicable policy.”
+For example:
 
-The intended answer starts by establishing the available period and snapshot. It then obtains the portfolio and account measures, retrieves evidence patterns and policy sections, and composes a brief with citations, gaps and review steps. A follow-up can narrow the evidence without changing the account or month.
+> *“Show the latest portfolio activity and rank the top five accounts by flagged gross exposure.”*
 
-This is where conversation can reduce manual assembly: the analyst can ask for the meaning behind a number while retaining the context of the investigation. There are no external action tools or implemented approval workflow in this package. Decisions about account restrictions or case disposition remain outside it.
+The portfolio and investigation agents select the relevant tools and supply the parameters; the queries perform the financial calculations. Responses use Markdown tables with clear labels and source references.
 
-![Agent Hub focused SQL metrics in USD for December 2024, cropped client metric detail.](https://raw.githubusercontent.com/akhuperkar/aidp-financial-investigation-copilot/main/media/screenshots/agent-hub-usd-focused.png)
+**The RAG tool retrieves documentary context.** A knowledge base contains eight documents covering transaction triage, investigation procedures, data definitions and review guidance.
 
-*Figure 5. Agent Hub focused SQL capture, December 2024 USD. Cropped client metric detail from the older serving snapshot; separate from the OAC reference.*
+An analyst can ask:
 
-![Streamlit focused SQL metrics in USD for December 2024, cropped client metric detail.](https://raw.githubusercontent.com/akhuperkar/aidp-financial-investigation-copilot/main/media/screenshots/streamlit-usd-focused.png)
+> *“What makes an account a P1 review priority? Quote the applicable policy conditions.”*
 
-*Figure 6. Streamlit focused SQL capture, December 2024 USD. The matching metrics establish this focused pass; they do not validate the hybrid brief.*
+The Policy RAG Agent retrieves relevant passages and identifies the document, version and section. This gives the conversation access to written business guidance alongside numerical results.
 
-## Methodology and current evidence
+![Policy RAG Agent connected to a retrieval tool configured with the financial investigation knowledge base and a response synthesis model.](https://raw.githubusercontent.com/akhuperkar/aidp-financial-investigation-copilot/main/article/media/rag-tool.png)
 
-Meridian Demo Bank uses generated transaction data and fictional policies. The notebook derives `is_fraud` from `risk_score > 60`, using randomly generated scores. Its separate random forest exercise does not supply the agent’s queue or establish validated fraud-detection performance. The workflow demonstrates how to assemble screening evidence for analyst review; flagged gross is not confirmed fraud or loss, and the scores are not calibrated probabilities.
+*RAG tool attached to the Policy RAG Agent*
 
-The OAC figures use the [reference verified on 17 October 2026](https://github.com/akhuperkar/aidp-financial-investigation-copilot/blob/main/data/reference-snapshot.json), with source Delta version 4. The deployed-agent/Streamlit reference uses an older snapshot with different December totals, so each path must retain its own reporting context. Initial publication of both native AILH tables passed full-row comparison; changed-data replacement remains pending validation. Full metric definitions, model boundaries, data gaps and publication details are in the [metrics and methodology guide](https://github.com/akhuperkar/aidp-financial-investigation-copilot/blob/main/docs/metrics-and-methodology.md).
+**The Prompt tool composes the brief.** Once financial facts and policy excerpts have been collected, the briefing tool formats them into a consistent response: summary, portfolio context, account evidence, policy citations and recommended analyst review.
 
-Fresh focused SQL responses in USD from Agent Hub and Streamlit on 18 October 2026 matched SQL on the older serving snapshot, and the standalone policy RAG test passed with version 1.1. The fresh hybrid response still failed transaction-row reconciliation, repeating the historical evidence-fidelity issue. The [hosted acceptance record](https://github.com/akhuperkar/aidp-financial-investigation-copilot/blob/main/docs/hosted-acceptance.md) preserves both results: focused SQL and policy retrieval work, while the combined investigation brief remains unvalidated.
+AIDP also provides HTTP, remote Model Context Protocol (MCP), and Custom tool templates for additional integrations. [Oracle agent tools documentation](https://docs.oracle.com/en/cloud/paas/ai-data-platform/aidug/agent-flow-tools.html).
 
-## What I would validate in a customer POC
+## Follow one investigation through the workflow
 
-I would begin with a single investigation workflow and an agreed reporting cut. The first acceptance criterion would be numerical: dashboard, SQL tools and analyst brief must identify their snapshot and reconcile at the correct grain. The next would be semantic: the brief must preserve policy thresholds, retrieve the applicable version and distinguish unavailable facts from available screening measures.
+Consider this request:
 
-Operational validation would then cover refresh behavior, permissions, stopped compute, tool failures and evidence completeness. Analyst value should be measured through time to assemble a review packet and the amount of rework needed to verify it. This demonstration has not measured those improvements.
+> *“For the latest available month, investigate the account with the highest flagged exposure. Show the portfolio context, account totals, transaction evidence and applicable policy. Recommend the next analyst review steps.”*
 
-For an ML extension, I would establish a separate validation track using representative labelled outcomes, appropriate evaluation and monitored deployment. Connecting a model output to an agent becomes useful after its meaning and performance have been established.
+The workflow is designed to handle it in stages:
 
-The [companion repository](https://github.com/akhuperkar/aidp-financial-investigation-copilot/blob/main/README.md) contains the notebooks, SQL tools, policy corpus, client application and validation guidance. The walkthrough video will be linked here: **{{YOUTUBE_DEMO_URL}}**.
+1. **Establish the reporting context.** The Portfolio SQL Agent identifies the available period and retrieves the portfolio summary.
+2. **Select the account.** The Investigation SQL Agent retrieves the exposure-ranked queue and selects its first account.
+3. **Examine the activity.** The same agent obtains account totals and relevant transaction-evidence rows.
+4. **Retrieve the policy.** The Policy RAG Agent finds the flagging and priority rules.
+5. **Prepare the brief.** The Brief Agent passes the collected material to the Prompt tool for Markdown composition.
+6. **Return proposed review steps.** The analyst receives the findings, citations and information gaps for further assessment.
 
-The architecture’s value is the path it makes reviewable: from a monthly portfolio question to an account, from that account to evidence, and from evidence to a policy-supported analyst decision. Building that path starts with the data foundation.
+The supervisor passes a scoped task to each specialist, including the reporting month and account identifier where needed. It brings the returned financial results and policy excerpts together for the Brief Agent, which uses the Prompt tool to compose the response.
+
+The response format is part of the design. Financial measures appear in tables, policy claims carry citations, and proposed review steps are separated from observed facts.
+
+A follow-up can then narrow the question:
+
+> *“Show the transaction evidence behind that account’s priority.”*
+
+This is the intended conversational value: moving from a portfolio question to account detail and policy context without requiring the analyst to assemble every intermediate request manually.
+
+![Investigation conversation layout showing portfolio context, account totals, transaction evidence, policy references and a follow-up question.](https://raw.githubusercontent.com/akhuperkar/aidp-financial-investigation-copilot/main/article/media/investigation-conversation.png)
+
+## Test the tools, then test the coordination
+
+Testing starts with individual tools. Do the SQL results match the expected values for the selected month and account? Does the RAG tool retrieve the applicable policy and source citation? Does the Prompt tool preserve the supplied evidence while formatting the brief?
+
+The next step is to test the agents in Playground, first independently and then through the supervisor.
+
+Useful prompts exercise different routes:
+
+Try “Summarize the latest portfolio activity” for SQL retrieval, “Explain the complete P1 policy rule and cite the source” for policy retrieval, and “Investigate the highest-exposure account for the latest available month” for coordination. Also test an unavailable reporting month and a request to freeze an account to check how the workflow handles missing information and its action boundary.
+
+AIDP’s Playground supports test conversations and inspection through traces and spans. These help developers examine routing, tool calls, errors and response generation. [Oracle agent testing documentation](https://docs.oracle.com/en/cloud/paas/ai-data-platform/aidug/agent-creation.html).
+
+Each agent also has its own model configuration. That allows model choice and output limits to reflect the task — routing, retrieval or brief composition — rather than applying identical settings everywhere.
+
+![AIDP Playground conversation and trace view showing the request route and returned portfolio response.](https://raw.githubusercontent.com/akhuperkar/aidp-financial-investigation-copilot/main/article/media/playground-trace.png)
+
+*Agent testing in AIDP Playground*
+
+## Describe the agent through its Agent Card
+
+An agent needs a clear description before users or applications can discover and invoke it.
+
+The Agent2Agent (A2A) Agent Card describes the agent’s name, purpose, version, capabilities and skills. AIDP manages protocol and deployment-related properties. I defined four skills: Portfolio Risk Analytics, Account Triage and Transaction Evidence, Synthetic Policy Retrieval, and Grounded Investigation Brief.
+
+Each skill includes an identifier, description, tags and example prompts.
+
+These descriptions help users understand the agent’s scope. They document capabilities; the actual behavior is implemented through agent instructions, tools and orchestration.
+
+![Agent Card metadata form beside the deployed investigation copilot listing in AI Registry.](https://raw.githubusercontent.com/akhuperkar/aidp-financial-investigation-copilot/main/article/media/agent-card-registry.png)
+
+*The Agent Card describes the copilot’s skills; AI Registry makes the deployed agent discoverable.*
+
+## Deploy and bring the agent to users
+
+Deployment hosts the configured agent on AI compute and exposes authenticated endpoints. After changing the workflow, I redeploy the agent to update the hosted service. [Oracle agent deployment documentation](https://docs.oracle.com/en/cloud/paas/ai-data-platform/aidug/agent-flow-deployment.html).
+
+I registered the deployed copilot in AI Registry and accessed it through two interfaces.
+
+**Agent Hub** provides a conversational entry point where users can discover the registered agent and ask questions. It offers a straightforward way to introduce the copilot without building a separate user interface.
+
+**Streamlit** demonstrates application integration. The local application connects to the deployed AIDP agent through its A2A endpoint and displays Markdown responses and tables. It also retains a separate provider connection for Private AI Agent Factory agents.
+
+The orchestration remains on AIDP. The application supplies the user experience and invokes the deployed service.
+
+![The deployed investigation copilot accessed through Agent Hub and a custom Streamlit application, both displaying USD portfolio responses.](https://raw.githubusercontent.com/akhuperkar/aidp-financial-investigation-copilot/main/article/media/agent-hub-streamlit.png)
+
+*The deployed copilot accessed through Agent Hub and a custom Streamlit application.*
+
+## Connect insights to the next business step
+
+The current copilot retrieves information and proposes analyst review steps. It does not create cases, contact customers or restrict accounts.
+
+A subsequent version could connect an HTTP or MCP tool to an investigation case-management service. That would require explicit permissions, an implemented approval step and confirmation of the external result.
+
+An analyst can move from a portfolio question to account evidence, applicable policy and a proposed review plan through one conversation. Specialist agents coordinate the work on AIDP, while Agent Hub and Streamlit make the deployed workflow accessible to users.
+
+The [companion repository](https://github.com/akhuperkar/aidp-financial-investigation-copilot) contains the notebooks, SQL tools, policy corpus, agent configurations and Streamlit client.
+
+## Demo video
+
+[Watch the Financial Investigation Copilot walkthrough on YouTube](https://www.youtube.com/watch?v=7Jhn-jmz2vg)
+
+## Methodology note
+
+Meridian Demo Bank uses generated transactions and fictional policies, with amounts displayed in USD. Transactions with `risk_score > 60` are flagged for review; these flags indicate screening priority, not confirmed fraud or loss, and the scores are not calibrated probabilities. A separate random forest exercise covers model training and evaluation and does not drive the copilot’s review queue. The copilot proposes analyst review steps; external operational actions are outside its current scope. Further details are available in the [methodology guide](https://github.com/akhuperkar/aidp-financial-investigation-copilot/blob/main/docs/metrics-and-methodology.md).
+
+
+---
+
+*This is a personal project, and the views expressed are my own. License and citation details are in the GitHub repository.*

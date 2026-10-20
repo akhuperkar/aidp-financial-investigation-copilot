@@ -1,0 +1,24 @@
+{
+  "status": "approved_by_owner",
+  "approved_on": "2026-10-20",
+  "engine": "Kokoro-82M ONNX",
+  "voice_id": "af_heart",
+  "language": "en-us",
+  "synthesis_speed": 0.86,
+  "pilot_observed_words_per_minute": 150.6,
+  "delivery": "Conversational, clear and calm; continuous takes within each chapter",
+  "sentence_stitching": false,
+  "post_generation_speech_acceleration": false,
+  "audio_master_sample_rate": 48000,
+  "mix_target_lufs": -16,
+  "true_peak_limit_dbtp": -1.5,
+  "background_music": "off unless subsequently requested",
+  "captions": {
+    "font": "Oracle Sans",
+    "font_size_at_1080p": 32,
+    "maximum_lines": 2,
+    "placement": "Bottom reserved band outside application content",
+    "background": "Semi-transparent dark box",
+    "alignment": "Use actual generated speech timestamps"
+  }
+}

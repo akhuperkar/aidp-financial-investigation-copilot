@@ -91,8 +91,8 @@ if __name__ == "__main__":
     ready = re.sub(r"(!?\[[^\]]*\]\()([^)]+)(\))", absolute_link, source)
     (BASE / "medium-ready.md").write_text(ready)
     extracted = tables(source)
-    if len(extracted) != 2:
-        raise ValueError("Expected the article's two tables")
+    if len(extracted) not in (0, 2):
+        raise ValueError("Expected no tables or the legacy pair of tables")
     assets = BASE / "assets"
     assets.mkdir(exist_ok=True)
     specifications = [
@@ -101,4 +101,4 @@ if __name__ == "__main__":
     ]
     for rows, (name, widths, title) in zip(extracted, specifications):
         (assets / (name + ".svg")).write_text(table_svg(rows, widths, title))
-    print("Built article/medium-ready.md and two article/assets/ table SVGs")
+    print(f"Built article/medium-ready.md and {len(extracted)} optional table SVGs")

@@ -56,4 +56,4 @@ The user selected two author articles: [Agent Factory walkthrough](https://mediu
 - No observed time saving, fraud loss reduction, calibrated probability, production precision/recall or business ROI is claimed.
 - No implemented external-action tool, approval workflow or account restriction is claimed.
 - Current hosted hybrid content acceptance and changed-data AILH replacement are outstanding. Initial publication success does not establish either.
-- A recorded video and actual Medium/YouTube publication URLs remain pending. The article keeps `{{YOUTUBE_DEMO_URL}}` visibly unresolved.
+- The [demo video](https://www.youtube.com/watch?v=7Jhn-jmz2vg) is published. The [Medium story](https://medium.com/@abhijit.khuperkar/73440372750f) is linked and currently labeled Draft; the repository article includes the final video link.

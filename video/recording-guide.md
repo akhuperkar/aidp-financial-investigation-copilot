@@ -1,3 +1,5 @@
+> Historical capture-planning reference. The published motion cut, final script and actual chapter timestamps are in [video/README.md](README.md) and [final/](final/). Provisional durations and pending-generation statements below describe the planning stage.
+
 # Recording guide — financial investigation copilot
 
 **Status: recordable production plan; source recordings are pending.** The base narration is 1,845 spoken words, with a provisional 13:59 edit at 145 words per minute and 69 seconds of proof holds. Record in the chapter sequence below. The ten platform chapters are Bronze, Silver, Gold, ML, AI Lakehouse, notebook plus Oracle Analytics, Agent Builder, testing/deployment, Agent Hub, and Streamlit.

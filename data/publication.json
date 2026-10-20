@@ -1,0 +1,28 @@
+{
+  "updated_on": "2026-10-20",
+  "repository": "https://github.com/akhuperkar/aidp-financial-investigation-copilot",
+  "article": {
+    "url": "https://medium.com/@abhijit.khuperkar/73440372750f",
+    "status": "draft",
+    "status_basis": "Medium author view labels the story Draft on 2026-10-20",
+    "local_copy": "article/medium-article.md",
+    "preview": "article/preview.html",
+    "cover": "media/cover-medium-safe-v2.png"
+  },
+  "video": {
+    "url": "https://www.youtube.com/watch?v=7Jhn-jmz2vg",
+    "video_id": "7Jhn-jmz2vg",
+    "status": "published_by_owner",
+    "edit_version": "motion_v2",
+    "duration_seconds": 430.5,
+    "resolution": "1920x1080",
+    "fps": 30,
+    "master": "video/final/aidp-financial-investigation-copilot.mp4",
+    "clean_master": "video/final/aidp-financial-investigation-copilot-clean.mp4",
+    "captions": "video/final/aidp-financial-investigation-copilot.en.srt",
+    "chapters": "video/final/chapters.txt",
+    "storage": "regular_git",
+    "storage_note": "Account LFS budget exhausted; both completed MP4s are below the regular Git per-file limit. No LFS download is required."
+  },
+  "scope": "Publication assets and links refreshed; runtime code, notebook logic and hosted acceptance records are unchanged."
+}

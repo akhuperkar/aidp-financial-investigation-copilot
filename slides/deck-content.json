@@ -151,7 +151,7 @@
           "Investigate\nCompare cited evidence",
           "Accept\nMeasure analyst rework"
         ],
-        "notes": "Repository: https://github.com/akhuperkar/aidp-financial-investigation-copilot . User guide covers notebooks, OAC, Agent Builder, deployment and the client. Local mocked tests are distinct from hosted acceptance; the tenant CSV remains NOT_RUN until populated. Next: reconcile a fresh hybrid answer; validate changed-data publication; record the chapter sequence and add the final MP4 via Git LFS. Suggested value measurement: time to assemble a review packet and verification rework. These have not been measured by this project. Video and Medium URLs remain pending publication."
+        "notes": "Repository: https://github.com/akhuperkar/aidp-financial-investigation-copilot . User guide covers notebooks, OAC, Agent Builder, deployment and the client. Local mocked tests are distinct from hosted acceptance; the tenant CSV remains NOT_RUN until populated. Next: reconcile a fresh hybrid answer and validate changed-data publication. The reviewed motion video is now available in the repository and on YouTube. Suggested value measurement: time to assemble a review packet and verification rework. These have not been measured by this project. Video: https://www.youtube.com/watch?v=7Jhn-jmz2vg . Companion article (currently Draft): https://medium.com/@abhijit.khuperkar/73440372750f ."
       },
       {
         "heading": "",

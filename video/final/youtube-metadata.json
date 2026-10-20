@@ -1,0 +1,76 @@
+{
+  "status": "published_by_owner",
+  "title": "Financial Investigation Copilot | Multi-Agent Workflow with Oracle AI Data Platform",
+  "description": "A flagged transaction starts an investigation. Which account needs attention, what happened, and which policy applies?\n\nFollow Meridian Demo Bank's Financial Investigation Copilot from a connected data foundation to an analyst conversation. The walkthrough covers Spark medallion layers, Gold publication to Autonomous AI Lakehouse, notebook and Oracle Analytics dashboards, and a supervisor coordinating SQL, policy RAG and investigation-briefing agents.\n\nSee how predefined tools retrieve structured evidence and policy passages, how an Agent Card describes skills, and how AI Registry, Agent Hub and a Streamlit application bring the deployed workflow to users.\n\nCHAPTERS\n00:00 From signal to investigation\n00:25 Build the data foundation\n01:18 See the portfolio picture\n01:58 Coordinate specialist agents\n03:19 Work through an investigation\n04:35 Deploy, describe and discover\n05:23 Ask questions in Agent Hub\n05:56 Bring the copilot into Streamlit\n06:41 Follow the evidence\n\nCode, notebooks and step-by-step guide:\nhttps://github.com/akhuperkar/aidp-financial-investigation-copilot\n\nMethodology: Meridian Demo Bank uses generated transactions and fictional policies; amounts are displayed in USD. Screening flags are not confirmed fraud or loss, and scores are not calibrated probabilities. The separate ML exercise does not score the agent's investigation queue. Responses support analyst review; no external enforcement action is demonstrated. Dashboard and agent examples retain their own reporting context.\n\nEdited for clarity and pace: waiting, loading and setup are removed, with selected browsing accelerated. This video is not an execution-time benchmark. Narration uses the approved neural female voice.\n\nArticle:\nhttps://medium.com/@abhijit.khuperkar/73440372750f\n\nCreated by Abhijit Khuperkar.\n\n#OracleAIDataPlatform #AgenticAI #FinancialServices",
+  "language": "en",
+  "tags": [
+    "Oracle AI Data Platform",
+    "AIDP",
+    "financial investigation",
+    "multi agent workflow",
+    "Agent Builder",
+    "Agent Hub",
+    "RAG",
+    "SQL tools",
+    "Streamlit",
+    "Autonomous AI Lakehouse",
+    "Oracle Analytics",
+    "medallion architecture",
+    "financial services",
+    "AI agents"
+  ],
+  "duration_seconds": 430.5,
+  "chapters": [
+    {
+      "seconds": 0,
+      "timestamp": "00:00",
+      "title": "From signal to investigation"
+    },
+    {
+      "seconds": 25.5,
+      "timestamp": "00:25",
+      "title": "Build the data foundation"
+    },
+    {
+      "seconds": 78.0,
+      "timestamp": "01:18",
+      "title": "See the portfolio picture"
+    },
+    {
+      "seconds": 118.5,
+      "timestamp": "01:58",
+      "title": "Coordinate specialist agents"
+    },
+    {
+      "seconds": 199.0,
+      "timestamp": "03:19",
+      "title": "Work through an investigation"
+    },
+    {
+      "seconds": 275.0,
+      "timestamp": "04:35",
+      "title": "Deploy, describe and discover"
+    },
+    {
+      "seconds": 323.5,
+      "timestamp": "05:23",
+      "title": "Ask questions in Agent Hub"
+    },
+    {
+      "seconds": 356.5,
+      "timestamp": "05:56",
+      "title": "Bring the copilot into Streamlit"
+    },
+    {
+      "seconds": 401.0,
+      "timestamp": "06:41",
+      "title": "Follow the evidence"
+    }
+  ],
+  "medium_article_url": "https://medium.com/@abhijit.khuperkar/73440372750f",
+  "youtube_url": "https://www.youtube.com/watch?v=7Jhn-jmz2vg",
+  "published_on": "2026-10-20",
+  "edit_version": "motion_v2",
+  "youtube_video_id": "7Jhn-jmz2vg",
+  "medium_status": "draft"
+}

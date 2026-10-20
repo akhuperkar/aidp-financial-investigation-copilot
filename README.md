@@ -5,9 +5,11 @@
 [![Platform: Oracle AIDP](https://img.shields.io/badge/Platform-Oracle_AIDP-C74634)](https://www.oracle.com/artificial-intelligence/ai-data-platform/)
 [![Currency: USD](https://img.shields.io/badge/Currency-USD-6B6258)](docs/metrics-and-methodology.md)
 
-![From data to financial investigation — Oracle AI Data Platform](media/cover.png)
+![From data to financial investigation — Oracle AI Data Platform](media/cover-medium-safe-v2.png)
 
 **From a monthly portfolio question to an account, supporting transactions and cited policy.**
+
+[Watch the demo on YouTube](https://www.youtube.com/watch?v=7Jhn-jmz2vg) · [Companion Medium article (draft)](https://medium.com/@abhijit.khuperkar/73440372750f) · [Download the video](video/final/aidp-financial-investigation-copilot.mp4)
 
 This project follows a financial investigation at the fictional Meridian Demo Bank. Spark notebooks curate transactions through medallion layers, publish Gold data to Autonomous AI Lakehouse, and support Oracle Analytics Cloud dashboards. An AIDP multi-agent flow combines structured evidence, retrieved policy and an analyst brief. A Streamlit client supports deployed AIDP agents alongside Private AI Agent Factory agents through independent provider adapters.
 
@@ -18,10 +20,10 @@ This project follows a financial investigation at the fictional Meridian Demo Ba
 | Resource | Purpose |
 |---|---|
 | [Step-by-step user guide](docs/user-guide.md) | Set up data, publication, dashboards, agents and local client |
-| [Technical article](article/medium-article.md) · [HTML preview](article/preview.html) · [Medium-ready copy](article/medium-ready.md) | Architecture and business context, ready for Medium review |
+| [Technical article](article/medium-article.md) · [HTML preview](article/preview.html) · [Medium-ready copy](article/medium-ready.md) | Revised multi-agent story, executive dashboards, tools, testing and deployment |
 | [Interactive presentation](slides/index.html) | Slide cards, keyboard navigation and presenter notes |
 | [PowerPoint](slides/aidp-financial-investigation-copilot.pptx) | Editable Redwood presentation |
-| [Recording package](video/README.md) | Chapter plan, narration, covers and YouTube metadata |
+| [Demo video](video/README.md) | Published 7:10 motion walkthrough, MP4, captions, chapters and narration |
 | [Hosted acceptance](docs/hosted-acceptance.md) | Tenant-level tests and acceptance evidence |
 
 **Demonstration dataset; amounts shown in USD.** Screening flags and review priorities are separate from confirmed fraud, calibrated probabilities or realized loss. See the [methodology](docs/metrics-and-methodology.md) for generation, labels and metric definitions.
@@ -88,8 +90,8 @@ docs/               Reproduction, architecture, methodology and troubleshooting
 data/               Sanitized reference results and source provenance
 media/              Diagrams, cropped screenshots and supplied brand assets
 slides/             PPTX, editable sources and interactive HTML
-article/            Medium draft, sources and HTML review preview
-video/              Recording plan, captions/voiceover instructions and metadata
+article/            Revised Medium article, figures, sources and HTML preview
+video/              Final motion video, clean master, captions, chapters and metadata
 validation/         Offline contracts and optional local Spark fixture
 ```
 
@@ -112,11 +114,14 @@ Optional local Spark validation requires Java 17 and [validation dependencies](r
 
 ## Article and video publication
 
-Medium article: **pending editorial review**, `{{MEDIUM_ARTICLE_URL}}`.
+- **YouTube:** [Financial Investigation Copilot — Multi-Agent Workflow with Oracle AI Data Platform](https://www.youtube.com/watch?v=7Jhn-jmz2vg), published by the author on 20 October 2026.
+- **Medium:** [Building a Multi-Agent Financial Investigation Copilot with Oracle AI Data Platform](https://medium.com/@abhijit.khuperkar/73440372750f). The author view still labels it Draft; the [local article](article/medium-article.md) reflects the latest reviewed content and video link.
+- **Video files:** [captioned motion master](video/final/aidp-financial-investigation-copilot.mp4), [clean master](video/final/aidp-financial-investigation-copilot-clean.mp4), [English SRT](video/final/aidp-financial-investigation-copilot.en.srt) and [chapters](video/final/chapters.txt). Both MP4s are stored directly in Git and are included in a normal clone. Git LFS is not required for these files.
+- **Cover:** [Medium crop-safe image](media/cover-medium-safe-v2.png). The original cover remains available at [cover.png](media/cover.png).
 
-YouTube demo: **pending source recordings and final edit**, `{{YOUTUBE_DEMO_URL}}`.
+The final cut is **7:10.5, 1920 × 1080, 30 fps**. Platform walkthroughs use advancing recorded interactions; narration and caption timing match the approved first cut. Loading and setup are trimmed, and selected browsing is accelerated. The video is not an execution-time benchmark. Source recordings and local production caches are excluded.
 
-The final master will be stored at `video/final/aidp-financial-investigation-copilot.mp4` using Git LFS. Source recordings are excluded. The [publishing checklist](docs/publication-checklist.md) tracks publication dependencies.
+Publication state and stable paths are recorded in [data/publication.json](data/publication.json). The [publishing checklist](docs/publication-checklist.md) keeps editorial delivery separate from hosted acceptance.
 
 ## License and attribution
 

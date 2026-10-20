@@ -1,0 +1,34 @@
+{
+  "status": "passed",
+  "version": "motion_v2",
+  "duration_seconds": 430.5,
+  "chapters": 9,
+  "platform_video_clips": 61,
+  "platform_video_seconds": 368.1,
+  "platform_freeze_frames": 0,
+  "platform_artificial_padding": 0,
+  "platform_image_loops": 0,
+  "captions_byte_identical_to_v1": true,
+  "narration_aac_hash": "SHA256=846b5b32f709f9f64612a36addc46f9beee57b850f257ab1a1f7ab40277cb4ac",
+  "v1_deliverables_unchanged": true,
+  "videos": [
+    {
+      "file": "aidp-financial-investigation-copilot-clean.mp4",
+      "duration_seconds": 430.5,
+      "frames": 12915,
+      "bytes": 52066938,
+      "sha256": "acc52698b97ac4a5367d436294817b1e50f6bca49611c1cd09e12f824b3a396b",
+      "full_decode_errors": 0,
+      "narration_aac_packets_identical_to_v1": true
+    },
+    {
+      "file": "aidp-financial-investigation-copilot.mp4",
+      "duration_seconds": 430.5,
+      "frames": 12915,
+      "bytes": 56911761,
+      "sha256": "f553b9198f00d560d6620a53e0ffe7f39cb76a325d4beb4b455e3bf66ccfd757",
+      "full_decode_errors": 0,
+      "narration_aac_packets_identical_to_v1": true
+    }
+  ]
+}

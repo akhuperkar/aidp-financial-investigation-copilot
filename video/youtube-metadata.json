@@ -1,121 +1,76 @@
 {
-  "status": "draft_not_uploaded",
-  "author": "Abhijit Khuperkar",
-  "title": "Oracle AI Data Platform: Financial Investigation Copilot",
-  "title_alternatives": [
-    "From Data Foundation to Financial Investigation | Oracle AIDP",
-    "Evidence-Led Financial Investigation with Oracle AI Data Platform",
-    "Oracle AIDP Demo: Medallion Data, Analytics and an Investigation Copilot"
-  ],
-  "description": "Which accounts should an analyst investigate first, what evidence supports the priority, and which policy applies?\n\nFollow a financial-investigation workflow for fictional Meridian Demo Bank: Spark Bronze, Silver and Gold; a separate random-forest training workflow; verified initial Gold publication through AI Lakehouse; notebook and Oracle Analytics reporting; Agent Builder; testing and deployment; Agent Hub; and a Streamlit analyst workspace.\n\nThe copilot uses seven predefined, parameterized SQL tools and eight fictional policy/definition documents to support evidence-backed review. The existing agent tools use a dedicated snapshot; Oracle Analytics uses the separately verified Gold publication. Their totals must not be blended.\n\nDemonstration dataset; amounts shown in USD. Flags and P1 priority are screening measures, not confirmed fraud findings or calibrated probabilities. The ML training workflow does not score the deployed agent queue. No external action or implemented approval workflow is demonstrated.\n\nAcceptance note: historical Streamlit connection, SQL and follow-up transport passed, but the hybrid answer failed evidence reconciliation. A successful combined-answer segment requires a fresh hosted acceptance check. Keep this note unless the final recording includes and documents that passed check.\n\nCode and guide: https://github.com/akhuperkar/aidp-financial-investigation-copilot\nArticle (pending): {{MEDIUM_ARTICLE_URL}}\nVideo ID (pending): {{YOUTUBE_VIDEO_ID}}\n\nDRAFT CHAPTER PLAN — replace every marker with the final MP4 time before upload. These are not final YouTube chapters.\n00:00 Financial investigation, with evidence\n00:18 Start with the analyst’s decision\n01:25 Bronze\n02:14 Silver\n03:04 Gold\n03:59 Machine learning\n05:04 AI Lakehouse publication\n06:11 Notebook and Oracle Analytics\n07:41 Agent Builder\n09:12 Testing and deployment\n10:26 Agent Hub\n11:35 Streamlit copilot\n13:16 The decision remains evidence-led\n\nProduction: Abhijit Khuperkar. Female English voice selection pending. Product names belong to their respective owners.",
+  "status": "published_by_owner",
+  "title": "Financial Investigation Copilot | Multi-Agent Workflow with Oracle AI Data Platform",
+  "description": "A flagged transaction starts an investigation. Which account needs attention, what happened, and which policy applies?\n\nFollow Meridian Demo Bank's Financial Investigation Copilot from a connected data foundation to an analyst conversation. The walkthrough covers Spark medallion layers, Gold publication to Autonomous AI Lakehouse, notebook and Oracle Analytics dashboards, and a supervisor coordinating SQL, policy RAG and investigation-briefing agents.\n\nSee how predefined tools retrieve structured evidence and policy passages, how an Agent Card describes skills, and how AI Registry, Agent Hub and a Streamlit application bring the deployed workflow to users.\n\nCHAPTERS\n00:00 From signal to investigation\n00:25 Build the data foundation\n01:18 See the portfolio picture\n01:58 Coordinate specialist agents\n03:19 Work through an investigation\n04:35 Deploy, describe and discover\n05:23 Ask questions in Agent Hub\n05:56 Bring the copilot into Streamlit\n06:41 Follow the evidence\n\nCode, notebooks and step-by-step guide:\nhttps://github.com/akhuperkar/aidp-financial-investigation-copilot\n\nMethodology: Meridian Demo Bank uses generated transactions and fictional policies; amounts are displayed in USD. Screening flags are not confirmed fraud or loss, and scores are not calibrated probabilities. The separate ML exercise does not score the agent's investigation queue. Responses support analyst review; no external enforcement action is demonstrated. Dashboard and agent examples retain their own reporting context.\n\nEdited for clarity and pace: waiting, loading and setup are removed, with selected browsing accelerated. This video is not an execution-time benchmark. Narration uses the approved neural female voice.\n\nArticle:\nhttps://medium.com/@abhijit.khuperkar/73440372750f\n\nCreated by Abhijit Khuperkar.\n\n#OracleAIDataPlatform #AgenticAI #FinancialServices",
+  "language": "en",
   "tags": [
     "Oracle AI Data Platform",
     "AIDP",
     "financial investigation",
-    "data engineering",
-    "medallion architecture",
-    "Spark",
-    "Delta Lake",
-    "AI Lakehouse",
-    "Oracle Analytics",
+    "multi agent workflow",
     "Agent Builder",
     "Agent Hub",
-    "Streamlit",
     "RAG",
     "SQL tools",
-    "evidence backed AI",
-    "financial services demo"
+    "Streamlit",
+    "Autonomous AI Lakehouse",
+    "Oracle Analytics",
+    "medallion architecture",
+    "financial services",
+    "AI agents"
   ],
-  "chapter_markers_status": "provisional_replace_after_final_cut",
-  "provisional_chapters": [
+  "duration_seconds": 430.5,
+  "chapters": [
     {
-      "start": "00:00",
-      "title": "Financial investigation, with evidence",
-      "chapter_id": "00-cover"
+      "seconds": 0,
+      "timestamp": "00:00",
+      "title": "From signal to investigation"
     },
     {
-      "start": "00:18",
-      "title": "Start with the analyst’s decision",
-      "chapter_id": "01-context"
+      "seconds": 25.5,
+      "timestamp": "00:25",
+      "title": "Build the data foundation"
     },
     {
-      "start": "01:25",
-      "title": "Bronze",
-      "chapter_id": "02-bronze"
+      "seconds": 78.0,
+      "timestamp": "01:18",
+      "title": "See the portfolio picture"
     },
     {
-      "start": "02:14",
-      "title": "Silver",
-      "chapter_id": "03-silver"
+      "seconds": 118.5,
+      "timestamp": "01:58",
+      "title": "Coordinate specialist agents"
     },
     {
-      "start": "03:04",
-      "title": "Gold",
-      "chapter_id": "04-gold"
+      "seconds": 199.0,
+      "timestamp": "03:19",
+      "title": "Work through an investigation"
     },
     {
-      "start": "03:59",
-      "title": "Machine learning",
-      "chapter_id": "05-ml"
+      "seconds": 275.0,
+      "timestamp": "04:35",
+      "title": "Deploy, describe and discover"
     },
     {
-      "start": "05:04",
-      "title": "AI Lakehouse publication",
-      "chapter_id": "06-ailh"
+      "seconds": 323.5,
+      "timestamp": "05:23",
+      "title": "Ask questions in Agent Hub"
     },
     {
-      "start": "06:11",
-      "title": "Notebook and Oracle Analytics",
-      "chapter_id": "07-notebook-oac"
+      "seconds": 356.5,
+      "timestamp": "05:56",
+      "title": "Bring the copilot into Streamlit"
     },
     {
-      "start": "07:41",
-      "title": "Agent Builder",
-      "chapter_id": "08-agent-builder"
-    },
-    {
-      "start": "09:12",
-      "title": "Testing and deployment",
-      "chapter_id": "09-testing-deployment"
-    },
-    {
-      "start": "10:26",
-      "title": "Agent Hub",
-      "chapter_id": "10-agent-hub"
-    },
-    {
-      "start": "11:35",
-      "title": "Streamlit copilot",
-      "chapter_id": "11-streamlit"
-    },
-    {
-      "start": "13:16",
-      "title": "The decision remains evidence-led",
-      "chapter_id": "12-close"
+      "seconds": 401.0,
+      "timestamp": "06:41",
+      "title": "Follow the evidence"
     }
   ],
-  "draft_runtime_seconds": 839,
-  "draft_spoken_words": 1845,
-  "voice_target_words_per_minute": 145,
-  "thumbnail_source": "cards/thumbnail.svg",
-  "thumbnail_alt_text": "Text-led cover reading “Financial investigation, with evidence” and “Data foundation to analyst copilot” on a warm Oracle Redwood-aligned canvas, labelled Meridian Demo Bank, demonstration dataset, USD.",
-  "captions_language": "en",
-  "captions_language_label": "English",
-  "caption_file": null,
-  "medium_article_url": "{{MEDIUM_ARTICLE_URL}}",
-  "youtube_video_id": "{{YOUTUBE_VIDEO_ID}}",
-  "youtube_demo_url": "{{YOUTUBE_DEMO_URL}}",
-  "upload_visibility": null,
-  "audience_setting": null,
-  "category": null,
-  "final_video_path": "final/aidp-financial-investigation-copilot.mp4",
-  "publication_gates": [
-    "all_source_media_reviewed",
-    "no_credentials_or_private_endpoints_visible",
-    "voice_and_captions_measured_against_final_cut",
-    "hybrid_reconciled_or_explicit_limitation_cut",
-    "final_chapter_times_verified",
-    "medium_and_video_placeholders_resolved_or_pending_line_removed",
-    "local_and_remote_lfs_object_verified"
-  ]
+  "medium_article_url": "https://medium.com/@abhijit.khuperkar/73440372750f",
+  "youtube_url": "https://www.youtube.com/watch?v=7Jhn-jmz2vg",
+  "published_on": "2026-10-20",
+  "edit_version": "motion_v2",
+  "youtube_video_id": "7Jhn-jmz2vg",
+  "medium_status": "draft"
 }

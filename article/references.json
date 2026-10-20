@@ -284,10 +284,13 @@
     "Validated production detection",
     "Universal AILH consumption by current agent tools"
   ],
-  "pending_publication": {
-    "youtube_demo_url": "{{YOUTUBE_DEMO_URL}}",
-    "medium_published": false,
-    "recorded_video_available": false
-  },
-  "interpretation": "The article links evidence to a design rationale. Research findings are dated context, not measured outcomes of this demonstration."
+  "interpretation": "The article links evidence to a design rationale. Research findings are dated context, not measured outcomes of this demonstration.",
+  "publication": {
+    "youtube_demo_url": "https://www.youtube.com/watch?v=7Jhn-jmz2vg",
+    "youtube_video_id": "7Jhn-jmz2vg",
+    "medium_article_url": "https://medium.com/@abhijit.khuperkar/73440372750f",
+    "medium_status": "draft",
+    "recorded_video_available": true,
+    "last_checked": "2026-10-20"
+  }
 }
