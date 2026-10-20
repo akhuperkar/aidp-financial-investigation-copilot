@@ -1420,6 +1420,11 @@
       "detail": ""
     },
     {
+      "check": "Packaged file hash: video/.DS_Store",
+      "passed": true,
+      "detail": ""
+    },
+    {
       "check": "Packaged file hash: video/README.md",
       "passed": true,
       "detail": ""

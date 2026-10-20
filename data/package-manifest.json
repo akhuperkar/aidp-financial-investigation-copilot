@@ -35,8 +35,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 10755,
-      "sha256": "4aca7b9b2fa35aa5d0128446ceaf8eef5b5fb9504195249e62c5aa8306852aab"
+      "bytes": 10963,
+      "sha256": "a0f0a8102fab3f01eeec3b69ed6bc21a7fb9a6f3e43f0f50aa743bada9d8e35d"
     },
     {
       "path": "agent_card/README.txt",
@@ -877,6 +877,11 @@
       "path": "validation/test_usd_contract.py",
       "bytes": 5294,
       "sha256": "93ff5784cc03fe10957db2c32766e933d549ea0e7193624ea6dff9f44e59a733"
+    },
+    {
+      "path": "video/.DS_Store",
+      "bytes": 6148,
+      "sha256": "b87462429f045514d4402ca749a732a2e3ea579a59d17e9f258eac2809b9d2fc"
     },
     {
       "path": "video/README.md",

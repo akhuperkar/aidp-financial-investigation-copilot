@@ -13,7 +13,9 @@
 
 This project follows a financial investigation at the fictional Meridian Demo Bank. Spark notebooks curate transactions through medallion layers, publish Gold data to Autonomous AI Lakehouse, and support Oracle Analytics Cloud dashboards. An AIDP multi-agent flow combines structured evidence, retrieved policy and an analyst brief. A Streamlit client supports deployed AIDP agents alongside Private AI Agent Factory agents through independent provider adapters.
 
-![Financial investigation architecture](media/diagrams/architecture.svg)
+![Financial Investigation Copilot architecture showing Spark medallion data, AILH and OAC analytics, specialist SQL and RAG agents, deployment, Agent Hub and Streamlit.](article/media/architecture.png)
+
+[View the architecture diagram at full size](article/media/architecture.png).
 
 ## Start here
 
